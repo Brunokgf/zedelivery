@@ -35,6 +35,15 @@ import comboEnergiaImg from "@/assets/products/combo-energia.jpg";
 import comboWhiskyImg from "@/assets/products/combo-whisky.jpg";
 import comboRedLabelImg from "@/assets/products/combo-red-label.jpg";
 import comboWhiskyDuploImg from "@/assets/products/combo-whisky-duplo.jpg";
+import antarcticaImg from "@/assets/products/antarctica.jpg";
+import spatenImg from "@/assets/products/spaten.jpg";
+import originalImg from "@/assets/products/original.jpg";
+import bohemiaImg from "@/assets/products/bohemia.jpg";
+import becksImg from "@/assets/products/becks.jpg";
+import whiteHorseImg from "@/assets/products/white-horse.jpg";
+import gordonsImg from "@/assets/products/gordons.jpg";
+import beatsImg from "@/assets/products/beats.jpg";
+import xequeMateImg from "@/assets/products/xeque-mate.jpg";
 
 export type Product = {
   id: number;
@@ -50,6 +59,7 @@ export const categories = [
   { id: "combos", label: "🎉 Combos", emoji: "🎉" },
   { id: "cervejas", label: "🍺 Cervejas", emoji: "🍺" },
   { id: "destilados", label: "🥃 Destilados", emoji: "🥃" },
+  { id: "drinks", label: "🍹 Drinks Prontos", emoji: "🍹" },
   { id: "vinhos", label: "🍷 Vinhos", emoji: "🍷" },
   { id: "refrigerantes", label: "🥤 Refrigerantes", emoji: "🥤" },
   { id: "energeticos", label: "⚡ Energéticos", emoji: "⚡" },
@@ -374,5 +384,86 @@ export const products: Product[] = [
     image: comboWhiskyDuploImg,
     category: "combos",
     tag: "Premium",
+  },
+  // Cervejas populares que faltavam
+  {
+    id: 38,
+    name: "Antarctica Pilsen 473ml",
+    description: "Cerveja Antarctica Pilsen latão gelada",
+    price: 3.99,
+    image: antarcticaImg,
+    category: "cervejas",
+    tag: "Mais vendido",
+  },
+  {
+    id: 39,
+    name: "Spaten Munich 350ml",
+    description: "Cerveja Spaten Puro Malte lata",
+    price: 4.49,
+    image: spatenImg,
+    category: "cervejas",
+  },
+  {
+    id: 40,
+    name: "Original 600ml",
+    description: "Cerveja Original garrafa retornável",
+    price: 7.99,
+    image: originalImg,
+    category: "cervejas",
+    tag: "Clássico",
+  },
+  {
+    id: 41,
+    name: "Bohemia Pilsen 600ml",
+    description: "Cerveja Bohemia Puro Malte garrafa",
+    price: 8.49,
+    image: bohemiaImg,
+    category: "cervejas",
+    tag: "Premium",
+  },
+  {
+    id: 42,
+    name: "Beck's 330ml",
+    description: "Cerveja Beck's Puro Malte Long Neck",
+    price: 4.99,
+    image: becksImg,
+    category: "cervejas",
+  },
+  // Destilados faltantes
+  {
+    id: 43,
+    name: "White Horse 1L",
+    description: "Whisky White Horse Blended Scotch",
+    price: 69.90,
+    image: whiteHorseImg,
+    category: "destilados",
+    tag: "Mais vendido",
+  },
+  {
+    id: 44,
+    name: "Gordon's Gin 750ml",
+    description: "Gin Gordon's London Dry",
+    price: 49.90,
+    image: gordonsImg,
+    category: "destilados",
+  },
+  // Drinks Prontos
+  {
+    id: 45,
+    name: "Beats GT 269ml",
+    description: "Drink pronto Beats GT sabor guaraná",
+    price: 4.99,
+    image: beatsImg,
+    category: "drinks",
+    tag: "Mais vendido",
+  },
+  {
+    id: 46,
+    name: "Xeque Mate Draft Rum 355ml",
+    description: "Drink pronto Xeque Mate sabor rum",
+    price: 7.49,
+    image: xequeMateImg,
+    category: "drinks",
+    tag: "Novidade",
   },
 ];
