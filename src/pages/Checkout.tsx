@@ -54,6 +54,10 @@ const Checkout = () => {
       toast({ title: "Preencha seus dados pessoais para gerar o PIX", variant: "destructive" });
       return;
     }
+    if (total < 10) {
+      toast({ title: "Valor mínimo para PIX é R$ 10,00. Adicione mais itens ao carrinho.", variant: "destructive" });
+      return;
+    }
     setPixLoading(true);
     try {
       const { data, error } = await supabase.functions.invoke("create-pix-payment", {
