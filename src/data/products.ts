@@ -72,6 +72,20 @@ import mikesImg from "@/assets/products/mikes.jpg";
 import beatsTropicalImg from "@/assets/products/beats-tropical.jpg";
 import keepCoolerImg from "@/assets/products/keep-cooler.jpg";
 import gelo5kgImg from "@/assets/products/gelo-5kg.jpg";
+import heineken00Img from "@/assets/products/heineken-00.jpg";
+import coloradoImg from "@/assets/products/colorado.jpg";
+import hoegaardenImg from "@/assets/products/hoegaarden.jpg";
+import patagoniaImg from "@/assets/products/patagonia.jpg";
+import michelobImg from "@/assets/products/michelob.jpg";
+import greyGooseImg from "@/assets/products/grey-goose.jpg";
+import bacardiImg from "@/assets/products/bacardi.jpg";
+import chivasImg from "@/assets/products/chivas.jpg";
+import ballenaImg from "@/assets/products/ballena.jpg";
+import beatsSecretImg from "@/assets/products/beats-secret.jpg";
+import delValleImg from "@/assets/products/del-valle.jpg";
+import aguaCocoImg from "@/assets/products/agua-coco.jpg";
+import tonicaImg from "@/assets/products/tonica.jpg";
+import conchaYToroImg from "@/assets/products/concha-y-toro.jpg";
 
 export type Product = {
   id: number;
@@ -741,6 +755,134 @@ export const products: Product[] = [
     price: 8.99,
     image: gelo5kgImg,
     category: "extras",
+    tag: "Mais vendido",
+  },
+  // Cervejas especiais
+  {
+    id: 75,
+    name: "Heineken 0.0 Long Neck 330ml",
+    description: "Cerveja Heineken 0.0 sem álcool",
+    price: 5.99,
+    image: heineken00Img,
+    category: "cervejas",
+    tag: "Zero Álcool",
+  },
+  {
+    id: 76,
+    name: "Colorado Appia 600ml",
+    description: "Cerveja artesanal Colorado Appia com mel",
+    price: 16.90,
+    image: coloradoImg,
+    category: "cervejas",
+    tag: "Artesanal",
+  },
+  {
+    id: 77,
+    name: "Hoegaarden 330ml",
+    description: "Cerveja belga de trigo Hoegaarden Wit",
+    price: 9.99,
+    image: hoegaardenImg,
+    category: "cervejas",
+    tag: "Premium",
+  },
+  {
+    id: 78,
+    name: "Patagonia Bohemian 350ml",
+    description: "Cerveja Patagonia Bohemian Pilsener",
+    price: 6.49,
+    image: patagoniaImg,
+    category: "cervejas",
+    tag: "Premium",
+  },
+  {
+    id: 79,
+    name: "Michelob Ultra 350ml",
+    description: "Cerveja Michelob Ultra low carb",
+    price: 4.99,
+    image: michelobImg,
+    category: "cervejas",
+    tag: "Low Carb",
+  },
+  // Destilados faltantes
+  {
+    id: 80,
+    name: "Grey Goose Vodka 750ml",
+    description: "Vodka francesa Grey Goose premium",
+    price: 174.90,
+    image: greyGooseImg,
+    category: "destilados",
+    tag: "Premium",
+  },
+  {
+    id: 81,
+    name: "Bacardi Superior 980ml",
+    description: "Rum Bacardi Superior branco",
+    price: 39.90,
+    image: bacardiImg,
+    category: "destilados",
+    tag: "Mais vendido",
+  },
+  {
+    id: 82,
+    name: "Chivas Regal 12 Anos 750ml",
+    description: "Whisky Chivas Regal 12 Anos Blended Scotch",
+    price: 159.90,
+    image: chivasImg,
+    category: "destilados",
+    tag: "Premium",
+  },
+  {
+    id: 83,
+    name: "Ballena Cream Liqueur 750ml",
+    description: "Licor de creme mexicano Ballena",
+    price: 59.90,
+    image: ballenaImg,
+    category: "destilados",
+    tag: "Novidade",
+  },
+  // Drinks prontos
+  {
+    id: 84,
+    name: "Skol Beats Secret 269ml",
+    description: "Drink pronto Skol Beats Secret sabor misterioso",
+    price: 4.49,
+    image: beatsSecretImg,
+    category: "drinks",
+    tag: "Mais vendido",
+  },
+  // Não alcoólicos
+  {
+    id: 85,
+    name: "Del Valle Néctar Laranja 1L",
+    description: "Suco Del Valle Néctar sabor laranja",
+    price: 6.99,
+    image: delValleImg,
+    category: "refrigerantes",
+  },
+  {
+    id: 86,
+    name: "Água de Coco 1L",
+    description: "Água de coco natural integral",
+    price: 7.99,
+    image: aguaCocoImg,
+    category: "agua",
+  },
+  {
+    id: 87,
+    name: "Tônica Antarctica 350ml",
+    description: "Água tônica Antarctica lata",
+    price: 3.99,
+    image: tonicaImg,
+    category: "refrigerantes",
+  },
+  // Vinhos
+  {
+    id: 88,
+    name: "Concha y Toro Reservado 750ml",
+    description: "Vinho tinto chileno Concha y Toro Cabernet Sauvignon",
+    price: 29.90,
+    image: conchaYToroImg,
+    category: "vinhos",
     tag: "Mais vendido",
   },
 ];
