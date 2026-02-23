@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, MapPin, CreditCard, QrCode, CheckCircle2, Loader2 } from "lucide-react";
+import { ArrowLeft, MapPin, CreditCard, QrCode, CheckCircle2, Loader2, Copy, Check } from "lucide-react";
+import { QRCodeSVG } from "qrcode.react";
 import { useCart } from "@/context/CartContext";
 import { toast } from "@/hooks/use-toast";
+import { generatePixPayload } from "@/lib/pix";
 
 type PaymentMethod = "pix" | "credit";
 
@@ -35,6 +37,27 @@ const Checkout = () => {
 
   const deliveryFee = 5.99;
   const total = totalPrice + deliveryFee;
+
+  const [copied, setCopied] = useState(false);
+
+  const pixPayload = useMemo(
+    () =>
+      generatePixPayload({
+        pixKey: "rubenscardosoaguiar@gmail.com",
+        merchantName: "Ze Delivery",
+        merchantCity: "SAO PAULO",
+        amount: total,
+        description: "Pedido Ze",
+      }),
+    [total]
+  );
+
+  const handleCopyPix = async () => {
+    await navigator.clipboard.writeText(pixPayload);
+    setCopied(true);
+    toast({ title: "Código PIX copiado!" });
+    setTimeout(() => setCopied(false), 3000);
+  };
 
   const isFormValid =
     address.street.trim() !== "" &&
@@ -244,7 +267,31 @@ const Checkout = () => {
           </div>
         </section>
 
-        {/* Card Details */}
+        {/* PIX QR Code */}
+        {payment === "pix" && (
+          <section className="rounded-xl bg-card border border-border p-5 space-y-4">
+            <h2 className="flex items-center gap-2 text-base font-black text-card-foreground">
+              <QrCode className="h-5 w-5 text-ze-orange" />
+              QR Code PIX
+            </h2>
+            <div className="flex flex-col items-center gap-4">
+              <div className="rounded-xl bg-white p-4">
+                <QRCodeSVG value={pixPayload} size={200} />
+              </div>
+              <p className="text-sm text-muted-foreground text-center max-w-xs">
+                Escaneie o QR Code acima com o app do seu banco ou copie o código para pagar.
+              </p>
+              <button
+                onClick={handleCopyPix}
+                className="flex items-center gap-2 rounded-lg border border-border bg-background px-4 py-2.5 text-sm font-bold text-foreground hover:bg-muted transition-colors"
+              >
+                {copied ? <Check className="h-4 w-4 text-ze-green" /> : <Copy className="h-4 w-4" />}
+                {copied ? "Copiado!" : "Copiar código PIX"}
+              </button>
+            </div>
+          </section>
+        )}
+
         {payment === "credit" && (
           <section className="rounded-xl bg-card border border-border p-5 space-y-4">
             <h2 className="flex items-center gap-2 text-base font-black text-card-foreground">
