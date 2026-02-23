@@ -58,6 +58,20 @@ import ballantinesImg from "@/assets/products/ballantines.jpg";
 import campariImg from "@/assets/products/campari.jpg";
 import beatsSensesImg from "@/assets/products/beats-senses.jpg";
 import smirnoffIceLatImg from "@/assets/products/smirnoff-ice-lata.jpg";
+import redbullTropicalImg from "@/assets/products/redbull-tropical.jpg";
+import redbullSugarfreeImg from "@/assets/products/redbull-sugarfree.jpg";
+import monsterUltraImg from "@/assets/products/monster-ultra.jpg";
+import fusionImg from "@/assets/products/fusion.jpg";
+import cocaColaLataImg from "@/assets/products/coca-cola-lata.jpg";
+import cocaZeroImg from "@/assets/products/coca-zero.jpg";
+import guarana2lImg from "@/assets/products/guarana-2l.jpg";
+import fantaUvaImg from "@/assets/products/fanta-uva.jpg";
+import kuatImg from "@/assets/products/kuat.jpg";
+import spriteLataImg from "@/assets/products/sprite-lata.jpg";
+import mikesImg from "@/assets/products/mikes.jpg";
+import beatsTropicalImg from "@/assets/products/beats-tropical.jpg";
+import keepCoolerImg from "@/assets/products/keep-cooler.jpg";
+import gelo5kgImg from "@/assets/products/gelo-5kg.jpg";
 
 export type Product = {
   id: number;
@@ -606,5 +620,127 @@ export const products: Product[] = [
     price: 4.49,
     image: smirnoffIceLatImg,
     category: "drinks",
+  },
+  // Novos Energéticos
+  {
+    id: 61,
+    name: "Red Bull Tropical 250ml",
+    description: "Energético Red Bull Tropical Edition",
+    price: 10.99,
+    image: redbullTropicalImg,
+    category: "energeticos",
+    tag: "Novidade",
+  },
+  {
+    id: 62,
+    name: "Red Bull Sugar Free 250ml",
+    description: "Energético Red Bull sem açúcar",
+    price: 9.99,
+    image: redbullSugarfreeImg,
+    category: "energeticos",
+  },
+  {
+    id: 63,
+    name: "Monster Ultra 473ml",
+    description: "Energético Monster Ultra White zero açúcar",
+    price: 8.99,
+    image: monsterUltraImg,
+    category: "energeticos",
+    tag: "Zero Açúcar",
+  },
+  {
+    id: 64,
+    name: "Fusion Guaraná 250ml",
+    description: "Energético Fusion sabor guaraná",
+    price: 5.49,
+    image: fusionImg,
+    category: "energeticos",
+  },
+  // Novos Refrigerantes
+  {
+    id: 65,
+    name: "Coca-Cola Lata 350ml",
+    description: "Refrigerante Coca-Cola lata gelada",
+    price: 3.99,
+    image: cocaColaLataImg,
+    category: "refrigerantes",
+    tag: "Mais vendido",
+  },
+  {
+    id: 66,
+    name: "Coca-Cola Zero 350ml",
+    description: "Refrigerante Coca-Cola Zero Açúcar lata",
+    price: 3.99,
+    image: cocaZeroImg,
+    category: "refrigerantes",
+    tag: "Zero Açúcar",
+  },
+  {
+    id: 67,
+    name: "Guaraná Antarctica 2L",
+    description: "Refrigerante Guaraná Antarctica 2 litros",
+    price: 8.49,
+    image: guarana2lImg,
+    category: "refrigerantes",
+  },
+  {
+    id: 68,
+    name: "Fanta Uva 350ml",
+    description: "Refrigerante Fanta Uva lata gelada",
+    price: 3.49,
+    image: fantaUvaImg,
+    category: "refrigerantes",
+  },
+  {
+    id: 69,
+    name: "Kuat Guaraná 350ml",
+    description: "Refrigerante Kuat Guaraná lata",
+    price: 2.99,
+    image: kuatImg,
+    category: "refrigerantes",
+  },
+  {
+    id: 70,
+    name: "Sprite Lata 350ml",
+    description: "Refrigerante Sprite lata gelada",
+    price: 3.49,
+    image: spriteLataImg,
+    category: "refrigerantes",
+  },
+  // Novos Drinks Prontos
+  {
+    id: 71,
+    name: "Mike's Hard Lemonade 269ml",
+    description: "Drink pronto Mike's Hard Lemonade sabor limão",
+    price: 5.49,
+    image: mikesImg,
+    category: "drinks",
+    tag: "Novidade",
+  },
+  {
+    id: 72,
+    name: "Beats Tropical 269ml",
+    description: "Drink pronto Beats Tropical frutas",
+    price: 4.99,
+    image: beatsTropicalImg,
+    category: "drinks",
+  },
+  {
+    id: 73,
+    name: "Keep Cooler Classic 275ml",
+    description: "Wine cooler Keep Cooler sabor original",
+    price: 5.99,
+    image: keepCoolerImg,
+    category: "drinks",
+  },
+  // Novos Extras
+  {
+    id: 74,
+    name: "Gelo 5kg",
+    description: "Saco de gelo 5 quilos para festas",
+    price: 8.99,
+    image: gelo5kgImg,
+    category: "extras",
+    tag: "Mais vendido",
   },
 ];
