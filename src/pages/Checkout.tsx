@@ -1,16 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, MapPin, CreditCard, Banknote, QrCode, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, MapPin, CreditCard, QrCode, CheckCircle2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import { useCart } from "@/context/CartContext";
 import { toast } from "@/hooks/use-toast";
 
-type PaymentMethod = "pix" | "credit" | "debit" | "cash";
+type PaymentMethod = "pix" | "credit";
 
 const paymentMethods: { id: PaymentMethod; label: string; icon: React.ReactNode }[] = [
   { id: "pix", label: "PIX", icon: <QrCode className="h-5 w-5" /> },
   { id: "credit", label: "Crédito", icon: <CreditCard className="h-5 w-5" /> },
-  { id: "debit", label: "Débito", icon: <CreditCard className="h-5 w-5" /> },
-  { id: "cash", label: "Dinheiro", icon: <Banknote className="h-5 w-5" /> },
 ];
 
 const Checkout = () => {
@@ -37,12 +36,33 @@ const Checkout = () => {
     address.neighborhood.trim() !== "" &&
     address.city.trim() !== "";
 
-  const handlePlaceOrder = () => {
+  const [loading, setLoading] = useState(false);
+
+  const handlePlaceOrder = async () => {
     if (!isFormValid) {
       toast({ title: "Preencha o endereço de entrega", variant: "destructive" });
       return;
     }
-    setOrderPlaced(true);
+    setLoading(true);
+    try {
+      const { error } = await supabase.functions.invoke("send-order-email", {
+        body: {
+          items: items.map(i => ({ name: i.name, quantity: i.quantity, price: i.price })),
+          address,
+          paymentMethod: payment,
+          subtotal: totalPrice,
+          deliveryFee,
+          total,
+        },
+      });
+      if (error) throw error;
+      setOrderPlaced(true);
+    } catch (err) {
+      console.error(err);
+      toast({ title: "Erro ao enviar pedido", description: "Tente novamente.", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (items.length === 0 && !orderPlaced) {
@@ -199,10 +219,10 @@ const Checkout = () => {
         {/* CTA */}
         <button
           onClick={handlePlaceOrder}
-          disabled={!isFormValid}
+          disabled={!isFormValid || loading}
           className="w-full rounded-full bg-ze-green py-4 text-center font-black text-white text-lg shadow-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Confirmar Pedido — R$ {total.toFixed(2).replace(".", ",")}
+          {loading ? "Enviando..." : `Confirmar Pedido — R$ ${total.toFixed(2).replace(".", ",")}`}
         </button>
       </div>
     </div>
