@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, MapPin, CreditCard, QrCode, CheckCircle2, Loader2, Copy, Check } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
@@ -35,41 +35,52 @@ const Checkout = () => {
     cvv: "",
   });
 
+  const [customer, setCustomer] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    cpf: "",
+  });
+
   const deliveryFee = 5.99;
   const total = totalPrice + deliveryFee;
 
   const [copied, setCopied] = useState(false);
-  const [pixData, setPixData] = useState<{ qr_code?: string; qr_code_url?: string; copy_paste?: string } | null>(null);
+  const [pixData, setPixData] = useState<{ qr_code?: string; qr_code_url?: string; copy_paste?: string; pix?: { qrCode?: string } } | null>(null);
   const [pixLoading, setPixLoading] = useState(false);
 
-  // Fetch PIX QR code from MedusaPay when payment is PIX
-  useEffect(() => {
-    if (payment !== "pix" || total <= 0) {
-      setPixData(null);
+  const handleGeneratePix = async () => {
+    if (!customer.name || !customer.cpf || !customer.email || !customer.phone) {
+      toast({ title: "Preencha seus dados pessoais para gerar o PIX", variant: "destructive" });
       return;
     }
-
-    const fetchPix = async () => {
-      setPixLoading(true);
-      try {
-        const { data, error } = await supabase.functions.invoke("create-pix-payment", {
-          body: { amount: total, description: "Pedido Ze Delivery" },
-        });
-        if (error) throw error;
-        setPixData(data);
-      } catch (err) {
-        console.error("PIX error:", err);
-        toast({ title: "Erro ao gerar QR Code PIX", variant: "destructive" });
-      } finally {
-        setPixLoading(false);
-      }
-    };
-
-    fetchPix();
-  }, [payment, total]);
+    setPixLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("create-pix-payment", {
+        body: {
+          amount: total,
+          description: "Pedido Ze Delivery",
+          items: items.slice(0, 5).map((i) => ({ name: i.name, quantity: i.quantity, price: i.price })),
+          customer: {
+            name: customer.name,
+            email: customer.email,
+            phone: customer.phone.replace(/\D/g, ""),
+            document: customer.cpf.replace(/\D/g, ""),
+          },
+        },
+      });
+      if (error) throw error;
+      setPixData(data);
+    } catch (err) {
+      console.error("PIX error:", err);
+      toast({ title: "Erro ao gerar QR Code PIX", variant: "destructive" });
+    } finally {
+      setPixLoading(false);
+    }
+  };
 
   const handleCopyPix = async () => {
-    const code = pixData?.copy_paste || pixData?.qr_code || "";
+    const code = pixData?.copy_paste || pixData?.pix?.qrCode || pixData?.qr_code || "";
     if (!code) return;
     await navigator.clipboard.writeText(code);
     setCopied(true);
@@ -209,6 +220,42 @@ const Checkout = () => {
       </header>
 
       <div className="container py-6 space-y-6 max-w-2xl">
+        {/* Customer Info */}
+        <section className="rounded-xl bg-card border border-border p-5 space-y-4">
+          <h2 className="flex items-center gap-2 text-base font-black text-card-foreground">
+            <span className="text-ze-orange text-lg">👤</span>
+            Seus Dados
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <input
+              placeholder="Nome completo *"
+              value={customer.name}
+              onChange={(e) => setCustomer({ ...customer, name: e.target.value })}
+              className="col-span-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+            />
+            <input
+              placeholder="CPF *"
+              value={customer.cpf}
+              onChange={(e) => setCustomer({ ...customer, cpf: e.target.value })}
+              className="rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+              maxLength={14}
+            />
+            <input
+              placeholder="Telefone *"
+              value={customer.phone}
+              onChange={(e) => setCustomer({ ...customer, phone: e.target.value })}
+              className="rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+              maxLength={15}
+            />
+            <input
+              placeholder="Email *"
+              value={customer.email}
+              onChange={(e) => setCustomer({ ...customer, email: e.target.value })}
+              className="col-span-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+            />
+          </div>
+        </section>
+
         {/* Address */}
         <section className="rounded-xl bg-card border border-border p-5 space-y-4">
           <h2 className="flex items-center gap-2 text-base font-black text-card-foreground">
@@ -298,10 +345,10 @@ const Checkout = () => {
                   <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
                   <p className="text-sm text-muted-foreground">Gerando QR Code...</p>
                 </div>
-              ) : pixData?.qr_code ? (
+              ) : (pixData?.qr_code || pixData?.pix?.qrCode) ? (
                 <>
                   <div className="rounded-xl bg-white p-4">
-                    <QRCodeSVG value={pixData.qr_code} size={200} />
+                    <QRCodeSVG value={pixData?.pix?.qrCode || pixData?.qr_code || ""} size={200} />
                   </div>
                   <p className="text-sm text-muted-foreground text-center max-w-xs">
                     Escaneie o QR Code acima com o app do seu banco ou copie o código para pagar.
@@ -333,9 +380,12 @@ const Checkout = () => {
                   )}
                 </>
               ) : (
-                <p className="text-sm text-destructive text-center">
-                  Não foi possível gerar o QR Code. Tente novamente.
-                </p>
+                <button
+                  onClick={handleGeneratePix}
+                  className="w-full rounded-lg bg-primary py-3 text-sm font-bold text-primary-foreground hover:opacity-90 transition-opacity"
+                >
+                  Gerar QR Code PIX
+                </button>
               )}
             </div>
           </section>

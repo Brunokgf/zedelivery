@@ -11,7 +11,7 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { amount, description, customer } = await req.json();
+    const { amount, description, items, customer } = await req.json();
 
     const secretKey = Deno.env.get("MEDUSAPAY_SECRET_KEY");
     if (!secretKey) {
@@ -20,29 +20,60 @@ Deno.serve(async (req) => {
 
     const auth = btoa(`${secretKey}:x`);
 
+    // Build items array (max 5) - at least one required
+    const transactionItems = items && items.length > 0
+      ? items.slice(0, 5).map((item: { name: string; quantity: number; price: number }) => ({
+          title: item.name,
+          quantity: item.quantity,
+          unitPrice: Math.round(item.price * 100),
+          tangible: true,
+        }))
+      : [{ title: description || "Pedido", quantity: 1, unitPrice: Math.round(amount * 100), tangible: true }];
+
+    const body = {
+      paymentMethod: "pix",
+      amount: Math.round(amount * 100),
+      items: transactionItems,
+      customer: {
+        name: customer?.name || "Cliente",
+        email: customer?.email || "cliente@email.com",
+        phone: customer?.phone || "11999999999",
+        document: {
+          number: customer?.document || "00000000000",
+          type: (customer?.document?.length === 14) ? "cnpj" : "cpf",
+        },
+      },
+    };
+
+    console.log("MedusaPay request:", JSON.stringify(body));
+
     const response = await fetch("https://api.v2.medusapay.com.br/v1/transactions", {
       method: "POST",
       headers: {
         "Authorization": `Basic ${auth}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        amount: Math.round(amount * 100), // centavos
-        payment_method: "pix",
-        description: description || "Pedido Ze Delivery",
-        customer: customer || {},
-      }),
+      body: JSON.stringify(body),
     });
+
+    const contentType = response.headers.get("content-type");
+    if (!contentType?.includes("application/json")) {
+      const text = await response.text();
+      console.error("Non-JSON response:", text.substring(0, 300));
+      throw new Error(`MedusaPay returned non-JSON (${response.status})`);
+    }
 
     const data = await response.json();
 
     if (!response.ok) {
-      console.error("MedusaPay error:", data);
+      console.error("MedusaPay error:", JSON.stringify(data));
       return new Response(JSON.stringify({ error: data }), {
         status: response.status,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
+
+    console.log("MedusaPay success:", JSON.stringify(data));
 
     return new Response(JSON.stringify(data), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
