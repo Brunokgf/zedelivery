@@ -33,6 +33,7 @@ const Checkout = () => {
     name: "",
     expiry: "",
     cvv: "",
+    cpf: "",
   });
 
   const [customer, setCustomer] = useState({
@@ -458,6 +459,20 @@ const Checkout = () => {
                 onChange={(e) => setCard({ ...card, cvv: e.target.value })}
                 className="rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                 maxLength={4}
+              />
+              <input
+                placeholder="CPF do titular *"
+                value={card.cpf || ""}
+                onChange={(e) => {
+                  const digits = e.target.value.replace(/\D/g, "").slice(0, 11);
+                  const masked = digits
+                    .replace(/(\d{3})(\d)/, "$1.$2")
+                    .replace(/(\d{3})(\d)/, "$1.$2")
+                    .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+                  setCard({ ...card, cpf: masked });
+                }}
+                className="col-span-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                maxLength={14}
               />
             </div>
           </section>
