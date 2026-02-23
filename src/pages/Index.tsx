@@ -5,6 +5,7 @@ import CategoryBar from "@/components/CategoryBar";
 import ProductCard from "@/components/ProductCard";
 import ComboSection from "@/components/ComboSection";
 import CartDrawer from "@/components/CartDrawer";
+import UrgentOfferPopup from "@/components/UrgentOfferPopup";
 import { products } from "@/data/products";
 
 const Index = () => {
@@ -50,6 +51,7 @@ const Index = () => {
       </main>
 
       <CartDrawer />
+      <UrgentOfferPopup />
     </div>
   );
 };
