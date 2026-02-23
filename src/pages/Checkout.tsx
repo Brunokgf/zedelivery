@@ -488,7 +488,7 @@ const Checkout = () => {
         </section>
 
         {/* CTA - fixed on mobile (hide when PIX QR code is showing) */}
-        {!(payment === "pix" && pixData) && (
+        {payment !== "pix" && (
           <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border p-4 sm:static sm:bg-transparent sm:border-0 sm:p-0 z-40">
             <button
               onClick={handlePlaceOrder}
