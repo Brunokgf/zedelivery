@@ -220,6 +220,30 @@ const Checkout = () => {
           </div>
         </section>
 
+        {/* Payment Method */}
+        <section className="rounded-xl bg-card border border-border p-5 space-y-4">
+          <h2 className="flex items-center gap-2 text-base font-black text-card-foreground">
+            <CreditCard className="h-5 w-5 text-ze-orange" />
+            Forma de Pagamento
+          </h2>
+          <div className="grid grid-cols-2 gap-3">
+            {paymentMethods.map((m) => (
+              <button
+                key={m.id}
+                onClick={() => setPayment(m.id)}
+                className={`flex items-center gap-2 rounded-lg border-2 px-4 py-3 text-sm font-bold transition-all ${
+                  payment === m.id
+                    ? "border-primary bg-primary/10 text-foreground"
+                    : "border-border bg-background text-muted-foreground hover:border-muted-foreground/30"
+                }`}
+              >
+                {m.icon}
+                {m.label}
+              </button>
+            ))}
+          </div>
+        </section>
+
         {/* Card Details */}
         {payment === "credit" && (
           <section className="rounded-xl bg-card border border-border p-5 space-y-4">
