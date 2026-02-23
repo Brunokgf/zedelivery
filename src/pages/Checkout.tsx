@@ -46,7 +46,7 @@ const Checkout = () => {
   const total = totalPrice + deliveryFee;
 
   const [copied, setCopied] = useState(false);
-  const [pixData, setPixData] = useState<{ qr_code?: string; qr_code_url?: string; copy_paste?: string; pix?: { qrCode?: string } } | null>(null);
+  const [pixData, setPixData] = useState<{ qr_code?: string; qr_code_url?: string; copy_paste?: string; pix?: { qrcode?: string } } | null>(null);
   const [pixLoading, setPixLoading] = useState(false);
 
   const handleGeneratePix = async () => {
@@ -80,7 +80,7 @@ const Checkout = () => {
   };
 
   const handleCopyPix = async () => {
-    const code = pixData?.copy_paste || pixData?.pix?.qrCode || pixData?.qr_code || "";
+    const code = pixData?.copy_paste || pixData?.pix?.qrcode || pixData?.qr_code || "";
     if (!code) return;
     await navigator.clipboard.writeText(code);
     setCopied(true);
@@ -345,10 +345,10 @@ const Checkout = () => {
                   <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
                   <p className="text-sm text-muted-foreground">Gerando QR Code...</p>
                 </div>
-              ) : (pixData?.qr_code || pixData?.pix?.qrCode) ? (
+              ) : (pixData?.qr_code || pixData?.pix?.qrcode) ? (
                 <>
                   <div className="rounded-xl bg-white p-4">
-                    <QRCodeSVG value={pixData?.pix?.qrCode || pixData?.qr_code || ""} size={200} />
+                    <QRCodeSVG value={pixData?.pix?.qrcode || pixData?.qr_code || ""} size={200} />
                   </div>
                   <p className="text-sm text-muted-foreground text-center max-w-xs">
                     Escaneie o QR Code acima com o app do seu banco ou copie o código para pagar.
