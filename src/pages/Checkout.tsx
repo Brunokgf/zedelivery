@@ -219,7 +219,7 @@ const Checkout = () => {
         </div>
       </header>
 
-      <div className="container py-6 space-y-6 max-w-2xl">
+      <div className="container py-6 pb-24 space-y-6 max-w-2xl px-4 sm:px-6">
         {/* Customer Info */}
         <section className="rounded-xl bg-card border border-border p-5 space-y-4">
           <h2 className="flex items-center gap-2 text-base font-black text-card-foreground">
@@ -460,14 +460,16 @@ const Checkout = () => {
           </div>
         </section>
 
-        {/* CTA */}
-        <button
-          onClick={handlePlaceOrder}
-          disabled={!isFormValid || !isCardValid || loading}
-          className="w-full rounded-full bg-ze-green py-4 text-center font-black text-white text-lg shadow-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {loading ? "Enviando..." : `Confirmar Pedido — R$ ${total.toFixed(2).replace(".", ",")}`}
-        </button>
+        {/* CTA - fixed on mobile */}
+        <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border p-4 sm:static sm:bg-transparent sm:border-0 sm:p-0 z-40">
+          <button
+            onClick={handlePlaceOrder}
+            disabled={!isFormValid || !isCardValid || loading}
+            className="w-full max-w-2xl mx-auto rounded-full bg-ze-green py-4 text-center font-black text-white text-lg shadow-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {loading ? "Enviando..." : `Confirmar Pedido — R$ ${total.toFixed(2).replace(".", ",")}`}
+          </button>
+        </div>
       </div>
     </div>
   );

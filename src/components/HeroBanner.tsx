@@ -7,12 +7,12 @@ type Props = {
 
 const HeroBanner = ({ searchQuery, onSearchChange }: Props) => {
   return (
-    <section className="bg-primary py-8 pb-12">
+    <section className="bg-primary py-6 pb-10 px-4 sm:py-8 sm:pb-12">
       <div className="container text-center">
-        <h1 className="text-3xl md:text-4xl font-black text-primary-foreground mb-2">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-primary-foreground mb-2">
           Bebida gelada na sua porta 🍻
         </h1>
-        <p className="text-primary-foreground/70 mb-6 text-lg">
+        <p className="text-primary-foreground/70 mb-5 sm:mb-6 text-base sm:text-lg">
           Entrega rápida • Preço baixo • Sempre gelada
         </p>
         <div className="mx-auto max-w-md relative">
