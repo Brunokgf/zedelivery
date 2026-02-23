@@ -6,6 +6,7 @@ import ProductCard from "@/components/ProductCard";
 import ComboSection from "@/components/ComboSection";
 import CartDrawer from "@/components/CartDrawer";
 import UrgentOfferPopup from "@/components/UrgentOfferPopup";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import { products } from "@/data/products";
 
 const Index = () => {
@@ -52,6 +53,7 @@ const Index = () => {
 
       <CartDrawer />
       <UrgentOfferPopup />
+      <WhatsAppButton />
     </div>
   );
 };
