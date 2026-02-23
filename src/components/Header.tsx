@@ -19,9 +19,10 @@ const Header = () => {
           </span>
         </div>
 
-        <div className="hidden md:flex items-center gap-2 text-primary-foreground/80 text-sm">
-          <MapPin className="h-4 w-4" />
-          <span>Entregar em <strong className="text-primary-foreground">Rua das Flores, 123</strong></span>
+        <div className="flex items-center gap-2 text-primary-foreground/80 text-sm">
+          <MapPin className="h-4 w-4 text-ze-orange" />
+          <span className="hidden sm:inline">Loja a <strong className="text-primary-foreground">1,2km</strong> de você</span>
+          <span className="sm:hidden text-xs">📍 1,2km</span>
         </div>
 
         <button
