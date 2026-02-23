@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import HeroBanner from "@/components/HeroBanner";
 import CategoryBar from "@/components/CategoryBar";
 import ProductCard from "@/components/ProductCard";
+import ComboSection from "@/components/ComboSection";
 import CartDrawer from "@/components/CartDrawer";
 import { products } from "@/data/products";
 
@@ -23,6 +24,8 @@ const Index = () => {
       <Header />
       <HeroBanner searchQuery={searchQuery} onSearchChange={setSearchQuery} />
       <CategoryBar activeCategory={activeCategory} onSelectCategory={setActiveCategory} />
+
+      {!activeCategory && !searchQuery && <ComboSection />}
 
       <main className="container py-6">
         <div className="mb-4 flex items-center justify-between">
