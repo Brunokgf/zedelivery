@@ -16,6 +16,11 @@ import spriteImg from "@/assets/products/sprite.jpg";
 import aguaImg from "@/assets/products/agua.jpg";
 import redLabelImg from "@/assets/products/red-label.jpg";
 import cavalinhoImg from "@/assets/products/cavalinho.jpg";
+import casilleroImg from "@/assets/products/casillero.jpg";
+import vinhoRoseImg from "@/assets/products/vinho-rose.jpg";
+import vinhoBrancoImg from "@/assets/products/vinho-branco.jpg";
+import monsterImg from "@/assets/products/monster.jpg";
+import tntImg from "@/assets/products/tnt.jpg";
 
 export type Product = {
   id: number;
@@ -188,5 +193,47 @@ export const products: Product[] = [
     price: 12.90,
     image: cavalinhoImg,
     category: "destilados",
+  },
+  {
+    id: 19,
+    name: "Casillero del Diablo 750ml",
+    description: "Vinho tinto chileno Cabernet Sauvignon",
+    price: 39.90,
+    image: casilleroImg,
+    category: "vinhos",
+    tag: "Premium",
+  },
+  {
+    id: 20,
+    name: "Vinho Rosé 750ml",
+    description: "Vinho rosé suave e refrescante",
+    price: 29.90,
+    image: vinhoRoseImg,
+    category: "vinhos",
+  },
+  {
+    id: 21,
+    name: "Vinho Branco Chardonnay 750ml",
+    description: "Vinho branco seco Chardonnay",
+    price: 34.90,
+    image: vinhoBrancoImg,
+    category: "vinhos",
+  },
+  {
+    id: 22,
+    name: "Monster Energy 473ml",
+    description: "Energético Monster Energy verde",
+    price: 8.99,
+    image: monsterImg,
+    category: "energeticos",
+  },
+  {
+    id: 23,
+    name: "TNT Energy 473ml",
+    description: "Energético TNT lata",
+    price: 5.99,
+    image: tntImg,
+    category: "energeticos",
+    tag: "Promoção",
   },
 ];
