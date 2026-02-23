@@ -263,7 +263,14 @@ const Checkout = () => {
             <input
               placeholder="CPF *"
               value={customer.cpf}
-              onChange={(e) => setCustomer({ ...customer, cpf: e.target.value })}
+              onChange={(e) => {
+                const digits = e.target.value.replace(/\D/g, "").slice(0, 11);
+                const masked = digits
+                  .replace(/(\d{3})(\d)/, "$1.$2")
+                  .replace(/(\d{3})(\d)/, "$1.$2")
+                  .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+                setCustomer({ ...customer, cpf: masked });
+              }}
               className="rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
               maxLength={14}
             />
