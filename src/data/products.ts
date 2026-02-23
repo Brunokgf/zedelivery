@@ -24,6 +24,7 @@ import tntImg from "@/assets/products/tnt.jpg";
 import fantaImg from "@/assets/products/fanta.jpg";
 import pepsiImg from "@/assets/products/pepsi.jpg";
 import schweppesImg from "@/assets/products/schweppes.jpg";
+import tanquerayImg from "@/assets/products/tanqueray.jpg";
 
 export type Product = {
   id: number;
@@ -263,5 +264,14 @@ export const products: Product[] = [
     price: 4.49,
     image: schweppesImg,
     category: "refrigerantes",
+  },
+  {
+    id: 27,
+    name: "Tanqueray 750ml",
+    description: "Gin Tanqueray London Dry",
+    price: 99.90,
+    image: tanquerayImg,
+    category: "destilados",
+    tag: "Premium",
   },
 ];
