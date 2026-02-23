@@ -21,6 +21,9 @@ import vinhoRoseImg from "@/assets/products/vinho-rose.jpg";
 import vinhoBrancoImg from "@/assets/products/vinho-branco.jpg";
 import monsterImg from "@/assets/products/monster.jpg";
 import tntImg from "@/assets/products/tnt.jpg";
+import fantaImg from "@/assets/products/fanta.jpg";
+import pepsiImg from "@/assets/products/pepsi.jpg";
+import schweppesImg from "@/assets/products/schweppes.jpg";
 
 export type Product = {
   id: number;
@@ -235,5 +238,30 @@ export const products: Product[] = [
     image: tntImg,
     category: "energeticos",
     tag: "Promoção",
+  },
+  {
+    id: 24,
+    name: "Fanta Laranja 350ml",
+    description: "Refrigerante Fanta Laranja lata",
+    price: 3.49,
+    image: fantaImg,
+    category: "refrigerantes",
+  },
+  {
+    id: 25,
+    name: "Pepsi 350ml",
+    description: "Refrigerante Pepsi lata gelada",
+    price: 3.29,
+    image: pepsiImg,
+    category: "refrigerantes",
+    tag: "Promoção",
+  },
+  {
+    id: 26,
+    name: "Schweppes Citrus 350ml",
+    description: "Água tônica Schweppes Citrus lata",
+    price: 4.49,
+    image: schweppesImg,
+    category: "refrigerantes",
   },
 ];
