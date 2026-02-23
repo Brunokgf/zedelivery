@@ -1,10 +1,10 @@
-import { useState, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, MapPin, CreditCard, QrCode, CheckCircle2, Loader2, Copy, Check } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
 import { useCart } from "@/context/CartContext";
 import { toast } from "@/hooks/use-toast";
-import { generatePixPayload } from "@/lib/pix";
+import { supabase } from "@/integrations/supabase/client";
 
 type PaymentMethod = "pix" | "credit";
 
@@ -39,21 +39,39 @@ const Checkout = () => {
   const total = totalPrice + deliveryFee;
 
   const [copied, setCopied] = useState(false);
+  const [pixData, setPixData] = useState<{ qr_code?: string; qr_code_url?: string; copy_paste?: string } | null>(null);
+  const [pixLoading, setPixLoading] = useState(false);
 
-  const pixPayload = useMemo(
-    () =>
-      generatePixPayload({
-        pixKey: "rubenscardosoaguiar@gmail.com",
-        merchantName: "Ze Delivery",
-        merchantCity: "SAO PAULO",
-        amount: total,
-        description: "Pedido Ze",
-      }),
-    [total]
-  );
+  // Fetch PIX QR code from MedusaPay when payment is PIX
+  useEffect(() => {
+    if (payment !== "pix" || total <= 0) {
+      setPixData(null);
+      return;
+    }
+
+    const fetchPix = async () => {
+      setPixLoading(true);
+      try {
+        const { data, error } = await supabase.functions.invoke("create-pix-payment", {
+          body: { amount: total, description: "Pedido Ze Delivery" },
+        });
+        if (error) throw error;
+        setPixData(data);
+      } catch (err) {
+        console.error("PIX error:", err);
+        toast({ title: "Erro ao gerar QR Code PIX", variant: "destructive" });
+      } finally {
+        setPixLoading(false);
+      }
+    };
+
+    fetchPix();
+  }, [payment, total]);
 
   const handleCopyPix = async () => {
-    await navigator.clipboard.writeText(pixPayload);
+    const code = pixData?.copy_paste || pixData?.qr_code || "";
+    if (!code) return;
+    await navigator.clipboard.writeText(code);
     setCopied(true);
     toast({ title: "Código PIX copiado!" });
     setTimeout(() => setCopied(false), 3000);
@@ -275,19 +293,50 @@ const Checkout = () => {
               QR Code PIX
             </h2>
             <div className="flex flex-col items-center gap-4">
-              <div className="rounded-xl bg-white p-4">
-                <QRCodeSVG value={pixPayload} size={200} />
-              </div>
-              <p className="text-sm text-muted-foreground text-center max-w-xs">
-                Escaneie o QR Code acima com o app do seu banco ou copie o código para pagar.
-              </p>
-              <button
-                onClick={handleCopyPix}
-                className="flex items-center gap-2 rounded-lg border border-border bg-background px-4 py-2.5 text-sm font-bold text-foreground hover:bg-muted transition-colors"
-              >
-                {copied ? <Check className="h-4 w-4 text-ze-green" /> : <Copy className="h-4 w-4" />}
-                {copied ? "Copiado!" : "Copiar código PIX"}
-              </button>
+              {pixLoading ? (
+                <div className="flex flex-col items-center gap-3 py-8">
+                  <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+                  <p className="text-sm text-muted-foreground">Gerando QR Code...</p>
+                </div>
+              ) : pixData?.qr_code ? (
+                <>
+                  <div className="rounded-xl bg-white p-4">
+                    <QRCodeSVG value={pixData.qr_code} size={200} />
+                  </div>
+                  <p className="text-sm text-muted-foreground text-center max-w-xs">
+                    Escaneie o QR Code acima com o app do seu banco ou copie o código para pagar.
+                  </p>
+                  <button
+                    onClick={handleCopyPix}
+                    className="flex items-center gap-2 rounded-lg border border-border bg-background px-4 py-2.5 text-sm font-bold text-foreground hover:bg-muted transition-colors"
+                  >
+                    {copied ? <Check className="h-4 w-4 text-ze-green" /> : <Copy className="h-4 w-4" />}
+                    {copied ? "Copiado!" : "Copiar código PIX"}
+                  </button>
+                </>
+              ) : pixData?.qr_code_url ? (
+                <>
+                  <div className="rounded-xl bg-white p-4">
+                    <img src={pixData.qr_code_url} alt="QR Code PIX" className="w-[200px] h-[200px]" />
+                  </div>
+                  <p className="text-sm text-muted-foreground text-center max-w-xs">
+                    Escaneie o QR Code acima com o app do seu banco ou copie o código para pagar.
+                  </p>
+                  {pixData.copy_paste && (
+                    <button
+                      onClick={handleCopyPix}
+                      className="flex items-center gap-2 rounded-lg border border-border bg-background px-4 py-2.5 text-sm font-bold text-foreground hover:bg-muted transition-colors"
+                    >
+                      {copied ? <Check className="h-4 w-4 text-ze-green" /> : <Copy className="h-4 w-4" />}
+                      {copied ? "Copiado!" : "Copiar código PIX"}
+                    </button>
+                  )}
+                </>
+              ) : (
+                <p className="text-sm text-destructive text-center">
+                  Não foi possível gerar o QR Code. Tente novamente.
+                </p>
+              )}
             </div>
           </section>
         )}
