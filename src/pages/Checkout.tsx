@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, MapPin, CreditCard, QrCode, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, MapPin, CreditCard, QrCode, CheckCircle2, Loader2 } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { toast } from "@/hooks/use-toast";
 
@@ -50,7 +50,34 @@ const Checkout = () => {
       card.cvv.trim() !== "");
 
   const [loading, setLoading] = useState(false);
+  const [cepLoading, setCepLoading] = useState(false);
 
+  const handleCepChange = async (value: string) => {
+    const cleaned = value.replace(/\D/g, "");
+    const formatted = cleaned.length > 5 ? cleaned.slice(0, 5) + "-" + cleaned.slice(5, 8) : cleaned;
+    setAddress((prev) => ({ ...prev, cep: formatted }));
+
+    if (cleaned.length === 8) {
+      setCepLoading(true);
+      try {
+        const res = await fetch(`https://viacep.com.br/ws/${cleaned}/json/`);
+        const data = await res.json();
+        if (!data.erro) {
+          setAddress((prev) => ({
+            ...prev,
+            cep: formatted,
+            street: data.logradouro || prev.street,
+            neighborhood: data.bairro || prev.neighborhood,
+            city: data.localidade || prev.city,
+          }));
+        }
+      } catch {
+        // silently fail
+      } finally {
+        setCepLoading(false);
+      }
+    }
+  };
   const handlePlaceOrder = async () => {
     if (!isFormValid || !isCardValid) {
       toast({ title: "Preencha todos os campos obrigatórios", variant: "destructive" });
@@ -148,13 +175,18 @@ const Checkout = () => {
             Endereço de Entrega
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <input
-              placeholder="CEP"
-              value={address.cep}
-              onChange={(e) => setAddress({ ...address, cep: e.target.value })}
-              className="rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-              maxLength={9}
-            />
+            <div className="relative">
+              <input
+                placeholder="CEP"
+                value={address.cep}
+                onChange={(e) => handleCepChange(e.target.value)}
+                className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                maxLength={9}
+              />
+              {cepLoading && (
+                <Loader2 className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 animate-spin text-muted-foreground" />
+              )}
+            </div>
             <input
               placeholder="Cidade *"
               value={address.city}
