@@ -28,6 +28,10 @@ import tanquerayImg from "@/assets/products/tanqueray.jpg";
 import geloLimaoImg from "@/assets/products/gelo-limao.jpg";
 import geloMorangoImg from "@/assets/products/gelo-morango.jpg";
 import geloMaracujaImg from "@/assets/products/gelo-maracuja.jpg";
+import comboCervejaImg from "@/assets/products/combo-cerveja.jpg";
+import comboDestiladoImg from "@/assets/products/combo-destilado.jpg";
+import comboVinhoImg from "@/assets/products/combo-vinho.jpg";
+import comboEnergiaImg from "@/assets/products/combo-energia.jpg";
 
 export type Product = {
   id: number;
@@ -40,6 +44,7 @@ export type Product = {
 };
 
 export const categories = [
+  { id: "combos", label: "🎉 Combos", emoji: "🎉" },
   { id: "cervejas", label: "🍺 Cervejas", emoji: "🍺" },
   { id: "destilados", label: "🥃 Destilados", emoji: "🥃" },
   { id: "vinhos", label: "🍷 Vinhos", emoji: "🍷" },
@@ -303,5 +308,41 @@ export const products: Product[] = [
     image: geloMaracujaImg,
     category: "extras",
     tag: "Novidade",
+  },
+  {
+    id: 31,
+    name: "Combo Churrasco 🍺",
+    description: "6 Heineken 600ml + 1 Gelo 3kg — economize R$12!",
+    price: 41.90,
+    image: comboCervejaImg,
+    category: "combos",
+    tag: "Economia",
+  },
+  {
+    id: 32,
+    name: "Combo Festa 🎉",
+    description: "1 Absolut 750ml + 1 Coca 2L + 1 Gelo 3kg",
+    price: 79.90,
+    image: comboDestiladoImg,
+    category: "combos",
+    tag: "Mais vendido",
+  },
+  {
+    id: 33,
+    name: "Combo Vinho & Queijo 🍷",
+    description: "1 Vinho Tinto + 1 Vinho Branco — noite especial",
+    price: 54.90,
+    image: comboVinhoImg,
+    category: "combos",
+    tag: "Premium",
+  },
+  {
+    id: 34,
+    name: "Combo Energia Total ⚡",
+    description: "2 Red Bull 250ml + 2 Monster 473ml",
+    price: 34.90,
+    image: comboEnergiaImg,
+    category: "combos",
+    tag: "Economia",
   },
 ];
