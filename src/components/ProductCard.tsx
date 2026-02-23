@@ -25,13 +25,13 @@ const ProductCard = ({ product }: Props) => {
           loading="lazy"
         />
       </div>
-      <div className="flex flex-1 flex-col p-4">
-        <h3 className="text-sm font-bold text-card-foreground line-clamp-2 mb-1">
+      <div className="flex flex-1 flex-col p-3 sm:p-4">
+        <h3 className="text-xs sm:text-sm font-bold text-card-foreground line-clamp-2 mb-1">
           {product.name}
         </h3>
-        <p className="text-xs text-muted-foreground mb-3">{product.description}</p>
+        <p className="text-[11px] sm:text-xs text-muted-foreground mb-2 sm:mb-3 line-clamp-2">{product.description}</p>
         <div className="mt-auto flex items-center justify-between">
-          <span className="text-lg font-black text-ze-green">
+          <span className="text-base sm:text-lg font-black text-ze-green">
             R$ {product.price.toFixed(2).replace(".", ",")}
           </span>
 
