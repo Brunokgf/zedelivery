@@ -14,6 +14,8 @@ import guaranaImg from "@/assets/products/guarana.jpg";
 import redbullImg from "@/assets/products/redbull.jpg";
 import spriteImg from "@/assets/products/sprite.jpg";
 import aguaImg from "@/assets/products/agua.jpg";
+import redLabelImg from "@/assets/products/red-label.jpg";
+import cavalinhoImg from "@/assets/products/cavalinho.jpg";
 
 export type Product = {
   id: number;
@@ -169,5 +171,22 @@ export const products: Product[] = [
     price: 2.99,
     image: aguaImg,
     category: "agua",
+  },
+  {
+    id: 17,
+    name: "Red Label 750ml",
+    description: "Whisky Johnnie Walker Red Label",
+    price: 89.90,
+    image: redLabelImg,
+    category: "destilados",
+    tag: "Mais vendido",
+  },
+  {
+    id: 18,
+    name: "Cavalinho 1L",
+    description: "Cachaça Cavalinho tradicional",
+    price: 12.90,
+    image: cavalinhoImg,
+    category: "destilados",
   },
 ];
