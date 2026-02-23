@@ -77,7 +77,7 @@ serve(async (req) => {
       </div>
     `;
 
-    const RESEND_API_KEY = Deno.env.get('MEDUSAPAY_SECRET_KEY');
+    const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY');
     
     // Send email using Resend
     const emailRes = await fetch('https://api.resend.com/emails', {
