@@ -33,6 +33,8 @@ import comboDestiladoImg from "@/assets/products/combo-destilado.jpg";
 import comboVinhoImg from "@/assets/products/combo-vinho.jpg";
 import comboEnergiaImg from "@/assets/products/combo-energia.jpg";
 import comboWhiskyImg from "@/assets/products/combo-whisky.jpg";
+import comboRedLabelImg from "@/assets/products/combo-red-label.jpg";
+import comboWhiskyDuploImg from "@/assets/products/combo-whisky-duplo.jpg";
 
 export type Product = {
   id: number;
@@ -352,6 +354,24 @@ export const products: Product[] = [
     description: "1 Jack Daniel's 750ml + 2 Red Bull 250ml + 1 Gelo 3kg",
     price: 129.90,
     image: comboWhiskyImg,
+    category: "combos",
+    tag: "Premium",
+  },
+  {
+    id: 36,
+    name: "Combo Red Label & Cola 🥃",
+    description: "1 Red Label 750ml + 1 Coca-Cola 2L + 1 Gelo 3kg",
+    price: 99.90,
+    image: comboRedLabelImg,
+    category: "combos",
+    tag: "Mais vendido",
+  },
+  {
+    id: 37,
+    name: "Combo Whisky Duplo VIP 🔥",
+    description: "1 Jack Daniel's + 1 Red Label + 4 energéticos + Gelo",
+    price: 219.90,
+    image: comboWhiskyDuploImg,
     category: "combos",
     tag: "Premium",
   },
