@@ -28,13 +28,17 @@ import tanquerayImg from "@/assets/products/tanqueray.jpg";
 import geloLimaoImg from "@/assets/products/gelo-limao.jpg";
 import geloMorangoImg from "@/assets/products/gelo-morango.jpg";
 import geloMaracujaImg from "@/assets/products/gelo-maracuja.jpg";
-import comboCervejaImg from "@/assets/products/combo-cerveja.jpg";
-import comboDestiladoImg from "@/assets/products/combo-destilado.jpg";
-import comboVinhoImg from "@/assets/products/combo-vinho.jpg";
-import comboEnergiaImg from "@/assets/products/combo-energia.jpg";
-import comboWhiskyImg from "@/assets/products/combo-whisky.jpg";
+import comboTanquerayImg from "@/assets/products/combo-tanqueray.jpg";
+import comboAbsolutImg from "@/assets/products/combo-absolut.jpg";
+import comboJackImg from "@/assets/products/combo-jack.jpg";
 import comboRedLabelImg from "@/assets/products/combo-red-label.jpg";
-import comboWhiskyDuploImg from "@/assets/products/combo-whisky-duplo.jpg";
+import comboBeefeaterImg from "@/assets/products/combo-beefeater.jpg";
+import comboGreyGooseImg from "@/assets/products/combo-grey-goose.jpg";
+import fardoHeinekenImg from "@/assets/products/fardo-heineken.jpg";
+import fardoBudweiserImg from "@/assets/products/fardo-budweiser.jpg";
+import fardoCoronaImg from "@/assets/products/fardo-corona.jpg";
+import fardoBrahmaImg from "@/assets/products/fardo-brahma.jpg";
+import fardoSkolImg from "@/assets/products/fardo-skol.jpg";
 import antarcticaImg from "@/assets/products/antarctica.jpg";
 import spatenImg from "@/assets/products/spaten.jpg";
 import originalImg from "@/assets/products/original.jpg";
@@ -334,66 +338,102 @@ export const products: Product[] = [
   },
   {
     id: 31,
-    name: "Combo Churrasco 🍺",
-    description: "6 Heineken 600ml + 1 Gelo 3kg — economize R$12!",
-    price: 41.90,
-    image: comboCervejaImg,
+    name: "Combo Tanqueray 🍸",
+    description: "1 Tanqueray 750ml + 4 gelos saborizados + 4 energéticos",
+    price: 89.90,
+    image: comboTanquerayImg,
     category: "combos",
-    tag: "Economia",
+    tag: "60% OFF",
   },
   {
     id: 32,
-    name: "Combo Festa 🎉",
-    description: "1 Absolut 750ml + 1 Coca 2L + 1 Gelo 3kg",
-    price: 79.90,
-    image: comboDestiladoImg,
+    name: "Combo Absolut 🍸",
+    description: "1 Absolut 750ml + 4 gelos saborizados + 4 energéticos",
+    price: 69.90,
+    image: comboAbsolutImg,
+    category: "combos",
+    tag: "50% OFF",
+  },
+  {
+    id: 33,
+    name: "Combo Jack Daniel's 🥃",
+    description: "1 Jack Daniel's 750ml + 4 gelos saborizados + 4 energéticos",
+    price: 127.50,
+    image: comboJackImg,
     category: "combos",
     tag: "Mais vendido",
   },
   {
-    id: 33,
-    name: "Combo Vinho & Queijo 🍷",
-    description: "1 Vinho Tinto + 1 Vinho Branco — noite especial",
-    price: 54.90,
-    image: comboVinhoImg,
+    id: 34,
+    name: "Combo Red Label 🥃",
+    description: "1 Red Label 1L + 4 gelos saborizados + 4 energéticos",
+    price: 99.90,
+    image: comboRedLabelImg,
+    category: "combos",
+    tag: "54% OFF",
+  },
+  {
+    id: 35,
+    name: "Combo Beefeater 🍸",
+    description: "1 Beefeater 750ml + 4 gelos saborizados + 4 energéticos",
+    price: 117.90,
+    image: comboBeefeaterImg,
+    category: "combos",
+    tag: "60% OFF",
+  },
+  {
+    id: 36,
+    name: "Combo Grey Goose 🍸",
+    description: "1 Grey Goose 750ml + 4 gelos saborizados + 4 energéticos",
+    price: 109.90,
+    image: comboGreyGooseImg,
     category: "combos",
     tag: "Premium",
   },
   {
-    id: 34,
-    name: "Combo Energia Total ⚡",
-    description: "2 Red Bull 250ml + 2 Monster 473ml",
-    price: 34.90,
-    image: comboEnergiaImg,
+    id: 37,
+    name: "Fardo Heineken 12un 474ml",
+    description: "Fardo com 12 latas de Heineken 474ml",
+    price: 35.90,
+    image: fardoHeinekenImg,
     category: "combos",
     tag: "Economia",
   },
   {
-    id: 35,
-    name: "Combo Whisky Night 🥃",
-    description: "1 Jack Daniel's 750ml + 2 Red Bull 250ml + 1 Gelo 3kg",
-    price: 129.90,
-    image: comboWhiskyImg,
+    id: 57,
+    name: "Fardo Budweiser 12un 474ml",
+    description: "Fardo com 12 latas de Budweiser 474ml",
+    price: 20.90,
+    image: fardoBudweiserImg,
+    category: "combos",
+    tag: "Economia",
+  },
+  {
+    id: 58,
+    name: "Fardo Corona 24un 330ml",
+    description: "Fardo com 24 garrafas de Corona Extra 330ml",
+    price: 45.90,
+    image: fardoCoronaImg,
     category: "combos",
     tag: "Premium",
   },
   {
-    id: 36,
-    name: "Combo Red Label & Cola 🥃",
-    description: "1 Red Label 750ml + 1 Coca-Cola 2L + 1 Gelo 3kg",
-    price: 99.90,
-    image: comboRedLabelImg,
+    id: 59,
+    name: "Fardo Brahma 12un 350ml",
+    description: "Fardo com 12 latas de Brahma 350ml",
+    price: 33.90,
+    image: fardoBrahmaImg,
     category: "combos",
-    tag: "Mais vendido",
+    tag: "Economia",
   },
   {
-    id: 37,
-    name: "Combo Whisky Duplo VIP 🔥",
-    description: "1 Jack Daniel's + 1 Red Label + 4 energéticos + Gelo",
-    price: 219.90,
-    image: comboWhiskyDuploImg,
+    id: 60,
+    name: "Fardo Skol 12un 350ml",
+    description: "Fardo com 12 latas de Skol 350ml",
+    price: 22.90,
+    image: fardoSkolImg,
     category: "combos",
-    tag: "Premium",
+    tag: "Economia",
   },
   // Cervejas populares que faltavam
   {
