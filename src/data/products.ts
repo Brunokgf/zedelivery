@@ -6,6 +6,14 @@ import skolImg from "@/assets/products/skol.jpg";
 import vinhoImg from "@/assets/products/vinho.jpg";
 import geloImg from "@/assets/products/gelo.jpg";
 import coronaImg from "@/assets/products/corona.jpg";
+import budweiserImg from "@/assets/products/budweiser.jpg";
+import stellaImg from "@/assets/products/stella.jpg";
+import smirnoffImg from "@/assets/products/smirnoff.jpg";
+import jackDanielsImg from "@/assets/products/jack-daniels.jpg";
+import guaranaImg from "@/assets/products/guarana.jpg";
+import redbullImg from "@/assets/products/redbull.jpg";
+import spriteImg from "@/assets/products/sprite.jpg";
+import aguaImg from "@/assets/products/agua.jpg";
 
 export type Product = {
   id: number;
@@ -22,6 +30,8 @@ export const categories = [
   { id: "destilados", label: "🥃 Destilados", emoji: "🥃" },
   { id: "vinhos", label: "🍷 Vinhos", emoji: "🍷" },
   { id: "refrigerantes", label: "🥤 Refrigerantes", emoji: "🥤" },
+  { id: "energeticos", label: "⚡ Energéticos", emoji: "⚡" },
+  { id: "agua", label: "💧 Água", emoji: "💧" },
   { id: "extras", label: "🧊 Extras", emoji: "🧊" },
 ];
 
@@ -92,5 +102,72 @@ export const products: Product[] = [
     price: 5.99,
     image: geloImg,
     category: "extras",
+  },
+  {
+    id: 9,
+    name: "Budweiser Lata 350ml",
+    description: "Cerveja Budweiser lata gelada",
+    price: 3.99,
+    image: budweiserImg,
+    category: "cervejas",
+  },
+  {
+    id: 10,
+    name: "Stella Artois 275ml",
+    description: "Cerveja Stella Artois Long Neck",
+    price: 6.49,
+    image: stellaImg,
+    category: "cervejas",
+    tag: "Premium",
+  },
+  {
+    id: 11,
+    name: "Smirnoff Ice 275ml",
+    description: "Bebida mista Smirnoff Ice Original",
+    price: 7.49,
+    image: smirnoffImg,
+    category: "destilados",
+  },
+  {
+    id: 12,
+    name: "Jack Daniel's 750ml",
+    description: "Whiskey Jack Daniel's Old No.7",
+    price: 119.90,
+    image: jackDanielsImg,
+    category: "destilados",
+    tag: "Premium",
+  },
+  {
+    id: 13,
+    name: "Guaraná Antarctica 350ml",
+    description: "Refrigerante Guaraná Antarctica lata",
+    price: 3.49,
+    image: guaranaImg,
+    category: "refrigerantes",
+  },
+  {
+    id: 14,
+    name: "Red Bull 250ml",
+    description: "Energético Red Bull lata",
+    price: 9.99,
+    image: redbullImg,
+    category: "energeticos",
+    tag: "Mais vendido",
+  },
+  {
+    id: 15,
+    name: "Sprite 2L",
+    description: "Refrigerante Sprite 2 litros",
+    price: 8.49,
+    image: spriteImg,
+    category: "refrigerantes",
+  },
+  {
+    id: 16,
+    name: "Água Mineral 1,5L",
+    description: "Água mineral sem gás 1,5 litros",
+    price: 2.99,
+    image: aguaImg,
+    category: "agua",
   },
 ];
