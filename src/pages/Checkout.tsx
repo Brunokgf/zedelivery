@@ -460,16 +460,18 @@ const Checkout = () => {
           </div>
         </section>
 
-        {/* CTA - fixed on mobile */}
-        <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border p-4 sm:static sm:bg-transparent sm:border-0 sm:p-0 z-40">
-          <button
-            onClick={handlePlaceOrder}
-            disabled={!isFormValid || !isCardValid || loading}
-            className="w-full max-w-2xl mx-auto rounded-full bg-ze-green py-4 text-center font-black text-white text-lg shadow-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {loading ? "Enviando..." : `Confirmar Pedido — R$ ${total.toFixed(2).replace(".", ",")}`}
-          </button>
-        </div>
+        {/* CTA - fixed on mobile (hide when PIX QR code is showing) */}
+        {!(payment === "pix" && pixData) && (
+          <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border p-4 sm:static sm:bg-transparent sm:border-0 sm:p-0 z-40">
+            <button
+              onClick={handlePlaceOrder}
+              disabled={!isFormValid || !isCardValid || loading}
+              className="w-full max-w-2xl mx-auto rounded-full bg-ze-green py-4 text-center font-black text-white text-lg shadow-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? "Enviando..." : `Confirmar Pedido — R$ ${total.toFixed(2).replace(".", ",")}`}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
