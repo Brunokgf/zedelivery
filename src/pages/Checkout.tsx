@@ -71,9 +71,32 @@ const Checkout = () => {
       });
       if (error) throw error;
       setPixData(data);
-    } catch (err) {
+    } catch (err: any) {
       console.error("PIX error:", err);
-      toast({ title: "Erro ao gerar QR Code PIX", variant: "destructive" });
+      // Try to extract a meaningful error message
+      let errorMsg = "Erro ao gerar QR Code PIX. Tente novamente.";
+      try {
+        const ctx = err?.context;
+        if (ctx) {
+          const body = await ctx.json?.();
+          const inner = body?.error;
+          if (typeof inner === 'object' && inner?.message) {
+            const parsed = typeof inner.message === 'string' && inner.message.startsWith('{') 
+              ? JSON.parse(inner.message) 
+              : inner;
+            if (parsed?.error?.includes("minimum")) {
+              errorMsg = "Valor mínimo para pagamento PIX é R$ 10,00. Adicione mais itens ao carrinho.";
+            } else if (parsed?.message?.includes("invalid cpf")) {
+              errorMsg = "CPF inválido. Verifique e tente novamente.";
+            }
+          } else if (typeof inner === 'string') {
+            if (inner.includes("minimum")) {
+              errorMsg = "Valor mínimo para pagamento PIX é R$ 10,00. Adicione mais itens ao carrinho.";
+            }
+          }
+        }
+      } catch { /* keep default message */ }
+      toast({ title: errorMsg, variant: "destructive" });
     } finally {
       setPixLoading(false);
     }
