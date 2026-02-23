@@ -44,6 +44,16 @@ import whiteHorseImg from "@/assets/products/white-horse.jpg";
 import gordonsImg from "@/assets/products/gordons.jpg";
 import beatsImg from "@/assets/products/beats.jpg";
 import xequeMateImg from "@/assets/products/xeque-mate.jpg";
+import smirnoffVodkaImg from "@/assets/products/smirnoff-vodka.jpg";
+import orloffImg from "@/assets/products/orloff.jpg";
+import cachaca51Img from "@/assets/products/cachaca-51.jpg";
+import beefeaterImg from "@/assets/products/beefeater.jpg";
+import oldParrImg from "@/assets/products/old-parr.jpg";
+import askovImg from "@/assets/products/askov.jpg";
+import ballantinesImg from "@/assets/products/ballantines.jpg";
+import campariImg from "@/assets/products/campari.jpg";
+import beatsSensesImg from "@/assets/products/beats-senses.jpg";
+import smirnoffIceLatImg from "@/assets/products/smirnoff-ice-lata.jpg";
 
 export type Product = {
   id: number;
@@ -465,5 +475,96 @@ export const products: Product[] = [
     image: xequeMateImg,
     category: "drinks",
     tag: "Novidade",
+  },
+  // Vodkas
+  {
+    id: 47,
+    name: "Vodka Smirnoff 998ml",
+    description: "Vodka Smirnoff Triple Destilled",
+    price: 29.90,
+    image: smirnoffVodkaImg,
+    category: "destilados",
+    tag: "Mais vendido",
+  },
+  {
+    id: 48,
+    name: "Vodka Orloff 1L",
+    description: "Vodka Orloff Original",
+    price: 22.90,
+    image: orloffImg,
+    category: "destilados",
+  },
+  {
+    id: 49,
+    name: "Vodka Askov 900ml",
+    description: "Vodka Askov Original",
+    price: 14.90,
+    image: askovImg,
+    category: "destilados",
+    tag: "Promoção",
+  },
+  // Cachaças
+  {
+    id: 50,
+    name: "Cachaça 51 965ml",
+    description: "Cachaça 51 Pirassununga",
+    price: 9.90,
+    image: cachaca51Img,
+    category: "destilados",
+    tag: "Clássico",
+  },
+  // Gins
+  {
+    id: 51,
+    name: "Gin Beefeater 750ml",
+    description: "Gin Beefeater London Dry",
+    price: 79.90,
+    image: beefeaterImg,
+    category: "destilados",
+  },
+  // Whiskies
+  {
+    id: 52,
+    name: "Old Parr 12 Anos 1L",
+    description: "Whisky Old Parr Grand 12 Anos",
+    price: 149.90,
+    image: oldParrImg,
+    category: "destilados",
+    tag: "Premium",
+  },
+  {
+    id: 53,
+    name: "Ballantine's Finest 1L",
+    description: "Whisky Ballantine's Finest Blended Scotch",
+    price: 79.90,
+    image: ballantinesImg,
+    category: "destilados",
+  },
+  // Aperitivos
+  {
+    id: 54,
+    name: "Campari 900ml",
+    description: "Aperitivo Campari clássico italiano",
+    price: 39.90,
+    image: campariImg,
+    category: "destilados",
+  },
+  // Drinks Prontos
+  {
+    id: 55,
+    name: "Beats Senses 269ml",
+    description: "Drink pronto Beats Senses frutas tropicais",
+    price: 4.99,
+    image: beatsSensesImg,
+    category: "drinks",
+    tag: "Mais vendido",
+  },
+  {
+    id: 56,
+    name: "Smirnoff Ice Lata 269ml",
+    description: "Drink pronto Smirnoff Ice Original",
+    price: 4.49,
+    image: smirnoffIceLatImg,
+    category: "drinks",
   },
 ];
