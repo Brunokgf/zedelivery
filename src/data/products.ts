@@ -25,6 +25,9 @@ import fantaImg from "@/assets/products/fanta.jpg";
 import pepsiImg from "@/assets/products/pepsi.jpg";
 import schweppesImg from "@/assets/products/schweppes.jpg";
 import tanquerayImg from "@/assets/products/tanqueray.jpg";
+import geloLimaoImg from "@/assets/products/gelo-limao.jpg";
+import geloMorangoImg from "@/assets/products/gelo-morango.jpg";
+import geloMaracujaImg from "@/assets/products/gelo-maracuja.jpg";
 
 export type Product = {
   id: number;
@@ -273,5 +276,32 @@ export const products: Product[] = [
     image: tanquerayImg,
     category: "destilados",
     tag: "Premium",
+  },
+  {
+    id: 28,
+    name: "Gelo Sabor Limão 1kg",
+    description: "Gelo de sabor limão refrescante",
+    price: 7.99,
+    image: geloLimaoImg,
+    category: "extras",
+    tag: "Novidade",
+  },
+  {
+    id: 29,
+    name: "Gelo Sabor Morango 1kg",
+    description: "Gelo de sabor morango para drinks",
+    price: 7.99,
+    image: geloMorangoImg,
+    category: "extras",
+    tag: "Novidade",
+  },
+  {
+    id: 30,
+    name: "Gelo Sabor Maracujá 1kg",
+    description: "Gelo de sabor maracujá tropical",
+    price: 7.99,
+    image: geloMaracujaImg,
+    category: "extras",
+    tag: "Novidade",
   },
 ];
