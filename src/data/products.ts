@@ -32,6 +32,7 @@ import comboCervejaImg from "@/assets/products/combo-cerveja.jpg";
 import comboDestiladoImg from "@/assets/products/combo-destilado.jpg";
 import comboVinhoImg from "@/assets/products/combo-vinho.jpg";
 import comboEnergiaImg from "@/assets/products/combo-energia.jpg";
+import comboWhiskyImg from "@/assets/products/combo-whisky.jpg";
 
 export type Product = {
   id: number;
@@ -344,5 +345,14 @@ export const products: Product[] = [
     image: comboEnergiaImg,
     category: "combos",
     tag: "Economia",
+  },
+  {
+    id: 35,
+    name: "Combo Whisky Night 🥃",
+    description: "1 Jack Daniel's 750ml + 2 Red Bull 250ml + 1 Gelo 3kg",
+    price: 129.90,
+    image: comboWhiskyImg,
+    category: "combos",
+    tag: "Premium",
   },
 ];
