@@ -1,7 +1,8 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { Icon } from "leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { Icon, LatLngTuple } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { MapPin, Clock, Phone } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const STORES = [
   { lat: -23.5505, lng: -46.6333, name: "Zé Delivery - Centro SP" },
@@ -23,7 +24,55 @@ const storeIcon = new Icon({
   popupAnchor: [0, -32],
 });
 
+function haversineDistance(lat1: number, lng1: number, lat2: number, lng2: number) {
+  const R = 6371;
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLng = ((lng2 - lng1) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLng / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function findNearestStore(lat: number, lng: number) {
+  let nearest = STORES[0];
+  let minDist = Infinity;
+  for (const store of STORES) {
+    const d = haversineDistance(lat, lng, store.lat, store.lng);
+    if (d < minDist) {
+      minDist = d;
+      nearest = store;
+    }
+  }
+  return nearest;
+}
+
+const FlyToNearest = ({ center }: { center: LatLngTuple }) => {
+  const map = useMap();
+  useEffect(() => {
+    map.flyTo(center, 13, { duration: 2 });
+  }, [center, map]);
+  return null;
+};
+
 const StoreMap = () => {
+  const [nearestCenter, setNearestCenter] = useState<LatLngTuple | null>(null);
+  const [nearestName, setNearestName] = useState<string | null>(null);
+
+  useEffect(() => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const nearest = findNearestStore(pos.coords.latitude, pos.coords.longitude);
+          setNearestCenter([nearest.lat, nearest.lng]);
+          setNearestName(nearest.name);
+        },
+        () => {},
+        { timeout: 5000 }
+      );
+    }
+  }, []);
+
   return (
     <section className="bg-card border-t border-border">
       <div className="container py-10">
@@ -32,7 +81,11 @@ const StoreMap = () => {
             <MapPin className="h-6 w-6 text-ze-orange" />
             Nossas Lojas
           </h2>
-          <p className="text-muted-foreground mt-1">Encontre a loja mais perto de você</p>
+          <p className="text-muted-foreground mt-1">
+            {nearestName
+              ? <>Loja mais próxima: <strong className="text-foreground">{nearestName}</strong></>
+              : "Encontre a loja mais perto de você"}
+          </p>
         </div>
 
         <div className="rounded-xl overflow-hidden shadow-lg border border-border" style={{ height: 350 }}>
@@ -46,6 +99,7 @@ const StoreMap = () => {
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
+            {nearestCenter && <FlyToNearest center={nearestCenter} />}
             {STORES.map((store, i) => (
               <Marker key={i} position={[store.lat, store.lng]} icon={storeIcon}>
                 <Popup>
