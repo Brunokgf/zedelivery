@@ -3,8 +3,18 @@ import { useState, useEffect } from "react";
 import logo from "@/assets/ze-delivery-logo.jpg";
 import { useCart } from "@/context/CartContext";
 
-const STORE_LAT = -23.5505;
-const STORE_LNG = -46.6333;
+const STORES = [
+  { lat: -23.5505, lng: -46.6333 },  // São Paulo - Centro
+  { lat: -23.5630, lng: -46.6543 },  // São Paulo - Paulista
+  { lat: -23.5475, lng: -46.6361 },  // São Paulo - República
+  { lat: -22.9068, lng: -43.1729 },  // Rio de Janeiro - Centro
+  { lat: -22.9707, lng: -43.1824 },  // Rio - Copacabana
+  { lat: -19.9167, lng: -43.9345 },  // Belo Horizonte
+  { lat: -25.4284, lng: -49.2733 },  // Curitiba
+  { lat: -30.0346, lng: -51.2177 },  // Porto Alegre
+  { lat: -12.9714, lng: -38.5124 },  // Salvador
+  { lat: -8.0476, lng: -34.8770 },   // Recife
+];
 
 function haversineDistance(lat1: number, lng1: number, lat2: number, lng2: number) {
   const R = 6371;
@@ -16,6 +26,10 @@ function haversineDistance(lat1: number, lng1: number, lat2: number, lng2: numbe
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
+function nearestStoreDistance(lat: number, lng: number) {
+  return Math.min(...STORES.map(s => haversineDistance(lat, lng, s.lat, s.lng)));
+}
+
 const Header = () => {
   const { totalItems, setIsOpen } = useCart();
   const [distance, setDistance] = useState<number | null>(null);
@@ -25,7 +39,7 @@ const Header = () => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
-          const km = haversineDistance(pos.coords.latitude, pos.coords.longitude, STORE_LAT, STORE_LNG);
+          const km = nearestStoreDistance(pos.coords.latitude, pos.coords.longitude);
           setDistance(km);
           setLoading(false);
         },
