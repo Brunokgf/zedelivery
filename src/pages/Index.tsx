@@ -7,6 +7,7 @@ import ComboSection from "@/components/ComboSection";
 import CartDrawer from "@/components/CartDrawer";
 import UrgentOfferPopup from "@/components/UrgentOfferPopup";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import StoreMap from "@/components/StoreMap";
 import { products } from "@/data/products";
 
 const Index = () => {
@@ -50,6 +51,8 @@ const Index = () => {
           </div>
         )}
       </main>
+
+      <StoreMap />
 
       <CartDrawer />
       <UrgentOfferPopup />
