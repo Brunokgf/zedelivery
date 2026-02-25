@@ -26,6 +26,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <HeroBanner searchQuery={searchQuery} onSearchChange={setSearchQuery} />
+      <StoreMap />
       <CategoryBar activeCategory={activeCategory} onSelectCategory={setActiveCategory} />
 
       {!activeCategory && !searchQuery && <ComboSection />}
@@ -51,8 +52,6 @@ const Index = () => {
           </div>
         )}
       </main>
-
-      <StoreMap />
 
       <CartDrawer />
       <UrgentOfferPopup />
