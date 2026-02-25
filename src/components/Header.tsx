@@ -4,16 +4,26 @@ import logo from "@/assets/ze-delivery-logo.jpg";
 import { useCart } from "@/context/CartContext";
 
 const STORES = [
-  { lat: -23.5505, lng: -46.6333 },  // São Paulo - Centro
-  { lat: -23.5630, lng: -46.6543 },  // São Paulo - Paulista
-  { lat: -23.5475, lng: -46.6361 },  // São Paulo - República
-  { lat: -22.9068, lng: -43.1729 },  // Rio de Janeiro - Centro
-  { lat: -22.9707, lng: -43.1824 },  // Rio - Copacabana
-  { lat: -19.9167, lng: -43.9345 },  // Belo Horizonte
-  { lat: -25.4284, lng: -49.2733 },  // Curitiba
-  { lat: -30.0346, lng: -51.2177 },  // Porto Alegre
-  { lat: -12.9714, lng: -38.5124 },  // Salvador
-  { lat: -8.0476, lng: -34.8770 },   // Recife
+  { lat: -23.5505, lng: -46.6333 },
+  { lat: -23.5630, lng: -46.6543 },
+  { lat: -23.5475, lng: -46.6361 },
+  { lat: -22.9068, lng: -43.1729 },
+  { lat: -22.9707, lng: -43.1824 },
+  { lat: -19.9167, lng: -43.9345 },
+  { lat: -25.4284, lng: -49.2733 },
+  { lat: -30.0346, lng: -51.2177 },
+  { lat: -12.9714, lng: -38.5124 },
+  { lat: -8.0476, lng: -34.8770 },
+  { lat: -15.7975, lng: -47.8919 },
+  { lat: -3.7172, lng: -38.5433 },
+  { lat: -3.1190, lng: -60.0217 },
+  { lat: -16.6869, lng: -49.2648 },
+  { lat: -2.5297, lng: -44.2825 },
+  { lat: -1.4558, lng: -48.5024 },
+  { lat: -5.7945, lng: -35.2110 },
+  { lat: -20.3155, lng: -40.3128 },
+  { lat: -27.5954, lng: -48.5480 },
+  { lat: -10.9472, lng: -37.0731 },
 ];
 
 function haversineDistance(lat1: number, lng1: number, lat2: number, lng2: number) {

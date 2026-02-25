@@ -14,6 +14,16 @@ const STORES = [
   { lat: -30.0346, lng: -51.2177, name: "Zé Delivery - Porto Alegre" },
   { lat: -12.9714, lng: -38.5124, name: "Zé Delivery - Salvador" },
   { lat: -8.0476, lng: -34.8770, name: "Zé Delivery - Recife" },
+  { lat: -15.7975, lng: -47.8919, name: "Zé Delivery - Brasília" },
+  { lat: -3.7172, lng: -38.5433, name: "Zé Delivery - Fortaleza" },
+  { lat: -3.1190, lng: -60.0217, name: "Zé Delivery - Manaus" },
+  { lat: -16.6869, lng: -49.2648, name: "Zé Delivery - Goiânia" },
+  { lat: -2.5297, lng: -44.2825, name: "Zé Delivery - São Luís" },
+  { lat: -1.4558, lng: -48.5024, name: "Zé Delivery - Belém" },
+  { lat: -5.7945, lng: -35.2110, name: "Zé Delivery - Natal" },
+  { lat: -20.3155, lng: -40.3128, name: "Zé Delivery - Vitória" },
+  { lat: -27.5954, lng: -48.5480, name: "Zé Delivery - Florianópolis" },
+  { lat: -10.9472, lng: -37.0731, name: "Zé Delivery - Aracaju" },
 ];
 
 const storeIcon = new L.Icon({
@@ -113,7 +123,7 @@ const StoreMap = () => {
           <div className="flex items-center gap-3 bg-muted/50 rounded-lg p-4">
             <MapPin className="h-5 w-5 text-ze-orange shrink-0" />
             <div>
-              <p className="font-bold text-sm text-foreground">+10 lojas</p>
+              <p className="font-bold text-sm text-foreground">+20 lojas</p>
               <p className="text-xs text-muted-foreground">Em todo o Brasil</p>
             </div>
           </div>
