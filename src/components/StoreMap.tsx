@@ -1,8 +1,7 @@
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
-import { Icon, LatLngTuple } from "leaflet";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { MapPin, Clock, Phone } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const STORES = [
   { lat: -23.5505, lng: -46.6333, name: "Zé Delivery - Centro SP" },
@@ -17,7 +16,7 @@ const STORES = [
   { lat: -8.0476, lng: -34.8770, name: "Zé Delivery - Recife" },
 ];
 
-const storeIcon = new Icon({
+const storeIcon = new L.Icon({
   iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
   iconSize: [32, 32],
   iconAnchor: [16, 32],
@@ -47,30 +46,48 @@ function findNearestStore(lat: number, lng: number) {
   return nearest;
 }
 
-const FlyToNearest = ({ center }: { center: LatLngTuple }) => {
-  const map = useMap();
-  useEffect(() => {
-    map.flyTo(center, 13, { duration: 2 });
-  }, [center, map]);
-  return null;
-};
-
 const StoreMap = () => {
-  const [nearestCenter, setNearestCenter] = useState<LatLngTuple | null>(null);
+  const mapRef = useRef<L.Map | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [nearestName, setNearestName] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!containerRef.current || mapRef.current) return;
+
+    const map = L.map(containerRef.current, {
+      center: [-15.7801, -47.9292],
+      zoom: 4,
+      scrollWheelZoom: false,
+    });
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(map);
+
+    STORES.forEach((store) => {
+      L.marker([store.lat, store.lng], { icon: storeIcon })
+        .addTo(map)
+        .bindPopup(`<strong>${store.name}</strong><br/><span style="font-size:11px">Aberto agora • Entrega rápida</span>`);
+    });
+
+    mapRef.current = map;
+
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
           const nearest = findNearestStore(pos.coords.latitude, pos.coords.longitude);
-          setNearestCenter([nearest.lat, nearest.lng]);
           setNearestName(nearest.name);
+          map.flyTo([nearest.lat, nearest.lng], 13, { duration: 2 });
         },
         () => {},
         { timeout: 5000 }
       );
     }
+
+    return () => {
+      map.remove();
+      mapRef.current = null;
+    };
   }, []);
 
   return (
@@ -89,27 +106,7 @@ const StoreMap = () => {
         </div>
 
         <div className="rounded-xl overflow-hidden shadow-lg border border-border" style={{ height: 350 }}>
-          <MapContainer
-            center={[-15.7801, -47.9292]}
-            zoom={4}
-            style={{ height: "100%", width: "100%" }}
-            scrollWheelZoom={false}
-          >
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            {nearestCenter && <FlyToNearest center={nearestCenter} />}
-            {STORES.map((store, i) => (
-              <Marker key={i} position={[store.lat, store.lng]} icon={storeIcon}>
-                <Popup>
-                  <strong>{store.name}</strong>
-                  <br />
-                  <span className="text-xs">Aberto agora • Entrega rápida</span>
-                </Popup>
-              </Marker>
-            ))}
-          </MapContainer>
+          <div ref={containerRef} style={{ height: "100%", width: "100%" }} />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
