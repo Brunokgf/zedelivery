@@ -24,6 +24,21 @@ const STORES = [
   { lat: -20.3155, lng: -40.3128, name: "Zé Delivery - Vitória" },
   { lat: -27.5954, lng: -48.5480, name: "Zé Delivery - Florianópolis" },
   { lat: -10.9472, lng: -37.0731, name: "Zé Delivery - Aracaju" },
+  { lat: -9.6658, lng: -35.7353, name: "Zé Delivery - Maceió" },
+  { lat: -7.1195, lng: -34.8450, name: "Zé Delivery - João Pessoa" },
+  { lat: -5.0892, lng: -42.8019, name: "Zé Delivery - Teresina" },
+  { lat: -2.5046, lng: -44.2826, name: "Zé Delivery - São Luís Norte" },
+  { lat: -10.5105, lng: -48.3603, name: "Zé Delivery - Palmas" },
+  { lat: -20.4697, lng: -54.6201, name: "Zé Delivery - Campo Grande" },
+  { lat: -15.6014, lng: -56.0979, name: "Zé Delivery - Cuiabá" },
+  { lat: 2.8195, lng: -60.6714, name: "Zé Delivery - Boa Vista" },
+  { lat: -0.0346, lng: -51.0694, name: "Zé Delivery - Macapá" },
+  { lat: -9.9747, lng: -67.8100, name: "Zé Delivery - Rio Branco" },
+  { lat: -8.7612, lng: -63.9004, name: "Zé Delivery - Porto Velho" },
+  { lat: -22.9099, lng: -47.0626, name: "Zé Delivery - Campinas" },
+  { lat: -23.3045, lng: -51.1696, name: "Zé Delivery - Londrina" },
+  { lat: -21.1767, lng: -47.8208, name: "Zé Delivery - Ribeirão Preto" },
+  { lat: -22.3285, lng: -49.0718, name: "Zé Delivery - Bauru" },
 ];
 
 const storeIcon = new L.Icon({
@@ -123,7 +138,7 @@ const StoreMap = () => {
           <div className="flex items-center gap-3 bg-muted/50 rounded-lg p-4">
             <MapPin className="h-5 w-5 text-ze-orange shrink-0" />
             <div>
-              <p className="font-bold text-sm text-foreground">+20 lojas</p>
+              <p className="font-bold text-sm text-foreground">+35 lojas</p>
               <p className="text-xs text-muted-foreground">Em todo o Brasil</p>
             </div>
           </div>
