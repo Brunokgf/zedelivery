@@ -2,44 +2,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { MapPin, Clock, Phone } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-
-const STORES = [
-  { lat: -23.5505, lng: -46.6333, name: "Zé Delivery - Centro SP" },
-  { lat: -23.5630, lng: -46.6543, name: "Zé Delivery - Paulista" },
-  { lat: -23.5475, lng: -46.6361, name: "Zé Delivery - República" },
-  { lat: -22.9068, lng: -43.1729, name: "Zé Delivery - Centro RJ" },
-  { lat: -22.9707, lng: -43.1824, name: "Zé Delivery - Copacabana" },
-  { lat: -19.9167, lng: -43.9345, name: "Zé Delivery - BH" },
-  { lat: -25.4284, lng: -49.2733, name: "Zé Delivery - Curitiba" },
-  { lat: -30.0346, lng: -51.2177, name: "Zé Delivery - Porto Alegre" },
-  { lat: -12.9714, lng: -38.5124, name: "Zé Delivery - Salvador" },
-  { lat: -8.0476, lng: -34.8770, name: "Zé Delivery - Recife" },
-  { lat: -15.7975, lng: -47.8919, name: "Zé Delivery - Brasília" },
-  { lat: -3.7172, lng: -38.5433, name: "Zé Delivery - Fortaleza" },
-  { lat: -3.1190, lng: -60.0217, name: "Zé Delivery - Manaus" },
-  { lat: -16.6869, lng: -49.2648, name: "Zé Delivery - Goiânia" },
-  { lat: -2.5297, lng: -44.2825, name: "Zé Delivery - São Luís" },
-  { lat: -1.4558, lng: -48.5024, name: "Zé Delivery - Belém" },
-  { lat: -5.7945, lng: -35.2110, name: "Zé Delivery - Natal" },
-  { lat: -20.3155, lng: -40.3128, name: "Zé Delivery - Vitória" },
-  { lat: -27.5954, lng: -48.5480, name: "Zé Delivery - Florianópolis" },
-  { lat: -10.9472, lng: -37.0731, name: "Zé Delivery - Aracaju" },
-  { lat: -9.6658, lng: -35.7353, name: "Zé Delivery - Maceió" },
-  { lat: -7.1195, lng: -34.8450, name: "Zé Delivery - João Pessoa" },
-  { lat: -5.0892, lng: -42.8019, name: "Zé Delivery - Teresina" },
-  { lat: -2.5046, lng: -44.2826, name: "Zé Delivery - São Luís Norte" },
-  { lat: -10.5105, lng: -48.3603, name: "Zé Delivery - Palmas" },
-  { lat: -20.4697, lng: -54.6201, name: "Zé Delivery - Campo Grande" },
-  { lat: -15.6014, lng: -56.0979, name: "Zé Delivery - Cuiabá" },
-  { lat: 2.8195, lng: -60.6714, name: "Zé Delivery - Boa Vista" },
-  { lat: -0.0346, lng: -51.0694, name: "Zé Delivery - Macapá" },
-  { lat: -9.9747, lng: -67.8100, name: "Zé Delivery - Rio Branco" },
-  { lat: -8.7612, lng: -63.9004, name: "Zé Delivery - Porto Velho" },
-  { lat: -22.9099, lng: -47.0626, name: "Zé Delivery - Campinas" },
-  { lat: -23.3045, lng: -51.1696, name: "Zé Delivery - Londrina" },
-  { lat: -21.1767, lng: -47.8208, name: "Zé Delivery - Ribeirão Preto" },
-  { lat: -22.3285, lng: -49.0718, name: "Zé Delivery - Bauru" },
-];
+import { STORES, findNearestStore } from "@/data/stores";
 
 const storeIcon = new L.Icon({
   iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
@@ -47,29 +10,6 @@ const storeIcon = new L.Icon({
   iconAnchor: [16, 32],
   popupAnchor: [0, -32],
 });
-
-function haversineDistance(lat1: number, lng1: number, lat2: number, lng2: number) {
-  const R = 6371;
-  const dLat = ((lat2 - lat1) * Math.PI) / 180;
-  const dLng = ((lng2 - lng1) * Math.PI) / 180;
-  const a =
-    Math.sin(dLat / 2) ** 2 +
-    Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLng / 2) ** 2;
-  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-}
-
-function findNearestStore(lat: number, lng: number) {
-  let nearest = STORES[0];
-  let minDist = Infinity;
-  for (const store of STORES) {
-    const d = haversineDistance(lat, lng, store.lat, store.lng);
-    if (d < minDist) {
-      minDist = d;
-      nearest = store;
-    }
-  }
-  return nearest;
-}
 
 const StoreMap = () => {
   const mapRef = useRef<L.Map | null>(null);
@@ -100,7 +40,7 @@ const StoreMap = () => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
-          const nearest = findNearestStore(pos.coords.latitude, pos.coords.longitude);
+          const { store: nearest } = findNearestStore(pos.coords.latitude, pos.coords.longitude);
           setNearestName(nearest.name);
           map.flyTo([nearest.lat, nearest.lng], 13, { duration: 2 });
         },
@@ -138,7 +78,7 @@ const StoreMap = () => {
           <div className="flex items-center gap-3 bg-muted/50 rounded-lg p-4">
             <MapPin className="h-5 w-5 text-ze-orange shrink-0" />
             <div>
-              <p className="font-bold text-sm text-foreground">+35 lojas</p>
+              <p className="font-bold text-sm text-foreground">+{STORES.length} lojas</p>
               <p className="text-xs text-muted-foreground">Em todo o Brasil</p>
             </div>
           </div>
