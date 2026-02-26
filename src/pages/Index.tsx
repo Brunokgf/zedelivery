@@ -14,6 +14,7 @@ import { products } from "@/data/products";
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [showMap, setShowMap] = useState(() => !!sessionStorage.getItem("urgent-offer-seen"));
 
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {
@@ -27,7 +28,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <HeroBanner searchQuery={searchQuery} onSearchChange={setSearchQuery} />
-      <StoreMap />
+      {showMap && <StoreMap />}
       <CategoryBar activeCategory={activeCategory} onSelectCategory={setActiveCategory} />
 
       {!activeCategory && !searchQuery && <ComboSection />}
@@ -57,7 +58,7 @@ const Index = () => {
       <ReviewsSection />
 
       <CartDrawer />
-      <UrgentOfferPopup />
+      <UrgentOfferPopup onClose={() => setShowMap(true)} />
       <WhatsAppButton />
     </div>
   );

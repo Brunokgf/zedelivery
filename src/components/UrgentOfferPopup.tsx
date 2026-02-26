@@ -9,7 +9,11 @@ const OFFER_COMBOS = [
   { id: 34, discountPrice: 79.90, originalPrice: 219.90 },
 ];
 
-const UrgentOfferPopup = () => {
+interface UrgentOfferPopupProps {
+  onClose?: () => void;
+}
+
+const UrgentOfferPopup = ({ onClose }: UrgentOfferPopupProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ minutes: 14, seconds: 59 });
   const { addItem } = useCart();
@@ -17,8 +21,7 @@ const UrgentOfferPopup = () => {
   useEffect(() => {
     const alreadySeen = sessionStorage.getItem("urgent-offer-seen");
     if (!alreadySeen) {
-      const timer = setTimeout(() => setIsOpen(true), 2000);
-      return () => clearTimeout(timer);
+      setIsOpen(true);
     }
   }, []);
 
@@ -37,6 +40,7 @@ const UrgentOfferPopup = () => {
   const handleClose = () => {
     setIsOpen(false);
     sessionStorage.setItem("urgent-offer-seen", "true");
+    onClose?.();
   };
 
   const handleAddToCart = (productId: number) => {
