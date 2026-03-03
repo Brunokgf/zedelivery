@@ -86,6 +86,9 @@ import delValleImg from "@/assets/products/del-valle.jpg";
 import aguaCocoImg from "@/assets/products/agua-coco.jpg";
 import tonicaImg from "@/assets/products/tonica.jpg";
 import conchaYToroImg from "@/assets/products/concha-y-toro.jpg";
+import mansaoMarombaEnergeticoImg from "@/assets/products/mansao-maromba-energetico.jpg";
+import mansaoMarombaFrutasImg from "@/assets/products/mansao-maromba-frutas.jpg";
+import mansaoMarombaWhiskyImg from "@/assets/products/mansao-maromba-whisky.jpg";
 
 export type Product = {
   id: number;
@@ -883,6 +886,34 @@ export const products: Product[] = [
     price: 29.90,
     image: conchaYToroImg,
     category: "vinhos",
+    tag: "Mais vendido",
+  },
+  // Mansão Maromba Drinks
+  {
+    id: 89,
+    name: "Mansão Maromba Energético 1L",
+    description: "Drink pronto Mansão Maromba sabor energético 8% ABV",
+    price: 14.99,
+    image: mansaoMarombaEnergeticoImg,
+    category: "drinks",
+    tag: "Mais vendido",
+  },
+  {
+    id: 90,
+    name: "Mansão Maromba Frutas 473ml",
+    description: "Drink pronto Mansão Maromba frutas tropicais 8% ABV",
+    price: 8.99,
+    image: mansaoMarombaFrutasImg,
+    category: "drinks",
+    tag: "Novidade",
+  },
+  {
+    id: 91,
+    name: "Mansão Maromba Whisky Combo 1L",
+    description: "Drink pronto Mansão Maromba base whisky 8% ABV",
+    price: 14.99,
+    image: mansaoMarombaWhiskyImg,
+    category: "drinks",
     tag: "Mais vendido",
   },
 ];
