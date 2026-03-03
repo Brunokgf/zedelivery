@@ -89,6 +89,9 @@ import conchaYToroImg from "@/assets/products/concha-y-toro.jpg";
 import mansaoMarombaEnergeticoImg from "@/assets/products/mansao-maromba-energetico.jpg";
 import mansaoMarombaFrutasImg from "@/assets/products/mansao-maromba-frutas.jpg";
 import mansaoMarombaWhiskyImg from "@/assets/products/mansao-maromba-whisky.jpg";
+import mansaoMarombaAcaiImg from "@/assets/products/mansao-maromba-acai.jpg";
+import mansaoMarombaIceImg from "@/assets/products/mansao-maromba-ice.jpg";
+import mansaoMarombaVodkaImg from "@/assets/products/mansao-maromba-vodka.jpg";
 
 export type Product = {
   id: number;
@@ -913,6 +916,33 @@ export const products: Product[] = [
     description: "Drink pronto Mansão Maromba base whisky 8% ABV",
     price: 14.99,
     image: mansaoMarombaWhiskyImg,
+    category: "drinks",
+    tag: "Mais vendido",
+  },
+  {
+    id: 92,
+    name: "Mansão Maromba Açaí 473ml",
+    description: "Drink pronto Mansão Maromba sabor açaí com guaraná 8% ABV",
+    price: 8.99,
+    image: mansaoMarombaAcaiImg,
+    category: "drinks",
+    tag: "Mais vendido",
+  },
+  {
+    id: 93,
+    name: "Mansão Maromba Ice 473ml",
+    description: "Drink pronto Mansão Maromba sabor ice refrescante 8% ABV",
+    price: 8.99,
+    image: mansaoMarombaIceImg,
+    category: "drinks",
+    tag: "Mais vendido",
+  },
+  {
+    id: 94,
+    name: "Mansão Maromba Vodka 473ml",
+    description: "Drink pronto Mansão Maromba base vodka 8% ABV",
+    price: 8.99,
+    image: mansaoMarombaVodkaImg,
     category: "drinks",
     tag: "Mais vendido",
   },
