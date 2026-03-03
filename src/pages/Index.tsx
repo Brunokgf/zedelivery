@@ -4,6 +4,7 @@ import HeroBanner from "@/components/HeroBanner";
 import CategoryBar from "@/components/CategoryBar";
 import ProductCard from "@/components/ProductCard";
 import ComboSection from "@/components/ComboSection";
+import MansaoMarombaSection from "@/components/MansaoMarombaSection";
 import CartDrawer from "@/components/CartDrawer";
 import UrgentOfferPopup from "@/components/UrgentOfferPopup";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -32,6 +33,7 @@ const Index = () => {
       <CategoryBar activeCategory={activeCategory} onSelectCategory={setActiveCategory} />
 
       {!activeCategory && !searchQuery && <ComboSection />}
+      {!activeCategory && !searchQuery && <MansaoMarombaSection />}
 
       <main className="container py-6">
         <div className="mb-4 flex items-center justify-between">
