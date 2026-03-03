@@ -92,6 +92,12 @@ import mansaoMarombaWhiskyImg from "@/assets/products/mansao-maromba-whisky.jpg"
 import mansaoMarombaAcaiImg from "@/assets/products/mansao-maromba-acai.jpg";
 import mansaoMarombaIceImg from "@/assets/products/mansao-maromba-ice.jpg";
 import mansaoMarombaVodkaImg from "@/assets/products/mansao-maromba-vodka.jpg";
+import mansaoMarombaVodkaComboImg from "@/assets/products/mansao-maromba-vodka-combo.jpg";
+import mansaoMarombaGinMelanciaImg from "@/assets/products/mansao-maromba-gin-melancia.jpg";
+import mansaoMarombaGinTigrinhoImg from "@/assets/products/mansao-maromba-gin-tigrinho.jpg";
+import mansaoMarombaWhiskyMacaImg from "@/assets/products/mansao-maromba-whisky-maca.jpg";
+import mansaoMarombaWhiskyDoubleImg from "@/assets/products/mansao-maromba-whisky-double.jpg";
+import mansaoMarombaGinGobellsImg from "@/assets/products/mansao-maromba-gin-gobells.jpg";
 
 export type Product = {
   id: number;
@@ -945,5 +951,59 @@ export const products: Product[] = [
     image: mansaoMarombaVodkaImg,
     category: "drinks",
     tag: "Mais vendido",
+  },
+  {
+    id: 95,
+    name: "Mansão Maromba Vodka + Combo 1L",
+    description: "Drink pronto Mansão Maromba Vodka combo tamanho família 8% ABV",
+    price: 14.99,
+    image: mansaoMarombaVodkaComboImg,
+    category: "drinks",
+    tag: "Em alta",
+  },
+  {
+    id: 96,
+    name: "Mansão Maromba Gin + Combo Melancia 1L",
+    description: "Drink pronto Mansão Maromba Gin sabor melancia refrescante 8% ABV",
+    price: 14.99,
+    image: mansaoMarombaGinMelanciaImg,
+    category: "drinks",
+    tag: "Em alta",
+  },
+  {
+    id: 97,
+    name: "Mansão Maromba Gin + Combo Tigrinho Tropical 1L",
+    description: "Drink pronto Mansão Maromba Gin Tigrinho Tropical exótico 8% ABV",
+    price: 14.99,
+    image: mansaoMarombaGinTigrinhoImg,
+    category: "drinks",
+    tag: "Em alta",
+  },
+  {
+    id: 98,
+    name: "Mansão Maromba Whisky + Combo Maçã Verde 1L",
+    description: "Drink pronto Mansão Maromba Whisky sabor maçã verde 8% ABV",
+    price: 14.99,
+    image: mansaoMarombaWhiskyMacaImg,
+    category: "drinks",
+    tag: "Em alta",
+  },
+  {
+    id: 99,
+    name: "Mansão Maromba Whisky + Combo Double Darkness 1L",
+    description: "Drink pronto Mansão Maromba Whisky Double Darkness intenso 8% ABV",
+    price: 14.99,
+    image: mansaoMarombaWhiskyDoubleImg,
+    category: "drinks",
+    tag: "Em alta",
+  },
+  {
+    id: 100,
+    name: "Mansão Maromba Gin Go Bells 1L",
+    description: "Drink pronto Mansão Maromba Gin Go Bells premium 8% ABV",
+    price: 14.99,
+    image: mansaoMarombaGinGobellsImg,
+    category: "drinks",
+    tag: "Em alta",
   },
 ];
