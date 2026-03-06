@@ -18,7 +18,7 @@ const MansaoMarombaSection = () => {
         </span>
       </div>
       <div className="grid grid-cols-3 gap-4">
-        {mansaoProducts.map((product) => (
+        {ginProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
