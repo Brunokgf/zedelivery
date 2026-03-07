@@ -1,7 +1,7 @@
 import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
 
-const displayIds = [89, 90, 91, 92, 93, 94, 96, 97, 100];
+const displayIds = [91, 95, 96, 97, 98, 99, 100, 101, 102, 103];
 
 const MansaoMarombaSection = () => {
   const displayProducts = products.filter((p) => displayIds.includes(p.id));
