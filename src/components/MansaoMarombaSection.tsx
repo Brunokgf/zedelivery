@@ -1,12 +1,12 @@
 import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
 
-const ginIds = [96, 97, 100];
+const displayIds = [89, 90, 91, 92, 93, 94, 96, 97, 100];
 
 const MansaoMarombaSection = () => {
-  const ginProducts = products.filter((p) => ginIds.includes(p.id));
+  const displayProducts = products.filter((p) => displayIds.includes(p.id));
 
-  if (ginProducts.length === 0) return null;
+  if (displayProducts.length === 0) return null;
 
   return (
     <section className="container py-6">
@@ -18,7 +18,7 @@ const MansaoMarombaSection = () => {
         </span>
       </div>
       <div className="grid grid-cols-3 gap-4">
-        {ginProducts.map((product) => (
+        {displayProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
