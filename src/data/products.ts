@@ -98,6 +98,8 @@ import mansaoMarombaGinTigrinhoImg from "@/assets/products/mansao-maromba-gin-ti
 import mansaoMarombaWhiskyMacaImg from "@/assets/products/mansao-maromba-whisky-maca.jpg";
 import mansaoMarombaWhiskyDoubleImg from "@/assets/products/mansao-maromba-whisky-double.jpg";
 import mansaoMarombaGinGobellsImg from "@/assets/products/mansao-maromba-gin-gobells.jpg";
+import mansaoMarombaGinMacaVerdeImg from "@/assets/products/mansao-maromba-gin-maca-verde.jpg";
+import mansaoMarombaGinMelancia750Img from "@/assets/products/mansao-maromba-gin-melancia-750.jpg";
 
 export type Product = {
   id: number;
