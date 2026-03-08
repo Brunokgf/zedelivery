@@ -96,6 +96,7 @@ import mansaoMarombaVodkaImg from "@/assets/products/mansao-maromba-vodka.jpg";
 import mansaoMarombaCombo1Img from "@/assets/products/mansao-maromba-combo1.jpg";
 import mansaoMarombaCombo2Img from "@/assets/products/mansao-maromba-combo2.jpg";
 import mansaoMarombaCombo3Img from "@/assets/products/mansao-maromba-combo3.jpg";
+import mansaoMarombaComboGinImg from "@/assets/products/mansao-maromba-combo-gin.jpg";
 import mansaoMarombaVodkaComboImg from "@/assets/products/mansao-maromba-vodka-combo.jpg";
 import mansaoMarombaGinMelanciaImg from "@/assets/products/mansao-maromba-gin-melancia.jpg";
 import mansaoMarombaGinTigrinhoImg from "@/assets/products/mansao-maromba-gin-tigrinho.jpg";
@@ -1014,5 +1015,14 @@ export const products: Product[] = [
     image: mansaoMarombaCombo3Img,
     category: "drinks",
     tag: "Novo",
+  },
+  {
+    id: 107,
+    name: "Mansão Maromba Combo 6 Garrafas 750ml",
+    description: "2x Whisky 750ml + 2x Gin Maçã Verde 750ml + 2x Gin Laranja com Maracujá 750ml",
+    price: 139.90,
+    image: mansaoMarombaComboGinImg,
+    category: "drinks",
+    tag: "Super Combo",
   },
 ];
