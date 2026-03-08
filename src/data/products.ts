@@ -1027,4 +1027,22 @@ export const products: Product[] = [
     category: "drinks",
     tag: "Super Combo",
   },
+  {
+    id: 108,
+    name: "Jack Daniel's Combo 4 Garrafas",
+    description: "Jack Apple + Jack Fire + Jack Honey + Jack N°7 - 1L cada",
+    price: 150.90,
+    image: mansaoMarombaJackComboImg,
+    category: "drinks",
+    tag: "Combo Jack",
+  },
+  {
+    id: 109,
+    name: "Combo Whisky Premium 4 Garrafas",
+    description: "Red Label + Tanqueray + 2x White Horse - Garrafas 1L",
+    price: 250.90,
+    image: mansaoMarombaWhiskyComboImg,
+    category: "drinks",
+    tag: "Combo Premium",
+  },
 ];
