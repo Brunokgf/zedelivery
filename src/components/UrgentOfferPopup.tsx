@@ -8,7 +8,7 @@ const OFFER_COMBOS = [
   { id: 33, discountPrice: 99.90, originalPrice: 299.90 },
   { id: 34, discountPrice: 79.90, originalPrice: 219.90 },
   { id: 108, discountPrice: 150.90, originalPrice: 399.90 },
-  { id: 109, discountPrice: 249.90, originalPrice: 599.90 },
+  { id: 109, discountPrice: 149.90, originalPrice: 599.90 },
   { id: 110, discountPrice: 149.90, originalPrice: 350.00 },
   { id: 111, discountPrice: 149.90, originalPrice: 450.00 },
   { id: 112, discountPrice: 149.90, originalPrice: 500.00 },
