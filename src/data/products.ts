@@ -1052,7 +1052,7 @@ export const products: Product[] = [
     id: 110,
     name: "Combo JW Double Black + 2 Red Bull",
     description: "Johnnie Walker Double Black 1L + 2 Red Bull 250ml",
-    price: 150.00,
+    price: 149.90,
     image: comboWhiskyRedbullImg,
     category: "combos",
     tag: "Whisky + Energy",
