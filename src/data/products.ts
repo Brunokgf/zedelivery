@@ -72,7 +72,7 @@ import spriteLataImg from "@/assets/products/sprite-lata.jpg";
 import mikesImg from "@/assets/products/mikes.jpg";
 import beatsTropicalImg from "@/assets/products/beats-tropical.jpg";
 import keepCoolerImg from "@/assets/products/keep-cooler.jpg";
-import gelo5kgImg from "@/assets/products/gelo-5kg.jpg";
+
 import heineken00Img from "@/assets/products/heineken-00.jpg";
 import coloradoImg from "@/assets/products/colorado.jpg";
 import hoegaardenImg from "@/assets/products/hoegaarden.jpg";
