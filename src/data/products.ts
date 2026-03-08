@@ -4,7 +4,7 @@ import cocaColaImg from "@/assets/products/coca-cola.jpg";
 import absolutImg from "@/assets/products/absolut.jpg";
 import skolImg from "@/assets/products/skol.jpg";
 import vinhoImg from "@/assets/products/vinho.jpg";
-import geloImg from "@/assets/products/gelo.jpg";
+
 import coronaImg from "@/assets/products/corona.jpg";
 import budweiserImg from "@/assets/products/budweiser.jpg";
 import stellaImg from "@/assets/products/stella.jpg";
