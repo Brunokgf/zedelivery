@@ -4,7 +4,7 @@ import cocaColaImg from "@/assets/products/coca-cola.jpg";
 import absolutImg from "@/assets/products/absolut.jpg";
 import skolImg from "@/assets/products/skol.jpg";
 import vinhoImg from "@/assets/products/vinho.jpg";
-import geloImg from "@/assets/products/gelo.jpg";
+
 import coronaImg from "@/assets/products/corona.jpg";
 import budweiserImg from "@/assets/products/budweiser.jpg";
 import stellaImg from "@/assets/products/stella.jpg";
@@ -25,9 +25,10 @@ import fantaImg from "@/assets/products/fanta.jpg";
 import pepsiImg from "@/assets/products/pepsi.jpg";
 import schweppesImg from "@/assets/products/schweppes.jpg";
 import tanquerayImg from "@/assets/products/tanqueray.jpg";
-import geloLimaoImg from "@/assets/products/gelo-limao.jpg";
+import geloLaranjaImg from "@/assets/products/gelo-laranja.jpg";
 import geloMorangoImg from "@/assets/products/gelo-morango.jpg";
 import geloMaracujaImg from "@/assets/products/gelo-maracuja.jpg";
+import geloAguaCocoImg from "@/assets/products/gelo-agua-coco.jpg";
 import comboTanquerayImg from "@/assets/products/combo-tanqueray.jpg";
 import comboAbsolutImg from "@/assets/products/combo-absolut.jpg";
 import comboJackImg from "@/assets/products/combo-jack.jpg";
@@ -71,7 +72,7 @@ import spriteLataImg from "@/assets/products/sprite-lata.jpg";
 import mikesImg from "@/assets/products/mikes.jpg";
 import beatsTropicalImg from "@/assets/products/beats-tropical.jpg";
 import keepCoolerImg from "@/assets/products/keep-cooler.jpg";
-import gelo5kgImg from "@/assets/products/gelo-5kg.jpg";
+
 import heineken00Img from "@/assets/products/heineken-00.jpg";
 import coloradoImg from "@/assets/products/colorado.jpg";
 import hoegaardenImg from "@/assets/products/hoegaarden.jpg";
@@ -185,11 +186,12 @@ export const products: Product[] = [
   },
   {
     id: 8,
-    name: "Gelo 3kg",
-    description: "Saco de gelo 3 quilos",
-    price: 5.99,
-    image: geloImg,
+    name: "Gelo Sabor Água de Coco 190g",
+    description: "Gelo saborizado sabor água de coco para drinks",
+    price: 7.99,
+    image: geloAguaCocoImg,
     category: "extras",
+    tag: "Novidade",
   },
   {
     id: 9,
@@ -353,10 +355,10 @@ export const products: Product[] = [
   },
   {
     id: 28,
-    name: "Gelo Sabor Limão 1kg",
-    description: "Gelo de sabor limão refrescante",
+    name: "Gelo Sabor Laranja 170g",
+    description: "Gelo saborizado sabor laranja refrescante",
     price: 7.99,
-    image: geloLimaoImg,
+    image: geloLaranjaImg,
     category: "extras",
     tag: "Novidade",
   },
@@ -761,16 +763,7 @@ export const products: Product[] = [
     image: keepCoolerImg,
     category: "drinks",
   },
-  // Novos Extras
-  {
-    id: 74,
-    name: "Gelo 5kg",
-    description: "Saco de gelo 5 quilos para festas",
-    price: 8.99,
-    image: gelo5kgImg,
-    category: "extras",
-    tag: "Mais vendido",
-  },
+  // Gelo 5kg removido - só gelos saborizados
   // Cervejas especiais
   {
     id: 75,
