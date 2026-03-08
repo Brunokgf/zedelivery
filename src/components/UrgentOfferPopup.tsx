@@ -7,6 +7,8 @@ const OFFER_COMBOS = [
   { id: 31, discountPrice: 69.90, originalPrice: 209.90 },
   { id: 33, discountPrice: 99.90, originalPrice: 299.90 },
   { id: 34, discountPrice: 79.90, originalPrice: 219.90 },
+  { id: 108, discountPrice: 150.90, originalPrice: 399.90 },
+  { id: 109, discountPrice: 250.90, originalPrice: 599.90 },
 ];
 
 interface UrgentOfferPopupProps {
@@ -148,7 +150,7 @@ const UrgentOfferPopup = ({ onClose }: UrgentOfferPopupProps) => {
                 key={offer.id}
                 className="flex items-center gap-3 rounded-2xl bg-muted/40 p-3 border border-border hover:border-primary/50 transition-all hover:shadow-md"
               >
-                <div className="relative h-12 w-12 flex-shrink-0 rounded-lg bg-background overflow-hidden shadow-sm">
+                <div className="relative h-14 w-14 flex-shrink-0 rounded-lg bg-background overflow-hidden shadow-sm">
                   <img
                     src={product.image}
                     alt={product.name}
