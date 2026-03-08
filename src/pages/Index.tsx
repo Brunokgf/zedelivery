@@ -33,6 +33,7 @@ const Index = () => {
       {showMap && <StoreMap />}
       <CategoryBar activeCategory={activeCategory} onSelectCategory={setActiveCategory} />
 
+      {!activeCategory && !searchQuery && <PromoBanner />}
       {!activeCategory && !searchQuery && <ComboSection />}
       {!activeCategory && !searchQuery && <MansaoMarombaSection />}
 
