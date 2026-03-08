@@ -1070,7 +1070,7 @@ export const products: Product[] = [
     id: 112,
     name: "Combo JW Premium - Green, Gold & Blue",
     description: "Johnnie Walker Green 15 anos + Gold Reserve + Blue Label 750ml",
-    price: 150.00,
+    price: 149.90,
     image: comboJwPremiumImg,
     category: "combos",
     tag: "JW Premium",
