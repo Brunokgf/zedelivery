@@ -1033,7 +1033,7 @@ export const products: Product[] = [
     description: "Jack Apple + Jack Fire + Jack Honey + Jack N°7 - 1L cada",
     price: 150.90,
     image: mansaoMarombaJackComboImg,
-    category: "drinks",
+    category: "combos",
     tag: "Combo Jack",
   },
   {
