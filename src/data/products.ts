@@ -93,6 +93,9 @@ import mansaoMarombaWhiskyImg from "@/assets/products/mansao-maromba-whisky.jpg"
 import mansaoMarombaAcaiImg from "@/assets/products/mansao-maromba-acai.jpg";
 import mansaoMarombaIceImg from "@/assets/products/mansao-maromba-ice.jpg";
 import mansaoMarombaVodkaImg from "@/assets/products/mansao-maromba-vodka.jpg";
+import mansaoMarombaCombo1Img from "@/assets/products/mansao-maromba-combo1.jpg";
+import mansaoMarombaCombo2Img from "@/assets/products/mansao-maromba-combo2.jpg";
+import mansaoMarombaCombo3Img from "@/assets/products/mansao-maromba-combo3.jpg";
 import mansaoMarombaVodkaComboImg from "@/assets/products/mansao-maromba-vodka-combo.jpg";
 import mansaoMarombaGinMelanciaImg from "@/assets/products/mansao-maromba-gin-melancia.jpg";
 import mansaoMarombaGinTigrinhoImg from "@/assets/products/mansao-maromba-gin-tigrinho.jpg";
@@ -983,5 +986,33 @@ export const products: Product[] = [
     image: mansaoMarombaGinMelancia750Img,
     category: "drinks",
     tag: "Premium",
+  },
+  // Mansão Maromba Garrafas R$39,90
+  {
+    id: 104,
+    name: "Mansão Maromba Whisky & Gin Tigrinho 1L",
+    description: "Combo Mansão Maromba Whisky Combo Tigrinho + Gin Tigrinho Tropical + Whisky Combo",
+    price: 39.90,
+    image: mansaoMarombaCombo1Img,
+    category: "drinks",
+    tag: "Novo",
+  },
+  {
+    id: 105,
+    name: "Mansão Maromba Vodka & Whisky Cafeína 1L",
+    description: "Combo Mansão Maromba Vodka Cafeína + Whisky Cafeína + Melancia Gin Cafeína",
+    price: 39.90,
+    image: mansaoMarombaCombo2Img,
+    category: "drinks",
+    tag: "Novo",
+  },
+  {
+    id: 106,
+    name: "Mansão Maromba Mix Garrafas 1L",
+    description: "Combo Mansão Maromba Whisky Coconut + Vodka + Melancia Gin + Whisky Combo",
+    price: 39.90,
+    image: mansaoMarombaCombo3Img,
+    category: "drinks",
+    tag: "Novo",
   },
 ];
