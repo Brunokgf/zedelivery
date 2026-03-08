@@ -148,7 +148,7 @@ const UrgentOfferPopup = ({ onClose }: UrgentOfferPopupProps) => {
                 key={offer.id}
                 className="flex items-center gap-3 rounded-2xl bg-muted/40 p-3 border border-border hover:border-primary/50 transition-all hover:shadow-md"
               >
-                <div className="relative h-14 w-14 flex-shrink-0 rounded-xl bg-background overflow-hidden shadow-sm">
+                <div className="relative h-10 w-10 flex-shrink-0 rounded-lg bg-background overflow-hidden shadow-sm">
                   <img
                     src={product.image}
                     alt={product.name}
