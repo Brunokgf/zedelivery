@@ -763,16 +763,7 @@ export const products: Product[] = [
     image: keepCoolerImg,
     category: "drinks",
   },
-  // Novos Extras
-  {
-    id: 74,
-    name: "Gelo 5kg",
-    description: "Saco de gelo 5 quilos para festas",
-    price: 8.99,
-    image: gelo5kgImg,
-    category: "extras",
-    tag: "Mais vendido",
-  },
+  // Gelo 5kg removido - só gelos saborizados
   // Cervejas especiais
   {
     id: 75,
