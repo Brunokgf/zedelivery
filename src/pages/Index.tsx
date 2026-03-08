@@ -5,6 +5,7 @@ import CategoryBar from "@/components/CategoryBar";
 import ProductCard from "@/components/ProductCard";
 import ComboSection from "@/components/ComboSection";
 import MansaoMarombaSection from "@/components/MansaoMarombaSection";
+import PromoBanner from "@/components/PromoBanner";
 import CartDrawer from "@/components/CartDrawer";
 import UrgentOfferPopup from "@/components/UrgentOfferPopup";
 import WhatsAppButton from "@/components/WhatsAppButton";
