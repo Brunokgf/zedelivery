@@ -87,6 +87,9 @@ import delValleImg from "@/assets/products/del-valle.jpg";
 import aguaCocoImg from "@/assets/products/agua-coco.jpg";
 import tonicaImg from "@/assets/products/tonica.jpg";
 import conchaYToroImg from "@/assets/products/concha-y-toro.jpg";
+import comboWhiskyRedbullImg from "@/assets/products/combo-whisky-redbull.jpg";
+import comboJwTrioImg from "@/assets/products/combo-jw-trio.jpg";
+import comboJwPremiumImg from "@/assets/products/combo-jw-premium.jpg";
 import mansaoMarombaEnergeticoImg from "@/assets/products/mansao-maromba-energetico.jpg";
 import mansaoMarombaFrutasImg from "@/assets/products/mansao-maromba-frutas.jpg";
 import mansaoMarombaWhiskyImg from "@/assets/products/mansao-maromba-whisky.jpg";
@@ -1044,5 +1047,32 @@ export const products: Product[] = [
     image: mansaoMarombaWhiskyComboImg,
     category: "combos",
     tag: "Combo Premium",
+  },
+  {
+    id: 110,
+    name: "Combo JW Double Black + 2 Red Bull",
+    description: "Johnnie Walker Double Black 1L + 2 Red Bull 250ml",
+    price: 150.00,
+    image: comboWhiskyRedbullImg,
+    category: "combos",
+    tag: "Whisky + Energy",
+  },
+  {
+    id: 111,
+    name: "Combo JW Trio - Black, Green & 18 Anos",
+    description: "Johnnie Walker Black 12 anos + Green 15 anos + 18 Anos 750ml",
+    price: 150.00,
+    image: comboJwTrioImg,
+    category: "combos",
+    tag: "JW Trio",
+  },
+  {
+    id: 112,
+    name: "Combo JW Premium - Green, Gold & Blue",
+    description: "Johnnie Walker Green 15 anos + Gold Reserve + Blue Label 750ml",
+    price: 150.00,
+    image: comboJwPremiumImg,
+    category: "combos",
+    tag: "JW Premium",
   },
 ];
