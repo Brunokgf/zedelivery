@@ -1043,7 +1043,7 @@ export const products: Product[] = [
     id: 109,
     name: "Combo Whisky Premium 4 Garrafas",
     description: "Red Label + Tanqueray + 2x White Horse - Garrafas 1L",
-    price: 250.90,
+    price: 149.90,
     image: mansaoMarombaWhiskyComboImg,
     category: "combos",
     tag: "Combo Premium",
