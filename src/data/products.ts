@@ -987,4 +987,32 @@ export const products: Product[] = [
     category: "drinks",
     tag: "Premium",
   },
+  // Mansão Maromba Garrafas R$39,90
+  {
+    id: 104,
+    name: "Mansão Maromba Whisky & Gin Tigrinho 1L",
+    description: "Combo Mansão Maromba Whisky Combo Tigrinho + Gin Tigrinho Tropical + Whisky Combo",
+    price: 39.90,
+    image: mansaoMarombaCombo1Img,
+    category: "drinks",
+    tag: "Novo",
+  },
+  {
+    id: 105,
+    name: "Mansão Maromba Vodka & Whisky Cafeína 1L",
+    description: "Combo Mansão Maromba Vodka Cafeína + Whisky Cafeína + Melancia Gin Cafeína",
+    price: 39.90,
+    image: mansaoMarombaCombo2Img,
+    category: "drinks",
+    tag: "Novo",
+  },
+  {
+    id: 106,
+    name: "Mansão Maromba Mix Garrafas 1L",
+    description: "Combo Mansão Maromba Whisky Coconut + Vodka + Melancia Gin + Whisky Combo",
+    price: 39.90,
+    image: mansaoMarombaCombo3Img,
+    category: "drinks",
+    tag: "Novo",
+  },
 ];
