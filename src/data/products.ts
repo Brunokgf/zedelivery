@@ -1016,4 +1016,13 @@ export const products: Product[] = [
     category: "drinks",
     tag: "Novo",
   },
+  {
+    id: 107,
+    name: "Mansão Maromba Combo 6 Garrafas 750ml",
+    description: "2x Whisky 750ml + 2x Gin Maçã Verde 750ml + 2x Gin Laranja com Maracujá 750ml",
+    price: 139.90,
+    image: mansaoMarombaComboGinImg,
+    category: "drinks",
+    tag: "Super Combo",
+  },
 ];
