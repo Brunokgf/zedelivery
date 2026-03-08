@@ -93,6 +93,9 @@ import mansaoMarombaWhiskyImg from "@/assets/products/mansao-maromba-whisky.jpg"
 import mansaoMarombaAcaiImg from "@/assets/products/mansao-maromba-acai.jpg";
 import mansaoMarombaIceImg from "@/assets/products/mansao-maromba-ice.jpg";
 import mansaoMarombaVodkaImg from "@/assets/products/mansao-maromba-vodka.jpg";
+import mansaoMarombaCombo1Img from "@/assets/products/mansao-maromba-combo1.jpg";
+import mansaoMarombaCombo2Img from "@/assets/products/mansao-maromba-combo2.jpg";
+import mansaoMarombaCombo3Img from "@/assets/products/mansao-maromba-combo3.jpg";
 import mansaoMarombaVodkaComboImg from "@/assets/products/mansao-maromba-vodka-combo.jpg";
 import mansaoMarombaGinMelanciaImg from "@/assets/products/mansao-maromba-gin-melancia.jpg";
 import mansaoMarombaGinTigrinhoImg from "@/assets/products/mansao-maromba-gin-tigrinho.jpg";
