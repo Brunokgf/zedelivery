@@ -97,6 +97,8 @@ import mansaoMarombaCombo1Img from "@/assets/products/mansao-maromba-combo1.jpg"
 import mansaoMarombaCombo2Img from "@/assets/products/mansao-maromba-combo2.jpg";
 import mansaoMarombaCombo3Img from "@/assets/products/mansao-maromba-combo3.jpg";
 import mansaoMarombaComboGinImg from "@/assets/products/mansao-maromba-combo-gin.jpg";
+import mansaoMarombaJackComboImg from "@/assets/products/mansao-maromba-jack-combo.jpg";
+import mansaoMarombaWhiskyComboImg from "@/assets/products/mansao-maromba-whisky-combo.jpg";
 import mansaoMarombaVodkaComboImg from "@/assets/products/mansao-maromba-vodka-combo.jpg";
 import mansaoMarombaGinMelanciaImg from "@/assets/products/mansao-maromba-gin-melancia.jpg";
 import mansaoMarombaGinTigrinhoImg from "@/assets/products/mansao-maromba-gin-tigrinho.jpg";
@@ -1024,5 +1026,23 @@ export const products: Product[] = [
     image: mansaoMarombaComboGinImg,
     category: "drinks",
     tag: "Super Combo",
+  },
+  {
+    id: 108,
+    name: "Jack Daniel's Combo 4 Garrafas",
+    description: "Jack Apple + Jack Fire + Jack Honey + Jack N°7 - 1L cada",
+    price: 150.90,
+    image: mansaoMarombaJackComboImg,
+    category: "drinks",
+    tag: "Combo Jack",
+  },
+  {
+    id: 109,
+    name: "Combo Whisky Premium 4 Garrafas",
+    description: "Red Label + Tanqueray + 2x White Horse - Garrafas 1L",
+    price: 250.90,
+    image: mansaoMarombaWhiskyComboImg,
+    category: "drinks",
+    tag: "Combo Premium",
   },
 ];
