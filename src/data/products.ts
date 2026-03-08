@@ -1033,7 +1033,7 @@ export const products: Product[] = [
     description: "Jack Apple + Jack Fire + Jack Honey + Jack N°7 - 1L cada",
     price: 150.90,
     image: mansaoMarombaJackComboImg,
-    category: "drinks",
+    category: "combos",
     tag: "Combo Jack",
   },
   {
@@ -1042,7 +1042,7 @@ export const products: Product[] = [
     description: "Red Label + Tanqueray + 2x White Horse - Garrafas 1L",
     price: 250.90,
     image: mansaoMarombaWhiskyComboImg,
-    category: "drinks",
+    category: "combos",
     tag: "Combo Premium",
   },
 ];
