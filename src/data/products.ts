@@ -1061,7 +1061,7 @@ export const products: Product[] = [
     id: 111,
     name: "Combo JW Trio - Black, Green & 18 Anos",
     description: "Johnnie Walker Black 12 anos + Green 15 anos + 18 Anos 750ml",
-    price: 150.00,
+    price: 149.90,
     image: comboJwTrioImg,
     category: "combos",
     tag: "JW Trio",
