@@ -186,11 +186,12 @@ export const products: Product[] = [
   },
   {
     id: 8,
-    name: "Gelo 3kg",
-    description: "Saco de gelo 3 quilos",
-    price: 5.99,
-    image: geloImg,
+    name: "Gelo Sabor Água de Coco 190g",
+    description: "Gelo saborizado sabor água de coco para drinks",
+    price: 7.99,
+    image: geloAguaCocoImg,
     category: "extras",
+    tag: "Novidade",
   },
   {
     id: 9,
