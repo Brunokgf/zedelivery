@@ -355,10 +355,10 @@ export const products: Product[] = [
   },
   {
     id: 28,
-    name: "Gelo Sabor Limão 1kg",
-    description: "Gelo de sabor limão refrescante",
+    name: "Gelo Sabor Laranja 170g",
+    description: "Gelo saborizado sabor laranja refrescante",
     price: 7.99,
-    image: geloLimaoImg,
+    image: geloLaranjaImg,
     category: "extras",
     tag: "Novidade",
   },
