@@ -5,11 +5,11 @@ import { useCart } from "@/context/CartContext";
 
 const OFFER_COMBOS = [
   { id: 31, discountPrice: 69.90, originalPrice: 209.90 },
-  { id: 33, discountPrice: 99.90, originalPrice: 299.90 },
-  { id: 34, discountPrice: 79.90, originalPrice: 219.90 },
-  { id: 108, discountPrice: 149.90, originalPrice: 399.90 },
-  { id: 109, discountPrice: 149.90, originalPrice: 599.90 },
-  { id: 110, discountPrice: 149.90, originalPrice: 350.00 },
+  { id: 33, discountPrice: 179.90, originalPrice: 216.00 },
+  { id: 34, discountPrice: 129.90, originalPrice: 156.00 },
+  { id: 108, discountPrice: 549.90, originalPrice: 680.00 },
+  { id: 109, discountPrice: 299.90, originalPrice: 360.00 },
+  { id: 110, discountPrice: 189.90, originalPrice: 222.00 },
   { id: 111, discountPrice: 899.90, originalPrice: 1050.00 },
   { id: 112, discountPrice: 1299.90, originalPrice: 1600.00 },
 ];
