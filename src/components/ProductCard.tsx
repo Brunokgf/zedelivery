@@ -33,9 +33,16 @@ const ProductCard = ({ product }: Props) => {
         </h3>
         <p className="text-[11px] sm:text-xs text-muted-foreground mb-2 sm:mb-3 line-clamp-2">{product.description}</p>
         <div className="mt-auto flex items-center justify-between">
-          <span className="text-base sm:text-lg font-black text-ze-green">
-            R$ {product.price.toFixed(2).replace(".", ",")}
-          </span>
+          <div className="flex flex-col">
+            {product.originalPrice && (
+              <span className="text-[11px] text-muted-foreground line-through">
+                R$ {product.originalPrice.toFixed(2).replace(".", ",")}
+              </span>
+            )}
+            <span className="text-base sm:text-lg font-black text-ze-green">
+              R$ {product.price.toFixed(2).replace(".", ",")}
+            </span>
+          </div>
 
           {cartItem ? (
             <div className="flex items-center gap-2">
