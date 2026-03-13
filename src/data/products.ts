@@ -420,7 +420,7 @@ export const products: Product[] = [
     id: 34,
     name: "Combo Red Label 🥃",
     description: "1 Red Label 1L + 4 gelos saborizados + 4 energéticos",
-    price: 99.90,
+    price: 129.90,
     image: comboRedLabelImg,
     category: "combos",
     tag: "54% OFF",
