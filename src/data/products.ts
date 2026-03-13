@@ -411,7 +411,7 @@ export const products: Product[] = [
     id: 33,
     name: "Combo Jack Daniel's 🥃",
     description: "1 Jack Daniel's 750ml + 4 gelos saborizados + 4 energéticos",
-    price: 127.50,
+    price: 179.90,
     image: comboJackImg,
     category: "combos",
     tag: "Mais vendido",
