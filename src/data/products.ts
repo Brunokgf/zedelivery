@@ -1034,7 +1034,7 @@ export const products: Product[] = [
     id: 108,
     name: "Jack Daniel's Combo 4 Garrafas",
     description: "Jack Apple + Jack Fire + Jack Honey + Jack N°7 - 1L cada",
-    price: 149.90,
+    price: 549.90,
     image: mansaoMarombaJackComboImg,
     category: "combos",
     tag: "Combo Jack",
