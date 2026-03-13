@@ -13,7 +13,9 @@ const ProductCard = ({ product }: Props) => {
   return (
     <div className="group relative flex flex-col overflow-hidden rounded-xl bg-card shadow-sm border border-border transition-all hover:shadow-lg hover:-translate-y-1">
       {product.tag && (
-        <span className="absolute left-3 top-3 z-10 rounded-full bg-ze-orange px-2.5 py-0.5 text-[11px] font-bold text-white">
+        <span className={`absolute left-3 top-3 z-10 rounded-full px-2.5 py-0.5 text-[11px] font-bold text-white ${
+          product.tag === "QUEIMA DE ESTOQUE" ? "bg-destructive animate-pulse" : "bg-ze-orange"
+        }`}>
           {product.tag}
         </span>
       )}
@@ -31,9 +33,16 @@ const ProductCard = ({ product }: Props) => {
         </h3>
         <p className="text-[11px] sm:text-xs text-muted-foreground mb-2 sm:mb-3 line-clamp-2">{product.description}</p>
         <div className="mt-auto flex items-center justify-between">
-          <span className="text-base sm:text-lg font-black text-ze-green">
-            R$ {product.price.toFixed(2).replace(".", ",")}
-          </span>
+          <div className="flex flex-col">
+            {product.originalPrice && (
+              <span className="text-[11px] text-muted-foreground line-through">
+                R$ {product.originalPrice.toFixed(2).replace(".", ",")}
+              </span>
+            )}
+            <span className="text-base sm:text-lg font-black text-ze-green">
+              R$ {product.price.toFixed(2).replace(".", ",")}
+            </span>
+          </div>
 
           {cartItem ? (
             <div className="flex items-center gap-2">

@@ -5,13 +5,13 @@ import { useCart } from "@/context/CartContext";
 
 const OFFER_COMBOS = [
   { id: 31, discountPrice: 69.90, originalPrice: 209.90 },
-  { id: 33, discountPrice: 179.90, originalPrice: 216.00 },
-  { id: 34, discountPrice: 129.90, originalPrice: 156.00 },
-  { id: 108, discountPrice: 549.90, originalPrice: 680.00 },
-  { id: 109, discountPrice: 299.90, originalPrice: 360.00 },
-  { id: 110, discountPrice: 189.90, originalPrice: 222.00 },
-  { id: 111, discountPrice: 899.90, originalPrice: 1050.00 },
-  { id: 112, discountPrice: 1299.90, originalPrice: 1600.00 },
+  { id: 33, discountPrice: 108.00, originalPrice: 216.00 },
+  { id: 34, discountPrice: 78.00, originalPrice: 156.00 },
+  { id: 108, discountPrice: 340.00, originalPrice: 680.00 },
+  { id: 109, discountPrice: 180.00, originalPrice: 360.00 },
+  { id: 110, discountPrice: 111.00, originalPrice: 222.00 },
+  { id: 111, discountPrice: 525.00, originalPrice: 1050.00 },
+  { id: 112, discountPrice: 800.00, originalPrice: 1600.00 },
 ];
 
 interface UrgentOfferPopupProps {
