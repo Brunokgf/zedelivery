@@ -10,8 +10,8 @@ const OFFER_COMBOS = [
   { id: 108, discountPrice: 149.90, originalPrice: 399.90 },
   { id: 109, discountPrice: 149.90, originalPrice: 599.90 },
   { id: 110, discountPrice: 149.90, originalPrice: 350.00 },
-  { id: 111, discountPrice: 149.90, originalPrice: 450.00 },
-  { id: 112, discountPrice: 149.90, originalPrice: 500.00 },
+  { id: 111, discountPrice: 899.90, originalPrice: 1050.00 },
+  { id: 112, discountPrice: 1299.90, originalPrice: 1600.00 },
 ];
 
 interface UrgentOfferPopupProps {
