@@ -910,9 +910,10 @@ export const products: Product[] = [
     name: "Mansão Maromba Whisky Combo 1L",
     description: "Drink pronto Mansão Maromba base whisky 8% ABV",
     price: 14.90,
+    originalPrice: 29.90,
     image: mansaoMarombaWhiskyImg,
     category: "drinks",
-    tag: "Mais vendido",
+    tag: "QUEIMA DE ESTOQUE",
   },
   {
     id: 95,
