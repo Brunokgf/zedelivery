@@ -111,6 +111,23 @@ import mansaoMarombaGinGobellsImg from "@/assets/products/mansao-maromba-gin-gob
 import mansaoMarombaGinMacaVerdeImg from "@/assets/products/mansao-maromba-gin-maca-verde.jpg";
 import mansaoMarombaGinMelancia750Img from "@/assets/products/mansao-maromba-gin-melancia-750.jpg";
 
+// Petiscos
+import amendoimImg from "@/assets/products/amendoim.jpg";
+import batataChipsImg from "@/assets/products/batata-chips.jpg";
+import salaminhoImg from "@/assets/products/salaminho.jpg";
+import queijoCoalhoImg from "@/assets/products/queijo-coalho.jpg";
+import doritosImg from "@/assets/products/doritos.jpg";
+import mixNutsImg from "@/assets/products/mix-nuts.jpg";
+
+// Churrasco
+import carvaoImg from "@/assets/products/carvao.jpg";
+import salGrossoImg from "@/assets/products/sal-grosso.jpg";
+import paoDeAlhoImg from "@/assets/products/pao-de-alho.jpg";
+import farofaImg from "@/assets/products/farofa.jpg";
+import espetosImg from "@/assets/products/espetos.jpg";
+import bandejaAluminioImg from "@/assets/products/bandeja-aluminio.jpg";
+import acendedorImg from "@/assets/products/acendedor.jpg";
+
 export type Product = {
   id: number;
   name: string;
@@ -132,6 +149,8 @@ export const categories = [
   { id: "energeticos", label: "⚡ Energéticos", emoji: "⚡" },
   { id: "agua", label: "💧 Água", emoji: "💧" },
   { id: "extras", label: "🧊 Extras", emoji: "🧊" },
+  { id: "petiscos", label: "🥜 Petiscos", emoji: "🥜" },
+  { id: "churrasco", label: "🔥 Churrasco", emoji: "🔥" },
 ];
 
 export const products: Product[] = [
@@ -1091,5 +1110,115 @@ export const products: Product[] = [
     image: comboJwPremiumImg,
     category: "combos",
     tag: "QUEIMA DE ESTOQUE",
+  },
+
+  // ===== PETISCOS =====
+  {
+    id: 113,
+    name: "Amendoim Torrado 200g",
+    description: "Amendoim torrado e salgado, petisco clássico",
+    price: 6.99,
+    image: amendoimImg,
+    category: "petiscos",
+  },
+  {
+    id: 114,
+    name: "Batata Chips 100g",
+    description: "Batata frita crocante, sabor original",
+    price: 8.99,
+    image: batataChipsImg,
+    category: "petiscos",
+  },
+  {
+    id: 115,
+    name: "Salaminho 200g",
+    description: "Salaminho fatiado, perfeito para acompanhar cerveja",
+    price: 12.99,
+    image: salaminhoImg,
+    category: "petiscos",
+  },
+  {
+    id: 116,
+    name: "Queijo Coalho no Espeto",
+    description: "Queijo coalho grelhado no palito, sabor defumado",
+    price: 7.99,
+    image: queijoCoalhoImg,
+    category: "petiscos",
+  },
+  {
+    id: 117,
+    name: "Doritos Nacho 96g",
+    description: "Tortilla chips sabor nacho, crocante e saboroso",
+    price: 9.49,
+    image: doritosImg,
+    category: "petiscos",
+  },
+  {
+    id: 118,
+    name: "Mix de Nuts 150g",
+    description: "Castanhas e nozes variadas, snack premium",
+    price: 14.99,
+    image: mixNutsImg,
+    category: "petiscos",
+  },
+
+  // ===== CHURRASCO =====
+  {
+    id: 119,
+    name: "Carvão Vegetal 5kg",
+    description: "Carvão vegetal de alta qualidade para churrasco",
+    price: 19.90,
+    image: carvaoImg,
+    category: "churrasco",
+    tag: "Essencial",
+  },
+  {
+    id: 120,
+    name: "Sal Grosso 1kg",
+    description: "Sal grosso para temperar carnes no churrasco",
+    price: 4.99,
+    image: salGrossoImg,
+    category: "churrasco",
+  },
+  {
+    id: 121,
+    name: "Pão de Alho 400g",
+    description: "Pão de alho tradicional, pronto para a churrasqueira",
+    price: 13.90,
+    image: paoDeAlhoImg,
+    category: "churrasco",
+    tag: "Mais vendido",
+  },
+  {
+    id: 122,
+    name: "Farofa Pronta 500g",
+    description: "Farofa temperada pronta para servir",
+    price: 7.49,
+    image: farofaImg,
+    category: "churrasco",
+  },
+  {
+    id: 123,
+    name: "Kit Espetos Inox 6un",
+    description: "Espetos de inox para churrasco, conjunto com 6 unidades",
+    price: 24.90,
+    image: espetosImg,
+    category: "churrasco",
+  },
+  {
+    id: 124,
+    name: "Bandeja Alumínio 3un",
+    description: "Bandeja descartável de alumínio para churrasco",
+    price: 9.90,
+    image: bandejaAluminioImg,
+    category: "churrasco",
+  },
+  {
+    id: 125,
+    name: "Acendedor de Carvão",
+    description: "Cubos acendedores para facilitar acender o carvão",
+    price: 8.90,
+    image: acendedorImg,
+    category: "churrasco",
   },
 ];
