@@ -128,6 +128,15 @@ import espetosImg from "@/assets/products/espetos.jpg";
 import bandejaAluminioImg from "@/assets/products/bandeja-aluminio.jpg";
 import acendedorImg from "@/assets/products/acendedor.jpg";
 
+// Doces
+import kitkatImg from "@/assets/products/kitkat.jpg";
+import snickersImg from "@/assets/products/snickers.jpg";
+import tridentImg from "@/assets/products/trident.jpg";
+import bisImg from "@/assets/products/bis.jpg";
+import sonhoDeValsaImg from "@/assets/products/sonho-de-valsa.jpg";
+import mmsImg from "@/assets/products/mms.jpg";
+import pacocaImg from "@/assets/products/pacoca.jpg";
+
 export type Product = {
   id: number;
   name: string;
