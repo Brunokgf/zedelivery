@@ -111,6 +111,23 @@ import mansaoMarombaGinGobellsImg from "@/assets/products/mansao-maromba-gin-gob
 import mansaoMarombaGinMacaVerdeImg from "@/assets/products/mansao-maromba-gin-maca-verde.jpg";
 import mansaoMarombaGinMelancia750Img from "@/assets/products/mansao-maromba-gin-melancia-750.jpg";
 
+// Petiscos
+import amendoimImg from "@/assets/products/amendoim.jpg";
+import batataChipsImg from "@/assets/products/batata-chips.jpg";
+import salaminhoImg from "@/assets/products/salaminho.jpg";
+import queijoCoalhoImg from "@/assets/products/queijo-coalho.jpg";
+import doritosImg from "@/assets/products/doritos.jpg";
+import mixNutsImg from "@/assets/products/mix-nuts.jpg";
+
+// Churrasco
+import carvaoImg from "@/assets/products/carvao.jpg";
+import salGrossoImg from "@/assets/products/sal-grosso.jpg";
+import paoDeAlhoImg from "@/assets/products/pao-de-alho.jpg";
+import farofaImg from "@/assets/products/farofa.jpg";
+import espetosImg from "@/assets/products/espetos.jpg";
+import bandejaAluminioImg from "@/assets/products/bandeja-aluminio.jpg";
+import acendedorImg from "@/assets/products/acendedor.jpg";
+
 export type Product = {
   id: number;
   name: string;
