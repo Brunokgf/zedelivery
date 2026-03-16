@@ -128,6 +128,15 @@ import espetosImg from "@/assets/products/espetos.jpg";
 import bandejaAluminioImg from "@/assets/products/bandeja-aluminio.jpg";
 import acendedorImg from "@/assets/products/acendedor.jpg";
 
+// Doces
+import kitkatImg from "@/assets/products/kitkat.jpg";
+import snickersImg from "@/assets/products/snickers.jpg";
+import tridentImg from "@/assets/products/trident.jpg";
+import bisImg from "@/assets/products/bis.jpg";
+import sonhoDeValsaImg from "@/assets/products/sonho-de-valsa.jpg";
+import mmsImg from "@/assets/products/mms.jpg";
+import pacocaImg from "@/assets/products/pacoca.jpg";
+
 export type Product = {
   id: number;
   name: string;
@@ -151,6 +160,7 @@ export const categories = [
   { id: "extras", label: "🧊 Extras", emoji: "🧊" },
   { id: "petiscos", label: "🥜 Petiscos", emoji: "🥜" },
   { id: "churrasco", label: "🔥 Churrasco", emoji: "🔥" },
+  { id: "doces", label: "🍫 Doces", emoji: "🍫" },
 ];
 
 export const products: Product[] = [
@@ -1220,5 +1230,64 @@ export const products: Product[] = [
     price: 8.90,
     image: acendedorImg,
     category: "churrasco",
+  },
+
+  // ===== DOCES =====
+  {
+    id: 126,
+    name: "KitKat 41g",
+    description: "Chocolate KitKat ao leite com wafer crocante",
+    price: 4.99,
+    image: kitkatImg,
+    category: "doces",
+    tag: "Mais vendido",
+  },
+  {
+    id: 127,
+    name: "Snickers 45g",
+    description: "Chocolate Snickers com amendoim, caramelo e nougat",
+    price: 5.49,
+    image: snickersImg,
+    category: "doces",
+  },
+  {
+    id: 128,
+    name: "Bis ao Leite 126g",
+    description: "Caixa de Bis, wafer coberto com chocolate ao leite",
+    price: 6.99,
+    image: bisImg,
+    category: "doces",
+  },
+  {
+    id: 129,
+    name: "Sonho de Valsa",
+    description: "Bombom Sonho de Valsa, clássico brasileiro",
+    price: 2.49,
+    image: sonhoDeValsaImg,
+    category: "doces",
+  },
+  {
+    id: 130,
+    name: "M&M's 45g",
+    description: "Confeitos de chocolate M&M's coloridos",
+    price: 5.99,
+    image: mmsImg,
+    category: "doces",
+  },
+  {
+    id: 131,
+    name: "Paçoca Rolha 3un",
+    description: "Paçoca de amendoim tradicional, pacote com 3 unidades",
+    price: 3.49,
+    image: pacocaImg,
+    category: "doces",
+  },
+  {
+    id: 132,
+    name: "Trident Menta 8g",
+    description: "Chiclete Trident sabor menta, sem açúcar",
+    price: 3.29,
+    image: tridentImg,
+    category: "doces",
   },
 ];
