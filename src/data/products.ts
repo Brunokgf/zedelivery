@@ -29,6 +29,8 @@ import geloLaranjaImg from "@/assets/products/gelo-laranja.jpg";
 import geloMorangoImg from "@/assets/products/gelo-morango.jpg";
 import geloMaracujaImg from "@/assets/products/gelo-maracuja.jpg";
 import geloAguaCocoImg from "@/assets/products/gelo-agua-coco.jpg";
+import geloMelanciaImg from "@/assets/products/gelo-melancia.jpg";
+import geloMacaVerdeImg from "@/assets/products/gelo-maca-verde.jpg";
 import comboTanquerayImg from "@/assets/products/combo-tanqueray.jpg";
 import comboAbsolutImg from "@/assets/products/combo-absolut.jpg";
 import comboJackImg from "@/assets/products/combo-jack.jpg";
