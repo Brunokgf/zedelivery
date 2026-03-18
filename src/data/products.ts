@@ -137,6 +137,7 @@ import kitkatImg from "@/assets/products/kitkat.jpg";
 import snickersImg from "@/assets/products/snickers.jpg";
 import tridentImg from "@/assets/products/trident.jpg";
 import chocolateNestleImg from "@/assets/products/chocolate-nestle.jpg";
+import chocolateLactaImg from "@/assets/products/chocolate-lacta.jpg";
 import bisImg from "@/assets/products/bis.jpg";
 import sonhoDeValsaImg from "@/assets/products/sonho-de-valsa.jpg";
 import mmsImg from "@/assets/products/mms.jpg";
