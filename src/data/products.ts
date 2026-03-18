@@ -127,6 +127,8 @@ import farofaImg from "@/assets/products/farofa.jpg";
 import espetosImg from "@/assets/products/espetos.jpg";
 import bandejaAluminioImg from "@/assets/products/bandeja-aluminio.jpg";
 import acendedorImg from "@/assets/products/acendedor.jpg";
+import kitChurrascoImg from "@/assets/products/kit-churrasco.jpg";
+import tabuaChurrascoImg from "@/assets/products/tabua-churrasco.jpg";
 
 // Doces
 import kitkatImg from "@/assets/products/kitkat.jpg";
@@ -1230,6 +1232,26 @@ export const products: Product[] = [
     price: 8.90,
     image: acendedorImg,
     category: "churrasco",
+  },
+  {
+    id: 133,
+    name: "Kit Churrasco Inox 10pç",
+    description: "Maleta completa com espátula, garfo, faca e acessórios em inox",
+    price: 89.90,
+    originalPrice: 149.90,
+    image: kitChurrascoImg,
+    category: "churrasco",
+    tag: "QUEIMA DE ESTOQUE",
+  },
+  {
+    id: 134,
+    name: "Tábua de Churrasco Premium",
+    description: "Tábua de madeira teca com compartimentos e kit de facas",
+    price: 79.90,
+    originalPrice: 139.90,
+    image: tabuaChurrascoImg,
+    category: "churrasco",
+    tag: "QUEIMA DE ESTOQUE",
   },
 
   // ===== DOCES =====
