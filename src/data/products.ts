@@ -1333,4 +1333,14 @@ export const products: Product[] = [
     image: tridentImg,
     category: "doces",
   },
+  },
+  {
+    id: 137,
+    name: "Chocolate Nestlé ao Leite 1kg",
+    description: "Barra de chocolate ao leite Nestlé Profissional 1kg",
+    price: 39.90,
+    image: chocolateNestleImg,
+    category: "doces",
+    tag: "Novidade",
+  },
 ];
