@@ -127,6 +127,8 @@ import farofaImg from "@/assets/products/farofa.jpg";
 import espetosImg from "@/assets/products/espetos.jpg";
 import bandejaAluminioImg from "@/assets/products/bandeja-aluminio.jpg";
 import acendedorImg from "@/assets/products/acendedor.jpg";
+import kitChurrascoImg from "@/assets/products/kit-churrasco.jpg";
+import tabuaChurrascoImg from "@/assets/products/tabua-churrasco.jpg";
 
 // Doces
 import kitkatImg from "@/assets/products/kitkat.jpg";
