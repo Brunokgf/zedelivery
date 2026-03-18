@@ -136,6 +136,7 @@ import tabuaChurrascoImg from "@/assets/products/tabua-churrasco.jpg";
 import kitkatImg from "@/assets/products/kitkat.jpg";
 import snickersImg from "@/assets/products/snickers.jpg";
 import tridentImg from "@/assets/products/trident.jpg";
+import chocolateNestleImg from "@/assets/products/chocolate-nestle.jpg";
 import bisImg from "@/assets/products/bis.jpg";
 import sonhoDeValsaImg from "@/assets/products/sonho-de-valsa.jpg";
 import mmsImg from "@/assets/products/mms.jpg";
@@ -1331,5 +1332,14 @@ export const products: Product[] = [
     price: 3.29,
     image: tridentImg,
     category: "doces",
+  },
+  {
+    id: 137,
+    name: "Chocolate Nestlé ao Leite 1kg",
+    description: "Barra de chocolate ao leite Nestlé Profissional 1kg",
+    price: 39.90,
+    image: chocolateNestleImg,
+    category: "doces",
+    tag: "Novidade",
   },
 ];
