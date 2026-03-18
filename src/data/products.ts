@@ -1333,7 +1333,6 @@ export const products: Product[] = [
     image: tridentImg,
     category: "doces",
   },
-  },
   {
     id: 137,
     name: "Chocolate Nestlé ao Leite 1kg",
