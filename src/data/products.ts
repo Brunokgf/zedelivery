@@ -1343,4 +1343,13 @@ export const products: Product[] = [
     category: "doces",
     tag: "Novidade",
   },
+  {
+    id: 138,
+    name: "Chocolate Lacta ao Leite 90g",
+    description: "Barra de chocolate ao leite Lacta",
+    price: 8.99,
+    image: chocolateLactaImg,
+    category: "doces",
+    tag: "Novidade",
+  },
 ];
