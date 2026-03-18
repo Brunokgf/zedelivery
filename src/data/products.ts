@@ -1177,9 +1177,9 @@ export const products: Product[] = [
   // ===== CHURRASCO =====
   {
     id: 119,
-    name: "Carvão Vegetal 5kg",
-    description: "Carvão vegetal de alta qualidade para churrasco",
-    price: 19.90,
+    name: "Carvão Vegetal 20kg",
+    description: "Carvão vegetal de alta qualidade para churrasco - saco de 20kg",
+    price: 49.90,
     image: carvaoImg,
     category: "churrasco",
     tag: "Essencial",
