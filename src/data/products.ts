@@ -138,6 +138,7 @@ import snickersImg from "@/assets/products/snickers.jpg";
 import tridentImg from "@/assets/products/trident.jpg";
 import chocolateNestleImg from "@/assets/products/chocolate-nestle.jpg";
 import chocolateLactaImg from "@/assets/products/chocolate-lacta.jpg";
+import salgadinhoCebolaImg from "@/assets/products/salgadinho-cebola.jpg";
 import bisImg from "@/assets/products/bis.jpg";
 import sonhoDeValsaImg from "@/assets/products/sonho-de-valsa.jpg";
 import mmsImg from "@/assets/products/mms.jpg";
@@ -1351,5 +1352,13 @@ export const products: Product[] = [
     image: chocolateLactaImg,
     category: "doces",
     tag: "Novidade",
+  },
+  {
+    id: 139,
+    name: "Salgadinho Ebicen Cebola 30g",
+    description: "Salgadinho crocante sabor cebola Ebicen",
+    price: 3.49,
+    image: salgadinhoCebolaImg,
+    category: "petiscos",
   },
 ];
