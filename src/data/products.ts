@@ -1353,4 +1353,12 @@ export const products: Product[] = [
     category: "doces",
     tag: "Novidade",
   },
+  {
+    id: 139,
+    name: "Salgadinho Ebicen Cebola 30g",
+    description: "Salgadinho crocante sabor cebola Ebicen",
+    price: 3.49,
+    image: salgadinhoCebolaImg,
+    category: "petiscos",
+  },
 ];
