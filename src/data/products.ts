@@ -145,6 +145,15 @@ import sonhoDeValsaImg from "@/assets/products/sonho-de-valsa.jpg";
 import mmsImg from "@/assets/products/mms.jpg";
 import pacocaImg from "@/assets/products/pacoca.jpg";
 
+// Sorvetes
+import sorveteKibonImg from "@/assets/products/sorvete-kibon.jpg";
+import sorveteCremeImg from "@/assets/products/sorvete-creme.jpg";
+import sorveteNapolitanoImg from "@/assets/products/sorvete-napolitano.jpg";
+import sorvetePaveImg from "@/assets/products/sorvete-pave.jpg";
+import sorveteFrutasImg from "@/assets/products/sorvete-frutas.jpg";
+import sorveteVenCasuloImg from "@/assets/products/sorvete-ven-casulo.jpg";
+import sorveteChocolateImg from "@/assets/products/sorvete-chocolate.jpg";
+
 export type Product = {
   id: number;
   name: string;
@@ -169,6 +178,7 @@ export const categories = [
   { id: "petiscos", label: "🥜 Petiscos", emoji: "🥜" },
   { id: "churrasco", label: "🔥 Churrasco", emoji: "🔥" },
   { id: "doces", label: "🍫 Doces", emoji: "🍫" },
+  { id: "sorvetes", label: "🍦 Sorvetes", emoji: "🍦" },
 ];
 
 export const products: Product[] = [
@@ -1379,5 +1389,72 @@ export const products: Product[] = [
     price: 3.49,
     image: salgadinhoCebolaImg,
     category: "petiscos",
+  },
+  // Sorvetes
+  {
+    id: 140,
+    name: "Kibon Cremosíssimo 4 em 1 - 2L",
+    description: "Sorvete Kibon 4 sabores cremosos",
+    price: 29.99,
+    originalPrice: 39.99,
+    image: sorveteKibonImg,
+    category: "sorvetes",
+    tag: "Mais Vendido",
+  },
+  {
+    id: 141,
+    name: "Nestlé Creme Tradicional - 1,5L",
+    description: "Sorvete Nestlé sabor creme tradicional",
+    price: 22.99,
+    originalPrice: 29.99,
+    image: sorveteCremeImg,
+    category: "sorvetes",
+  },
+  {
+    id: 142,
+    name: "Nestlé Napolitano - 1,5L",
+    description: "Sorvete Nestlé sabores chocolate, morango e creme",
+    price: 22.99,
+    originalPrice: 29.99,
+    image: sorveteNapolitanoImg,
+    category: "sorvetes",
+  },
+  {
+    id: 143,
+    name: "Zeca's Pavê - 2L",
+    description: "Sorvete premium sabor pavê com pedaços de biscoito",
+    price: 34.99,
+    originalPrice: 44.99,
+    image: sorvetePaveImg,
+    category: "sorvetes",
+    tag: "Premium",
+  },
+  {
+    id: 144,
+    name: "Zeca's Frutas Tropicais - 2L",
+    description: "Sorvete de frutas tropicais naturais",
+    price: 32.99,
+    originalPrice: 42.99,
+    image: sorveteFrutasImg,
+    category: "sorvetes",
+  },
+  {
+    id: 145,
+    name: "Zeca's Ven Casulo - 2L",
+    description: "Sorvete premium sabor exclusivo Ven Casulo",
+    price: 34.99,
+    originalPrice: 44.99,
+    image: sorveteVenCasuloImg,
+    category: "sorvetes",
+    tag: "Novidade",
+  },
+  {
+    id: 146,
+    name: "Nestlé Chocolate Tradicional - 1,5L",
+    description: "Sorvete Nestlé sabor chocolate cremoso",
+    price: 22.99,
+    originalPrice: 29.99,
+    image: sorveteChocolateImg,
+    category: "sorvetes",
   },
 ];
