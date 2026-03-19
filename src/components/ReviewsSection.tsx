@@ -43,6 +43,48 @@ const REVIEWS = [
     text: "Ótima seleção de vinhos e cervejas artesanais. Entrega sempre no prazo, adoro!",
     avatar: "FL",
   },
+  {
+    name: "Lucas Mendes",
+    city: "Campinas, SP",
+    rating: 5,
+    text: "Melhor experiência de compra! Pedi um combo de whisky pro aniversário e chegou perfeito. Virei cliente fiel! 🥃",
+    avatar: "LM",
+  },
+  {
+    name: "Patrícia Rocha",
+    city: "Fortaleza, CE",
+    rating: 5,
+    text: "Incrível a rapidez! Fiz o pedido pelo celular e em 15 minutos já estava na porta. Preços melhores que no mercado!",
+    avatar: "PR",
+  },
+  {
+    name: "Thiago Almeida",
+    city: "Goiânia, GO",
+    rating: 5,
+    text: "Churrasco salvo! Faltou cerveja e em minutos o Zé resolveu. Entrega gelada e com sorriso no rosto 🍺",
+    avatar: "TA",
+  },
+  {
+    name: "Camila Ferreira",
+    city: "Recife, PE",
+    rating: 4,
+    text: "Sempre tem promoção boa! Os combos de gin são maravilhosos e o pagamento por PIX é instantâneo.",
+    avatar: "CF",
+  },
+  {
+    name: "Diego Nascimento",
+    city: "Porto Alegre, RS",
+    rating: 5,
+    text: "Pedi pra assistir o jogo com os amigos e não me arrependi. Tudo chegou geladinho e no prazo! Nota 10! ⚽",
+    avatar: "DN",
+  },
+  {
+    name: "Juliana Martins",
+    city: "Manaus, AM",
+    rating: 5,
+    text: "Até aqui no Norte a entrega é rápida! Variedade enorme e os preços são justos. Super recomendo!",
+    avatar: "JM",
+  },
 ];
 
 const Stars = ({ count }: { count: number }) => (
