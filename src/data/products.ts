@@ -1439,7 +1439,7 @@ export const products: Product[] = [
     category: "sorvetes",
   },
   {
-    id: 145,
+    id: 147,
     name: "Zeca's Ven Casulo - 2L",
     description: "Sorvete premium sabor exclusivo Ven Casulo",
     price: 34.99,
