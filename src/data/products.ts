@@ -1411,7 +1411,7 @@ export const products: Product[] = [
     category: "sorvetes",
   },
   {
-    id: 142,
+    id: 144,
     name: "Nestlé Napolitano - 1,5L",
     description: "Sorvete Nestlé sabores chocolate, morango e creme",
     price: 22.99,
