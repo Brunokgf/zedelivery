@@ -178,6 +178,7 @@ export const categories = [
   { id: "petiscos", label: "🥜 Petiscos", emoji: "🥜" },
   { id: "churrasco", label: "🔥 Churrasco", emoji: "🔥" },
   { id: "doces", label: "🍫 Doces", emoji: "🍫" },
+  { id: "sorvetes", label: "🍦 Sorvetes", emoji: "🍦" },
 ];
 
 export const products: Product[] = [
