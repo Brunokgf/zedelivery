@@ -1449,7 +1449,7 @@ export const products: Product[] = [
     tag: "Novidade",
   },
   {
-    id: 146,
+    id: 148,
     name: "Nestlé Chocolate Tradicional - 1,5L",
     description: "Sorvete Nestlé sabor chocolate cremoso",
     price: 22.99,
