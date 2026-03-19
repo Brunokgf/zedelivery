@@ -1420,7 +1420,7 @@ export const products: Product[] = [
     category: "sorvetes",
   },
   {
-    id: 143,
+    id: 145,
     name: "Zeca's Pavê - 2L",
     description: "Sorvete premium sabor pavê com pedaços de biscoito",
     price: 34.99,
