@@ -1402,7 +1402,7 @@ export const products: Product[] = [
     tag: "Mais Vendido",
   },
   {
-    id: 141,
+    id: 143,
     name: "Nestlé Creme Tradicional - 1,5L",
     description: "Sorvete Nestlé sabor creme tradicional",
     price: 22.99,
