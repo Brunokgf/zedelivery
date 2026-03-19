@@ -138,6 +138,7 @@ import snickersImg from "@/assets/products/snickers.jpg";
 import tridentImg from "@/assets/products/trident.jpg";
 import chocolateNestleImg from "@/assets/products/chocolate-nestle.jpg";
 import chocolateLactaImg from "@/assets/products/chocolate-lacta.jpg";
+import diamanteNegroImg from "@/assets/products/diamante-negro.jpg";
 import salgadinhoCebolaImg from "@/assets/products/salgadinho-cebola.jpg";
 import bisImg from "@/assets/products/bis.jpg";
 import sonhoDeValsaImg from "@/assets/products/sonho-de-valsa.jpg";
@@ -1347,9 +1348,27 @@ export const products: Product[] = [
   {
     id: 138,
     name: "Chocolate Lacta ao Leite 90g",
-    description: "Barra de chocolate ao leite Lacta",
+    description: "Barra de chocolate ao leite Lacta 80g",
     price: 8.99,
     image: chocolateLactaImg,
+    category: "doces",
+    tag: "Novidade",
+  },
+  {
+    id: 140,
+    name: "Chocolate Diamante Negro Lacta 90g",
+    description: "Chocolate ao leite Diamante Negro Lacta",
+    price: 9.49,
+    image: diamanteNegroImg,
+    category: "doces",
+    tag: "Novidade",
+  },
+  {
+    id: 141,
+    name: "Bis ao Leite Lacta 126g",
+    description: "Caixa de wafer coberto com chocolate ao leite Bis",
+    price: 7.99,
+    image: bisImg,
     category: "doces",
     tag: "Novidade",
   },
