@@ -145,6 +145,15 @@ import sonhoDeValsaImg from "@/assets/products/sonho-de-valsa.jpg";
 import mmsImg from "@/assets/products/mms.jpg";
 import pacocaImg from "@/assets/products/pacoca.jpg";
 
+// Sorvetes
+import sorveteKibonImg from "@/assets/products/sorvete-kibon.jpg";
+import sorveteCremeImg from "@/assets/products/sorvete-creme.jpg";
+import sorveteNapolitanoImg from "@/assets/products/sorvete-napolitano.jpg";
+import sorvetePaveImg from "@/assets/products/sorvete-pave.jpg";
+import sorveteFrutasImg from "@/assets/products/sorvete-frutas.jpg";
+import sorveteVenCasuloImg from "@/assets/products/sorvete-ven-casulo.jpg";
+import sorveteChocolateImg from "@/assets/products/sorvete-chocolate.jpg";
+
 export type Product = {
   id: number;
   name: string;
