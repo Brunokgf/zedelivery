@@ -1392,7 +1392,7 @@ export const products: Product[] = [
   },
   // Sorvetes
   {
-    id: 140,
+    id: 142,
     name: "Kibon Cremosíssimo 4 em 1 - 2L",
     description: "Sorvete Kibon 4 sabores cremosos",
     price: 29.99,
@@ -1402,7 +1402,7 @@ export const products: Product[] = [
     tag: "Mais Vendido",
   },
   {
-    id: 141,
+    id: 143,
     name: "Nestlé Creme Tradicional - 1,5L",
     description: "Sorvete Nestlé sabor creme tradicional",
     price: 22.99,
@@ -1411,7 +1411,7 @@ export const products: Product[] = [
     category: "sorvetes",
   },
   {
-    id: 142,
+    id: 144,
     name: "Nestlé Napolitano - 1,5L",
     description: "Sorvete Nestlé sabores chocolate, morango e creme",
     price: 22.99,
@@ -1420,7 +1420,7 @@ export const products: Product[] = [
     category: "sorvetes",
   },
   {
-    id: 143,
+    id: 145,
     name: "Zeca's Pavê - 2L",
     description: "Sorvete premium sabor pavê com pedaços de biscoito",
     price: 34.99,
@@ -1430,7 +1430,7 @@ export const products: Product[] = [
     tag: "Premium",
   },
   {
-    id: 144,
+    id: 146,
     name: "Zeca's Frutas Tropicais - 2L",
     description: "Sorvete de frutas tropicais naturais",
     price: 32.99,
@@ -1439,7 +1439,7 @@ export const products: Product[] = [
     category: "sorvetes",
   },
   {
-    id: 145,
+    id: 147,
     name: "Zeca's Ven Casulo - 2L",
     description: "Sorvete premium sabor exclusivo Ven Casulo",
     price: 34.99,
@@ -1449,7 +1449,7 @@ export const products: Product[] = [
     tag: "Novidade",
   },
   {
-    id: 146,
+    id: 148,
     name: "Nestlé Chocolate Tradicional - 1,5L",
     description: "Sorvete Nestlé sabor chocolate cremoso",
     price: 22.99,
