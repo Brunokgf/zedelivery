@@ -1392,7 +1392,7 @@ export const products: Product[] = [
   },
   // Sorvetes
   {
-    id: 140,
+    id: 142,
     name: "Kibon Cremosíssimo 4 em 1 - 2L",
     description: "Sorvete Kibon 4 sabores cremosos",
     price: 29.99,
