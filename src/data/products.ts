@@ -1,4 +1,9 @@
 import heinekenImg from "@/assets/products/heineken.jpg";
+import blackLabelImg from "@/assets/products/black-label.jpg";
+import jamesonImg from "@/assets/products/jameson.jpg";
+import buchanansImg from "@/assets/products/buchanans.jpg";
+import passportImg from "@/assets/products/passport.jpg";
+import grantsImg from "@/assets/products/grants.jpg";
 import brahmaImg from "@/assets/products/brahma.jpg";
 import cocaColaImg from "@/assets/products/coca-cola.jpg";
 import absolutImg from "@/assets/products/absolut.jpg";
@@ -1456,5 +1461,50 @@ export const products: Product[] = [
     originalPrice: 29.99,
     image: sorveteChocolateImg,
     category: "sorvetes",
+  },
+  // Whiskys adicionais
+  {
+    id: 149,
+    name: "Black Label 750ml",
+    description: "Whisky Johnnie Walker Black Label 12 Anos",
+    price: 149.90,
+    image: blackLabelImg,
+    category: "destilados",
+    tag: "Premium",
+  },
+  {
+    id: 150,
+    name: "Jameson 750ml",
+    description: "Whiskey irlandês Jameson Original",
+    price: 109.90,
+    image: jamesonImg,
+    category: "destilados",
+    tag: "Importado",
+  },
+  {
+    id: 151,
+    name: "Buchanan's 12 Anos 750ml",
+    description: "Whisky Buchanan's Deluxe 12 Anos",
+    price: 169.90,
+    image: buchanansImg,
+    category: "destilados",
+    tag: "Premium",
+  },
+  {
+    id: 152,
+    name: "Passport 1L",
+    description: "Whisky Passport Scotch Blended",
+    price: 49.90,
+    image: passportImg,
+    category: "destilados",
+    tag: "Mais vendido",
+  },
+  {
+    id: 153,
+    name: "Grant's 1L",
+    description: "Whisky Grant's Triple Wood Blended Scotch",
+    price: 59.90,
+    image: grantsImg,
+    category: "destilados",
   },
 ];
