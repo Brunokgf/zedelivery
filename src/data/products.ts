@@ -1430,7 +1430,7 @@ export const products: Product[] = [
     tag: "Premium",
   },
   {
-    id: 144,
+    id: 146,
     name: "Zeca's Frutas Tropicais - 2L",
     description: "Sorvete de frutas tropicais naturais",
     price: 32.99,
