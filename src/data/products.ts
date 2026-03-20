@@ -1667,7 +1667,7 @@ export const products: Product[] = [
     price: 189.90,
     originalPrice: 379.90,
     image: blacklabelTanquerayImg,
-    category: "destilados",
+    category: "combos",
     tag: "QUEIMA DE ESTOQUE",
   },
   {
