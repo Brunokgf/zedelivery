@@ -15,6 +15,7 @@ import ReviewsSection from "@/components/ReviewsSection";
 import { products } from "@/data/products";
 
 const Index = () => {
+  const { isOpen: cartOpen } = useCart();
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [showMap, setShowMap] = useState(() => !!sessionStorage.getItem("urgent-offer-seen"));
