@@ -124,6 +124,13 @@ import famousGrouseImg from "@/assets/products/famous-grouse.png";
 import cuttySarkImg from "@/assets/products/cutty-sark.png";
 import teachersImg from "@/assets/products/teachers.png";
 
+// Trident
+import tridentMentaImg from "@/assets/products/trident-menta.webp";
+import tridentMorangoImg from "@/assets/products/trident-morango.webp";
+import tridentOriginalImg from "@/assets/products/trident-original.webp";
+import tridentTuttiFruttiImg from "@/assets/products/trident-tuttifrutti.webp";
+import tridentXfreshImg from "@/assets/products/trident-xfresh.webp";
+
 // Petiscos
 import amendoimImg from "@/assets/products/amendoim.jpg";
 import batataChipsImg from "@/assets/products/batata-chips.jpg";
@@ -1594,5 +1601,47 @@ export const products: Product[] = [
     price: 84.90,
     image: teachersImg,
     category: "destilados",
+  },
+  // Trident - Doces
+  {
+    id: 163,
+    name: "Trident Menta 8g",
+    description: "Chiclete Trident sabor menta sem açúcar",
+    price: 2.99,
+    image: tridentMentaImg,
+    category: "doces",
+  },
+  {
+    id: 164,
+    name: "Trident Morango 8g",
+    description: "Chiclete Trident sabor morango sem açúcar",
+    price: 2.99,
+    image: tridentMorangoImg,
+    category: "doces",
+  },
+  {
+    id: 165,
+    name: "Trident Original 8g",
+    description: "Chiclete Trident sabor original sem açúcar",
+    price: 2.99,
+    image: tridentOriginalImg,
+    category: "doces",
+  },
+  {
+    id: 166,
+    name: "Trident Tutti-Frutti 25,2g",
+    description: "Chiclete Trident Tutti-Frutti embalagem econômica 14 unidades",
+    price: 6.49,
+    image: tridentTuttiFruttiImg,
+    category: "doces",
+    tag: "Econômico",
+  },
+  {
+    id: 167,
+    name: "Trident XFresh Intense 8g",
+    description: "Chiclete Trident XFresh Intense sem açúcar",
+    price: 3.49,
+    image: tridentXfreshImg,
+    category: "doces",
   },
 ];
