@@ -125,6 +125,11 @@ import salaminhoImg from "@/assets/products/salaminho.jpg";
 import queijoCoalhoImg from "@/assets/products/queijo-coalho.jpg";
 import doritosImg from "@/assets/products/doritos.jpg";
 import mixNutsImg from "@/assets/products/mix-nuts.jpg";
+import rufflesImg from "@/assets/products/ruffles.webp";
+import pringlesImg from "@/assets/products/pringles.webp";
+import doritosNachoImg from "@/assets/products/doritos.webp";
+import fandangosImg from "@/assets/products/fandangos.webp";
+import cheetosImg from "@/assets/products/cheetos.webp";
 
 // Churrasco
 import carvaoImg from "@/assets/products/carvao.jpg";
@@ -1386,6 +1391,48 @@ export const products: Product[] = [
     image: bisImg,
     category: "doces",
     tag: "Novidade",
+  },
+  {
+    id: 154,
+    name: "Ruffles Queijo 76g",
+    description: "Batata ondulada sabor queijo crocante",
+    price: 7.99,
+    image: rufflesImg,
+    category: "petiscos",
+    tag: "Popular",
+  },
+  {
+    id: 155,
+    name: "Pringles Original 114g",
+    description: "Batata Pringles original importada",
+    price: 14.99,
+    image: pringlesImg,
+    category: "petiscos",
+    tag: "Importado",
+  },
+  {
+    id: 156,
+    name: "Doritos Nacho Cheese 96g",
+    description: "Tortilla chips sabor nacho cheese",
+    price: 9.49,
+    image: doritosNachoImg,
+    category: "petiscos",
+  },
+  {
+    id: 157,
+    name: "Fandangos Presunto 90g",
+    description: "Salgadinho assado sabor presunto",
+    price: 5.99,
+    image: fandangosImg,
+    category: "petiscos",
+  },
+  {
+    id: 158,
+    name: "Cheetos Crunchy 75g",
+    description: "Salgadinho crocante sabor queijo",
+    price: 8.49,
+    image: cheetosImg,
+    category: "petiscos",
   },
   {
     id: 139,
