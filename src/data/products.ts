@@ -1677,7 +1677,7 @@ export const products: Product[] = [
     price: 359.90,
     originalPrice: 719.90,
     image: jwRedlabel6packImg,
-    category: "destilados",
+    category: "combos",
     tag: "QUEIMA DE ESTOQUE",
   },
 ];
