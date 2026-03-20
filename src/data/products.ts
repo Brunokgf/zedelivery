@@ -118,6 +118,12 @@ import mansaoMarombaGinGobellsImg from "@/assets/products/mansao-maromba-gin-gob
 import mansaoMarombaGinMacaVerdeImg from "@/assets/products/mansao-maromba-gin-maca-verde.jpg";
 import mansaoMarombaGinMelancia750Img from "@/assets/products/mansao-maromba-gin-melancia-750.jpg";
 
+// Whiskies avulsos
+import dewarsImg from "@/assets/products/dewars.png";
+import famousGrouseImg from "@/assets/products/famous-grouse.png";
+import cuttySarkImg from "@/assets/products/cutty-sark.png";
+import teachersImg from "@/assets/products/teachers.png";
+
 // Petiscos
 import amendoimImg from "@/assets/products/amendoim.jpg";
 import batataChipsImg from "@/assets/products/batata-chips.jpg";
@@ -1552,6 +1558,41 @@ export const products: Product[] = [
     description: "Whisky Grant's Triple Wood Blended Scotch",
     price: 59.90,
     image: grantsImg,
+    category: "destilados",
+  },
+  // Whiskies avulsos
+  {
+    id: 159,
+    name: "Dewar's White Label 1L",
+    description: "Whisky Escocês Dewar's White Label 1 litro",
+    price: 89.90,
+    image: dewarsImg,
+    category: "destilados",
+    tag: "Importado",
+  },
+  {
+    id: 160,
+    name: "The Famous Grouse 750ml",
+    description: "Whisky Escocês The Famous Grouse",
+    price: 74.90,
+    image: famousGrouseImg,
+    category: "destilados",
+  },
+  {
+    id: 161,
+    name: "Cutty Sark 1L",
+    description: "Whisky Escocês Cutty Sark 1 litro",
+    price: 69.90,
+    image: cuttySarkImg,
+    category: "destilados",
+    tag: "Promoção",
+  },
+  {
+    id: 162,
+    name: "Teacher's Highland Cream 1L",
+    description: "Whisky Escocês Teacher's Highland Cream 1 litro",
+    price: 84.90,
+    image: teachersImg,
     category: "destilados",
   },
 ];
