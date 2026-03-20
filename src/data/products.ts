@@ -118,6 +118,12 @@ import mansaoMarombaGinGobellsImg from "@/assets/products/mansao-maromba-gin-gob
 import mansaoMarombaGinMacaVerdeImg from "@/assets/products/mansao-maromba-gin-maca-verde.jpg";
 import mansaoMarombaGinMelancia750Img from "@/assets/products/mansao-maromba-gin-melancia-750.jpg";
 
+// Whiskies avulsos
+import dewarsImg from "@/assets/products/dewars.png";
+import famousGrouseImg from "@/assets/products/famous-grouse.png";
+import cuttySarkImg from "@/assets/products/cutty-sark.png";
+import teachersImg from "@/assets/products/teachers.png";
+
 // Petiscos
 import amendoimImg from "@/assets/products/amendoim.jpg";
 import batataChipsImg from "@/assets/products/batata-chips.jpg";
