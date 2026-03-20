@@ -1657,7 +1657,7 @@ export const products: Product[] = [
     price: 249.90,
     originalPrice: 499.90,
     image: buchanansComboImg,
-    category: "destilados",
+    category: "combos",
     tag: "QUEIMA DE ESTOQUE",
   },
   {
@@ -1667,7 +1667,7 @@ export const products: Product[] = [
     price: 189.90,
     originalPrice: 379.90,
     image: blacklabelTanquerayImg,
-    category: "destilados",
+    category: "combos",
     tag: "QUEIMA DE ESTOQUE",
   },
   {
@@ -1677,7 +1677,7 @@ export const products: Product[] = [
     price: 359.90,
     originalPrice: 719.90,
     image: jwRedlabel6packImg,
-    category: "destilados",
+    category: "combos",
     tag: "QUEIMA DE ESTOQUE",
   },
 ];
