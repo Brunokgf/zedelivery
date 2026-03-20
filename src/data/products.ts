@@ -124,6 +124,13 @@ import famousGrouseImg from "@/assets/products/famous-grouse.png";
 import cuttySarkImg from "@/assets/products/cutty-sark.png";
 import teachersImg from "@/assets/products/teachers.png";
 
+// Trident
+import tridentMentaImg from "@/assets/products/trident-menta.webp";
+import tridentMorangoImg from "@/assets/products/trident-morango.webp";
+import tridentOriginalImg from "@/assets/products/trident-original.webp";
+import tridentTuttiFruttiImg from "@/assets/products/trident-tuttifrutti.webp";
+import tridentXfreshImg from "@/assets/products/trident-xfresh.webp";
+
 // Petiscos
 import amendoimImg from "@/assets/products/amendoim.jpg";
 import batataChipsImg from "@/assets/products/batata-chips.jpg";
