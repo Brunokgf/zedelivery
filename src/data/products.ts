@@ -296,9 +296,9 @@ export const products: Product[] = [
   },
   {
     id: 13,
-    name: "Guaraná Antarctica 350ml",
-    description: "Refrigerante Guaraná Antarctica lata",
-    price: 3.49,
+    name: "Guaraná Antarctica 2L",
+    description: "Refrigerante Guaraná Antarctica garrafa 2 litros",
+    price: 8.99,
     image: guaranaImg,
     category: "refrigerantes",
   },
