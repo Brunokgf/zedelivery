@@ -124,6 +124,11 @@ import famousGrouseImg from "@/assets/products/famous-grouse.png";
 import cuttySarkImg from "@/assets/products/cutty-sark.png";
 import teachersImg from "@/assets/products/teachers.png";
 
+// Combos destilados
+import buchanansComboImg from "@/assets/products/buchanans-combo.jpg";
+import blacklabelTanquerayImg from "@/assets/products/blacklabel-tanqueray.webp";
+import jwRedlabel6packImg from "@/assets/products/jw-redlabel-6pack.webp";
+
 // Trident
 import tridentMentaImg from "@/assets/products/trident-menta.webp";
 import tridentMorangoImg from "@/assets/products/trident-morango.webp";
@@ -1643,5 +1648,36 @@ export const products: Product[] = [
     price: 3.49,
     image: tridentXfreshImg,
     category: "doces",
+  },
+  // Combos destilados
+  {
+    id: 168,
+    name: "Combo 2x Buchanan's DeLuxe 12 Anos 1L",
+    description: "Duas garrafas de Buchanan's DeLuxe Blended Scotch Whisky 12 anos",
+    price: 249.90,
+    originalPrice: 499.90,
+    image: buchanansComboImg,
+    category: "destilados",
+    tag: "QUEIMA DE ESTOQUE",
+  },
+  {
+    id: 169,
+    name: "Combo Black Label 1L + Tanqueray 750ml",
+    description: "Johnnie Walker Black Label 12 anos + Gin Tanqueray London Dry",
+    price: 189.90,
+    originalPrice: 379.90,
+    image: blacklabelTanquerayImg,
+    category: "destilados",
+    tag: "QUEIMA DE ESTOQUE",
+  },
+  {
+    id: 170,
+    name: "Pack 6x Johnnie Walker Red Label 1L",
+    description: "Seis garrafas de Johnnie Walker Red Label Blended Scotch Whisky",
+    price: 359.90,
+    originalPrice: 719.90,
+    image: jwRedlabel6packImg,
+    category: "destilados",
+    tag: "QUEIMA DE ESTOQUE",
   },
 ];
