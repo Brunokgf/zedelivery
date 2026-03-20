@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import Header from "@/components/Header";
+import { useCart } from "@/context/CartContext";
 import HeroBanner from "@/components/HeroBanner";
 import CategoryBar from "@/components/CategoryBar";
 import ProductCard from "@/components/ProductCard";
@@ -14,6 +15,7 @@ import ReviewsSection from "@/components/ReviewsSection";
 import { products } from "@/data/products";
 
 const Index = () => {
+  const { isOpen: cartOpen } = useCart();
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [showMap, setShowMap] = useState(() => !!sessionStorage.getItem("urgent-offer-seen"));
@@ -30,7 +32,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <HeroBanner searchQuery={searchQuery} onSearchChange={setSearchQuery} />
-      {showMap && <StoreMap />}
+      {showMap && !cartOpen && <StoreMap />}
       <CategoryBar activeCategory={activeCategory} onSelectCategory={setActiveCategory} />
 
       {!activeCategory && !searchQuery && <PromoBanner />}
