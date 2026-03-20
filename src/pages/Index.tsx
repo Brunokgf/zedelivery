@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import Header from "@/components/Header";
+import { useCart } from "@/context/CartContext";
 import HeroBanner from "@/components/HeroBanner";
 import CategoryBar from "@/components/CategoryBar";
 import ProductCard from "@/components/ProductCard";
