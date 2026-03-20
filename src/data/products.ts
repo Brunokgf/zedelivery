@@ -125,6 +125,11 @@ import salaminhoImg from "@/assets/products/salaminho.jpg";
 import queijoCoalhoImg from "@/assets/products/queijo-coalho.jpg";
 import doritosImg from "@/assets/products/doritos.jpg";
 import mixNutsImg from "@/assets/products/mix-nuts.jpg";
+import rufflesImg from "@/assets/products/ruffles.webp";
+import pringlesImg from "@/assets/products/pringles.webp";
+import doritosNachoImg from "@/assets/products/doritos.webp";
+import fandangosImg from "@/assets/products/fandangos.webp";
+import cheetosImg from "@/assets/products/cheetos.webp";
 
 // Churrasco
 import carvaoImg from "@/assets/products/carvao.jpg";
