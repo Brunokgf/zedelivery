@@ -32,7 +32,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <HeroBanner searchQuery={searchQuery} onSearchChange={setSearchQuery} />
-      {showMap && <StoreMap />}
+      {showMap && !cartOpen && <StoreMap />}
       <CategoryBar activeCategory={activeCategory} onSelectCategory={setActiveCategory} />
 
       {!activeCategory && !searchQuery && <PromoBanner />}
