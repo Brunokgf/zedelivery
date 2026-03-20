@@ -124,6 +124,11 @@ import famousGrouseImg from "@/assets/products/famous-grouse.png";
 import cuttySarkImg from "@/assets/products/cutty-sark.png";
 import teachersImg from "@/assets/products/teachers.png";
 
+// Combos destilados
+import buchanansComboImg from "@/assets/products/buchanans-combo.jpg";
+import blacklabelTanquerayImg from "@/assets/products/blacklabel-tanqueray.webp";
+import jwRedlabel6packImg from "@/assets/products/jw-redlabel-6pack.webp";
+
 // Trident
 import tridentMentaImg from "@/assets/products/trident-menta.webp";
 import tridentMorangoImg from "@/assets/products/trident-morango.webp";
