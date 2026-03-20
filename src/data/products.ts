@@ -1657,7 +1657,7 @@ export const products: Product[] = [
     price: 249.90,
     originalPrice: 499.90,
     image: buchanansComboImg,
-    category: "destilados",
+    category: "combos",
     tag: "QUEIMA DE ESTOQUE",
   },
   {
