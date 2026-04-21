@@ -20,15 +20,29 @@ Deno.serve(async (req) => {
 
     const auth = btoa(`${secretKey}:x`);
 
-    // Build items array (max 5) - at least one required
-    const transactionItems = items && items.length > 0
-      ? items.slice(0, 5).map((item: { name: string; quantity: number; price: number }) => ({
+    // Build items array (MedusaPay max 5). If more, consolidate into a single item
+    // so the sum of unitPrice * quantity always matches `amount`.
+    let transactionItems;
+    if (items && items.length > 0) {
+      if (items.length <= 5) {
+        transactionItems = items.map((item: { name: string; quantity: number; price: number }) => ({
           title: item.name,
           quantity: item.quantity,
           unitPrice: Math.round(item.price * 100),
           tangible: true,
-        }))
-      : [{ title: description || "Pedido", quantity: 1, unitPrice: Math.round(amount * 100), tangible: true }];
+        }));
+      } else {
+        const totalQty = items.reduce((s: number, i: { quantity: number }) => s + i.quantity, 0);
+        transactionItems = [{
+          title: `Pedido com ${totalQty} itens`,
+          quantity: 1,
+          unitPrice: Math.round(amount * 100),
+          tangible: true,
+        }];
+      }
+    } else {
+      transactionItems = [{ title: description || "Pedido", quantity: 1, unitPrice: Math.round(amount * 100), tangible: true }];
+    }
 
     const body = {
       paymentMethod: "pix",
