@@ -65,7 +65,7 @@ const Checkout = () => {
         body: {
           amount: total,
           description: "Pedido Ze Delivery",
-          items: items.slice(0, 5).map((i) => ({ name: i.name, quantity: i.quantity, price: i.price })),
+          items: items.map((i) => ({ name: i.name, quantity: i.quantity, price: i.price })),
           customer: {
             name: customer.name,
             email: customer.email,
