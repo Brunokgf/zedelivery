@@ -1,20 +1,26 @@
 import { useState, useEffect } from "react";
-import { X, Clock, ShoppingCart, Flame, Zap, PartyPopper } from "lucide-react";
+import { X, Clock, ShoppingCart, Flame, Zap, PartyPopper, Users, Truck } from "lucide-react";
 import { products } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 
+// Descontos agressivos 70-80% OFF + estoque baixo simulado
 const OFFER_COMBOS = [
-  { id: 31, discountPrice: 69.90, originalPrice: 209.90 },
-  { id: 33, discountPrice: 108.00, originalPrice: 216.00 },
-  { id: 34, discountPrice: 78.00, originalPrice: 156.00 },
-  { id: 108, discountPrice: 340.00, originalPrice: 680.00 },
-  { id: 109, discountPrice: 180.00, originalPrice: 360.00 },
-  { id: 110, discountPrice: 111.00, originalPrice: 222.00 },
-  { id: 111, discountPrice: 525.00, originalPrice: 1050.00 },
-  { id: 112, discountPrice: 800.00, originalPrice: 1600.00 },
-  { id: 168, discountPrice: 249.90, originalPrice: 499.90 },
-  { id: 169, discountPrice: 189.90, originalPrice: 379.90 },
-  { id: 170, discountPrice: 359.90, originalPrice: 719.90 },
+  { id: 31, discountPrice: 49.90, originalPrice: 209.90, stock: 3 },
+  { id: 33, discountPrice: 64.90, originalPrice: 216.00, stock: 2 },
+  { id: 34, discountPrice: 46.90, originalPrice: 156.00, stock: 4 },
+  { id: 108, discountPrice: 199.90, originalPrice: 680.00, stock: 2 },
+  { id: 109, discountPrice: 109.90, originalPrice: 360.00, stock: 3 },
+  { id: 110, discountPrice: 66.90, originalPrice: 222.00, stock: 5 },
+  { id: 111, discountPrice: 314.90, originalPrice: 1050.00, stock: 1 },
+  { id: 112, discountPrice: 479.90, originalPrice: 1600.00, stock: 1 },
+  { id: 168, discountPrice: 149.90, originalPrice: 499.90, stock: 2 },
+  { id: 169, discountPrice: 113.90, originalPrice: 379.90, stock: 3 },
+  { id: 170, discountPrice: 215.90, originalPrice: 719.90, stock: 2 },
+];
+
+const SOCIAL_NAMES = [
+  "João S.", "Maria L.", "Pedro H.", "Ana C.", "Lucas R.",
+  "Bruna T.", "Felipe M.", "Camila V.", "Rafael O.", "Juliana P.",
 ];
 
 interface UrgentOfferPopupProps {
@@ -27,12 +33,40 @@ const UrgentOfferPopup = ({ onClose }: UrgentOfferPopupProps) => {
   const [addedItems, setAddedItems] = useState<Set<number>>(new Set());
   const { addItem } = useCart();
 
+  const [viewers, setViewers] = useState(127);
+  const [socialToast, setSocialToast] = useState<string | null>(null);
+
   useEffect(() => {
     const alreadySeen = sessionStorage.getItem("urgent-offer-seen");
     if (!alreadySeen) {
       setIsOpen(true);
     }
   }, []);
+
+  // Viewers oscilando
+  useEffect(() => {
+    if (!isOpen) return;
+    const i = setInterval(() => {
+      setViewers((v) => Math.max(80, Math.min(220, v + Math.floor(Math.random() * 9) - 4)));
+    }, 3500);
+    return () => clearInterval(i);
+  }, [isOpen]);
+
+  // Toast de prova social
+  useEffect(() => {
+    if (!isOpen) return;
+    const showToast = () => {
+      const name = SOCIAL_NAMES[Math.floor(Math.random() * SOCIAL_NAMES.length)];
+      const product = products.find((p) => p.id === OFFER_COMBOS[Math.floor(Math.random() * OFFER_COMBOS.length)].id);
+      if (product) {
+        setSocialToast(`${name} acabou de comprar ${product.name.split(" ").slice(0, 3).join(" ")}`);
+        setTimeout(() => setSocialToast(null), 4000);
+      }
+    };
+    const t = setTimeout(showToast, 1500);
+    const i = setInterval(showToast, 7000);
+    return () => { clearTimeout(t); clearInterval(i); };
+  }, [isOpen]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -67,6 +101,15 @@ const UrgentOfferPopup = ({ onClose }: UrgentOfferPopupProps) => {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-md p-4">
+      {socialToast && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[101] flex items-center gap-2 rounded-full bg-card border border-ze-green/40 px-4 py-2 shadow-2xl animate-scale-in">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ze-green opacity-75"></span>
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-ze-green"></span>
+          </span>
+          <span className="text-xs font-bold text-card-foreground">{socialToast}</span>
+        </div>
+      )}
       <div className="relative w-full max-w-md rounded-3xl bg-card border border-border shadow-2xl overflow-hidden animate-scale-in">
         {/* Animated glow border */}
         <div className="absolute inset-0 rounded-3xl pointer-events-none" style={{
@@ -102,12 +145,22 @@ const UrgentOfferPopup = ({ onClose }: UrgentOfferPopupProps) => {
             </span>
             <Zap className="h-5 w-5 text-yellow-300 animate-pulse" />
           </div>
-          <h2 className="text-2xl font-black text-white drop-shadow-lg">
-            ATÉ <span className="text-yellow-300 text-3xl">67% OFF</span>
+          <h2 className="text-2xl font-black text-white drop-shadow-lg leading-tight">
+            ATÉ <span className="text-yellow-300 text-4xl">80% OFF</span>
           </h2>
-          <p className="text-white/80 text-xs mt-1 font-semibold">
-            Combos especiais por tempo limitado!
+          <p className="text-white/90 text-xs mt-1 font-bold flex items-center justify-center gap-1.5">
+            <Truck className="h-3.5 w-3.5" /> FRETE GRÁTIS hoje • Estoque limitado
           </p>
+          <div className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-black/30 px-3 py-1 backdrop-blur-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-green-400"></span>
+            </span>
+            <Users className="h-3 w-3 text-white" />
+            <span className="text-[11px] font-bold text-white tabular-nums">
+              {viewers} pessoas vendo agora
+            </span>
+          </div>
         </div>
 
         {/* Countdown - pulsing when urgent */}
@@ -179,6 +232,12 @@ const UrgentOfferPopup = ({ onClose }: UrgentOfferPopupProps) => {
                     </span>
                     <span className="text-lg font-black text-ze-green">
                       R$ {offer.discountPrice.toFixed(2).replace(".", ",")}
+                    </span>
+                  </div>
+                  <div className="mt-1 flex items-center gap-1">
+                    <Flame className="h-3 w-3 text-destructive animate-pulse" />
+                    <span className="text-[10px] font-black uppercase text-destructive">
+                      Restam só {offer.stock} unidade{offer.stock > 1 ? "s" : ""}
                     </span>
                   </div>
                 </div>
