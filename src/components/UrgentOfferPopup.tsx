@@ -136,12 +136,22 @@ const UrgentOfferPopup = ({ onClose }: UrgentOfferPopupProps) => {
             </span>
             <Zap className="h-5 w-5 text-yellow-300 animate-pulse" />
           </div>
-          <h2 className="text-2xl font-black text-white drop-shadow-lg">
-            ATÉ <span className="text-yellow-300 text-3xl">67% OFF</span>
+          <h2 className="text-2xl font-black text-white drop-shadow-lg leading-tight">
+            ATÉ <span className="text-yellow-300 text-4xl">80% OFF</span>
           </h2>
-          <p className="text-white/80 text-xs mt-1 font-semibold">
-            Combos especiais por tempo limitado!
+          <p className="text-white/90 text-xs mt-1 font-bold flex items-center justify-center gap-1.5">
+            <Truck className="h-3.5 w-3.5" /> FRETE GRÁTIS hoje • Estoque limitado
           </p>
+          <div className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-black/30 px-3 py-1 backdrop-blur-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-green-400"></span>
+            </span>
+            <Users className="h-3 w-3 text-white" />
+            <span className="text-[11px] font-bold text-white tabular-nums">
+              {viewers} pessoas vendo agora
+            </span>
+          </div>
         </div>
 
         {/* Countdown - pulsing when urgent */}
