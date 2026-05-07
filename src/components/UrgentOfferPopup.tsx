@@ -21,7 +21,17 @@ const OFFER_COMBOS = [
 const SOCIAL_NAMES = [
   "João S.", "Maria L.", "Pedro H.", "Ana C.", "Lucas R.",
   "Bruna T.", "Felipe M.", "Camila V.", "Rafael O.", "Juliana P.",
+  "Thiago A.", "Carla F.", "Diego N.", "Patrícia M.", "Gustavo B.",
+  "Larissa D.", "Marcos V.", "Renata S.", "Vinícius P.", "Amanda K.",
+  "Rodrigo L.", "Beatriz O.", "Henrique T.", "Fernanda C.", "Eduardo R.",
 ];
+
+const SOCIAL_CITIES = [
+  "São Paulo", "Rio de Janeiro", "Belo Horizonte", "Curitiba", "Porto Alegre",
+  "Salvador", "Brasília", "Recife", "Fortaleza", "Goiânia", "Campinas",
+];
+
+type ToastItem = { id: number; text: string; city: string };
 
 interface UrgentOfferPopupProps {
   onClose?: () => void;
@@ -34,7 +44,7 @@ const UrgentOfferPopup = ({ onClose }: UrgentOfferPopupProps) => {
   const { addItem } = useCart();
 
   const [viewers, setViewers] = useState(127);
-  const [socialToast, setSocialToast] = useState<string | null>(null);
+  const [toasts, setToasts] = useState<ToastItem[]>([]);
 
   useEffect(() => {
     const alreadySeen = sessionStorage.getItem("urgent-offer-seen");
@@ -52,19 +62,26 @@ const UrgentOfferPopup = ({ onClose }: UrgentOfferPopupProps) => {
     return () => clearInterval(i);
   }, [isOpen]);
 
-  // Toast de prova social
+  // Toasts de prova social — múltiplos empilhados
   useEffect(() => {
     if (!isOpen) return;
     const showToast = () => {
       const name = SOCIAL_NAMES[Math.floor(Math.random() * SOCIAL_NAMES.length)];
-      const product = products.find((p) => p.id === OFFER_COMBOS[Math.floor(Math.random() * OFFER_COMBOS.length)].id);
-      if (product) {
-        setSocialToast(`${name} acabou de comprar ${product.name.split(" ").slice(0, 3).join(" ")}`);
-        setTimeout(() => setSocialToast(null), 4000);
-      }
+      const city = SOCIAL_CITIES[Math.floor(Math.random() * SOCIAL_CITIES.length)];
+      const offer = OFFER_COMBOS[Math.floor(Math.random() * OFFER_COMBOS.length)];
+      const product = products.find((p) => p.id === offer.id);
+      if (!product) return;
+      const verbs = ["acabou de comprar", "garantiu", "levou", "pediu"];
+      const verb = verbs[Math.floor(Math.random() * verbs.length)];
+      const id = Date.now() + Math.random();
+      const text = `${name} ${verb} ${product.name.split(" ").slice(0, 3).join(" ")}`;
+      setToasts((prev) => [...prev, { id, text, city }].slice(-3));
+      setTimeout(() => {
+        setToasts((prev) => prev.filter((t) => t.id !== id));
+      }, 4500);
     };
-    const t = setTimeout(showToast, 1500);
-    const i = setInterval(showToast, 7000);
+    const t = setTimeout(showToast, 1200);
+    const i = setInterval(showToast, 2500);
     return () => { clearTimeout(t); clearInterval(i); };
   }, [isOpen]);
 
@@ -101,15 +118,23 @@ const UrgentOfferPopup = ({ onClose }: UrgentOfferPopupProps) => {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-md p-4">
-      {socialToast && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[101] flex items-center gap-2 rounded-full bg-card border border-ze-green/40 px-4 py-2 shadow-2xl animate-scale-in">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ze-green opacity-75"></span>
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-ze-green"></span>
-          </span>
-          <span className="text-xs font-bold text-card-foreground">{socialToast}</span>
-        </div>
-      )}
+      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[101] flex flex-col-reverse gap-2 pointer-events-none w-[92%] max-w-sm">
+        {toasts.map((t) => (
+          <div
+            key={t.id}
+            className="flex items-center gap-2.5 rounded-2xl bg-card border border-ze-green/40 px-3.5 py-2 shadow-2xl animate-scale-in"
+          >
+            <span className="relative flex h-2 w-2 flex-shrink-0">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ze-green opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-ze-green"></span>
+            </span>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs font-bold text-card-foreground truncate">{t.text}</p>
+              <p className="text-[10px] text-muted-foreground">📍 {t.city} • agora</p>
+            </div>
+          </div>
+        ))}
+      </div>
       <div className="relative w-full max-w-md rounded-3xl bg-card border border-border shadow-2xl overflow-hidden animate-scale-in">
         {/* Animated glow border */}
         <div className="absolute inset-0 rounded-3xl pointer-events-none" style={{
