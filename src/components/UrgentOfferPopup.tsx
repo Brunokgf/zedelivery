@@ -33,12 +33,40 @@ const UrgentOfferPopup = ({ onClose }: UrgentOfferPopupProps) => {
   const [addedItems, setAddedItems] = useState<Set<number>>(new Set());
   const { addItem } = useCart();
 
+  const [viewers, setViewers] = useState(127);
+  const [socialToast, setSocialToast] = useState<string | null>(null);
+
   useEffect(() => {
     const alreadySeen = sessionStorage.getItem("urgent-offer-seen");
     if (!alreadySeen) {
       setIsOpen(true);
     }
   }, []);
+
+  // Viewers oscilando
+  useEffect(() => {
+    if (!isOpen) return;
+    const i = setInterval(() => {
+      setViewers((v) => Math.max(80, Math.min(220, v + Math.floor(Math.random() * 9) - 4)));
+    }, 3500);
+    return () => clearInterval(i);
+  }, [isOpen]);
+
+  // Toast de prova social
+  useEffect(() => {
+    if (!isOpen) return;
+    const showToast = () => {
+      const name = SOCIAL_NAMES[Math.floor(Math.random() * SOCIAL_NAMES.length)];
+      const product = products.find((p) => p.id === OFFER_COMBOS[Math.floor(Math.random() * OFFER_COMBOS.length)].id);
+      if (product) {
+        setSocialToast(`${name} acabou de comprar ${product.name.split(" ").slice(0, 3).join(" ")}`);
+        setTimeout(() => setSocialToast(null), 4000);
+      }
+    };
+    const t = setTimeout(showToast, 1500);
+    const i = setInterval(showToast, 7000);
+    return () => { clearTimeout(t); clearInterval(i); };
+  }, [isOpen]);
 
   useEffect(() => {
     if (!isOpen) return;
