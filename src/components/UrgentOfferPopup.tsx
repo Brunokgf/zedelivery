@@ -225,6 +225,12 @@ const UrgentOfferPopup = ({ onClose }: UrgentOfferPopupProps) => {
                       R$ {offer.discountPrice.toFixed(2).replace(".", ",")}
                     </span>
                   </div>
+                  <div className="mt-1 flex items-center gap-1">
+                    <Flame className="h-3 w-3 text-destructive animate-pulse" />
+                    <span className="text-[10px] font-black uppercase text-destructive">
+                      Restam só {offer.stock} unidade{offer.stock > 1 ? "s" : ""}
+                    </span>
+                  </div>
                 </div>
                 <button
                   onClick={() => handleAddToCart(offer.id)}
