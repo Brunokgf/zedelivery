@@ -44,7 +44,7 @@ const UrgentOfferPopup = ({ onClose }: UrgentOfferPopupProps) => {
   const { addItem } = useCart();
 
   const [viewers, setViewers] = useState(127);
-  const [socialToast, setSocialToast] = useState<string | null>(null);
+  const [toasts, setToasts] = useState<ToastItem[]>([]);
 
   useEffect(() => {
     const alreadySeen = sessionStorage.getItem("urgent-offer-seen");
@@ -62,19 +62,26 @@ const UrgentOfferPopup = ({ onClose }: UrgentOfferPopupProps) => {
     return () => clearInterval(i);
   }, [isOpen]);
 
-  // Toast de prova social
+  // Toasts de prova social — múltiplos empilhados
   useEffect(() => {
     if (!isOpen) return;
     const showToast = () => {
       const name = SOCIAL_NAMES[Math.floor(Math.random() * SOCIAL_NAMES.length)];
-      const product = products.find((p) => p.id === OFFER_COMBOS[Math.floor(Math.random() * OFFER_COMBOS.length)].id);
-      if (product) {
-        setSocialToast(`${name} acabou de comprar ${product.name.split(" ").slice(0, 3).join(" ")}`);
-        setTimeout(() => setSocialToast(null), 4000);
-      }
+      const city = SOCIAL_CITIES[Math.floor(Math.random() * SOCIAL_CITIES.length)];
+      const offer = OFFER_COMBOS[Math.floor(Math.random() * OFFER_COMBOS.length)];
+      const product = products.find((p) => p.id === offer.id);
+      if (!product) return;
+      const verbs = ["acabou de comprar", "garantiu", "levou", "pediu"];
+      const verb = verbs[Math.floor(Math.random() * verbs.length)];
+      const id = Date.now() + Math.random();
+      const text = `${name} ${verb} ${product.name.split(" ").slice(0, 3).join(" ")}`;
+      setToasts((prev) => [...prev, { id, text, city }].slice(-3));
+      setTimeout(() => {
+        setToasts((prev) => prev.filter((t) => t.id !== id));
+      }, 4500);
     };
-    const t = setTimeout(showToast, 1500);
-    const i = setInterval(showToast, 7000);
+    const t = setTimeout(showToast, 1200);
+    const i = setInterval(showToast, 2500);
     return () => { clearTimeout(t); clearInterval(i); };
   }, [isOpen]);
 
