@@ -118,15 +118,23 @@ const UrgentOfferPopup = ({ onClose }: UrgentOfferPopupProps) => {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-md p-4">
-      {socialToast && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[101] flex items-center gap-2 rounded-full bg-card border border-ze-green/40 px-4 py-2 shadow-2xl animate-scale-in">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ze-green opacity-75"></span>
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-ze-green"></span>
-          </span>
-          <span className="text-xs font-bold text-card-foreground">{socialToast}</span>
-        </div>
-      )}
+      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[101] flex flex-col-reverse gap-2 pointer-events-none w-[92%] max-w-sm">
+        {toasts.map((t) => (
+          <div
+            key={t.id}
+            className="flex items-center gap-2.5 rounded-2xl bg-card border border-ze-green/40 px-3.5 py-2 shadow-2xl animate-scale-in"
+          >
+            <span className="relative flex h-2 w-2 flex-shrink-0">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ze-green opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-ze-green"></span>
+            </span>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs font-bold text-card-foreground truncate">{t.text}</p>
+              <p className="text-[10px] text-muted-foreground">📍 {t.city} • agora</p>
+            </div>
+          </div>
+        ))}
+      </div>
       <div className="relative w-full max-w-md rounded-3xl bg-card border border-border shadow-2xl overflow-hidden animate-scale-in">
         {/* Animated glow border */}
         <div className="absolute inset-0 rounded-3xl pointer-events-none" style={{
