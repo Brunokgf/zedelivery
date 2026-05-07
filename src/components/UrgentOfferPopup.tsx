@@ -21,7 +21,17 @@ const OFFER_COMBOS = [
 const SOCIAL_NAMES = [
   "João S.", "Maria L.", "Pedro H.", "Ana C.", "Lucas R.",
   "Bruna T.", "Felipe M.", "Camila V.", "Rafael O.", "Juliana P.",
+  "Thiago A.", "Carla F.", "Diego N.", "Patrícia M.", "Gustavo B.",
+  "Larissa D.", "Marcos V.", "Renata S.", "Vinícius P.", "Amanda K.",
+  "Rodrigo L.", "Beatriz O.", "Henrique T.", "Fernanda C.", "Eduardo R.",
 ];
+
+const SOCIAL_CITIES = [
+  "São Paulo", "Rio de Janeiro", "Belo Horizonte", "Curitiba", "Porto Alegre",
+  "Salvador", "Brasília", "Recife", "Fortaleza", "Goiânia", "Campinas",
+];
+
+type ToastItem = { id: number; text: string; city: string };
 
 interface UrgentOfferPopupProps {
   onClose?: () => void;
