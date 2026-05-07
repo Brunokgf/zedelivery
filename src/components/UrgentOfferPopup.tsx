@@ -1,20 +1,26 @@
 import { useState, useEffect } from "react";
-import { X, Clock, ShoppingCart, Flame, Zap, PartyPopper } from "lucide-react";
+import { X, Clock, ShoppingCart, Flame, Zap, PartyPopper, Users, Truck } from "lucide-react";
 import { products } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 
+// Descontos agressivos 70-80% OFF + estoque baixo simulado
 const OFFER_COMBOS = [
-  { id: 31, discountPrice: 69.90, originalPrice: 209.90 },
-  { id: 33, discountPrice: 108.00, originalPrice: 216.00 },
-  { id: 34, discountPrice: 78.00, originalPrice: 156.00 },
-  { id: 108, discountPrice: 340.00, originalPrice: 680.00 },
-  { id: 109, discountPrice: 180.00, originalPrice: 360.00 },
-  { id: 110, discountPrice: 111.00, originalPrice: 222.00 },
-  { id: 111, discountPrice: 525.00, originalPrice: 1050.00 },
-  { id: 112, discountPrice: 800.00, originalPrice: 1600.00 },
-  { id: 168, discountPrice: 249.90, originalPrice: 499.90 },
-  { id: 169, discountPrice: 189.90, originalPrice: 379.90 },
-  { id: 170, discountPrice: 359.90, originalPrice: 719.90 },
+  { id: 31, discountPrice: 49.90, originalPrice: 209.90, stock: 3 },
+  { id: 33, discountPrice: 64.90, originalPrice: 216.00, stock: 2 },
+  { id: 34, discountPrice: 46.90, originalPrice: 156.00, stock: 4 },
+  { id: 108, discountPrice: 199.90, originalPrice: 680.00, stock: 2 },
+  { id: 109, discountPrice: 109.90, originalPrice: 360.00, stock: 3 },
+  { id: 110, discountPrice: 66.90, originalPrice: 222.00, stock: 5 },
+  { id: 111, discountPrice: 314.90, originalPrice: 1050.00, stock: 1 },
+  { id: 112, discountPrice: 479.90, originalPrice: 1600.00, stock: 1 },
+  { id: 168, discountPrice: 149.90, originalPrice: 499.90, stock: 2 },
+  { id: 169, discountPrice: 113.90, originalPrice: 379.90, stock: 3 },
+  { id: 170, discountPrice: 215.90, originalPrice: 719.90, stock: 2 },
+];
+
+const SOCIAL_NAMES = [
+  "João S.", "Maria L.", "Pedro H.", "Ana C.", "Lucas R.",
+  "Bruna T.", "Felipe M.", "Camila V.", "Rafael O.", "Juliana P.",
 ];
 
 interface UrgentOfferPopupProps {
